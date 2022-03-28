@@ -1,0 +1,363 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D43A09727F052790004F08F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A09627F052790004F08F /* main.swift */; };
+		4D43A0A727F0571A0004F08F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A527F054AA0004F08F /* Colors.swift */; };
+		4D43A0AA27F057EA0004F08F /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A827F057E90004F08F /* Image.swift */; };
+		4D43A0AB27F057EA0004F08F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A927F057EA0004F08F /* Color.swift */; };
+		4D43A0B027F097B70004F08F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4D43A0B227F0A95C0004F08F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0B127F0A95C0004F08F /* Util.swift */; };
+		4D43A0B927F18EAB0004F08F /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A07127F051260004F08F /* AlfredItem.swift */; };
+		4D43A0BA27F18EAB0004F08F /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06F27F051260004F08F /* AppIcon.swift */; };
+		4D43A0BB27F18EAB0004F08F /* FeedbackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AC27F094AB0004F08F /* FeedbackItem.swift */; };
+		4D43A0BC27F18EAB0004F08F /* AlfredUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A07227F051260004F08F /* AlfredUtil.swift */; };
+		4D43A0BD27F18EAB0004F08F /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A07027F051260004F08F /* Alfred.swift */; };
+		4D43A0BE27F18EC70004F08F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06D27F051260004F08F /* StringExtensions.swift */; };
+		4D43A0BF27F18EC70004F08F /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06C27F051260004F08F /* Option.swift */; };
+		4D43A0C027F18EC70004F08F /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06B27F051260004F08F /* CommandLine.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4D43A09227F052790004F08F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4D43A06B27F051260004F08F /* CommandLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLine.swift; sourceTree = "<group>"; };
+		4D43A06C27F051260004F08F /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		4D43A06D27F051260004F08F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		4D43A06F27F051260004F08F /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		4D43A07027F051260004F08F /* Alfred.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alfred.swift; sourceTree = "<group>"; };
+		4D43A07127F051260004F08F /* AlfredItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlfredItem.swift; sourceTree = "<group>"; };
+		4D43A07227F051260004F08F /* AlfredUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlfredUtil.swift; sourceTree = "<group>"; };
+		4D43A09427F052790004F08F /* Colors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Colors; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D43A09627F052790004F08F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4D43A0A527F054AA0004F08F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4D43A0A827F057E90004F08F /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		4D43A0A927F057EA0004F08F /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4D43A0AC27F094AB0004F08F /* FeedbackItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackItem.swift; sourceTree = "<group>"; };
+		4D43A0AF27F097B70004F08F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4D43A0B127F0A95C0004F08F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D43A09127F052790004F08F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D43A05227F04D5B0004F08F = {
+			isa = PBXGroup;
+			children = (
+				4D43A0A427F0540C0004F08F /* AlfredTool */,
+				4D43A05C27F04D5B0004F08F /* Products */,
+				4D43A09B27F052A10004F08F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4D43A05C27F04D5B0004F08F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D43A09427F052790004F08F /* Colors */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D43A08527F052400004F08F /* Alfred */ = {
+			isa = PBXGroup;
+			children = (
+				4D43A06F27F051260004F08F /* AppIcon.swift */,
+				4D43A07027F051260004F08F /* Alfred.swift */,
+				4D43A07127F051260004F08F /* AlfredItem.swift */,
+				4D43A0AC27F094AB0004F08F /* FeedbackItem.swift */,
+				4D43A07227F051260004F08F /* AlfredUtil.swift */,
+				4D43A06B27F051260004F08F /* CommandLine.swift */,
+				4D43A06C27F051260004F08F /* Option.swift */,
+				4D43A06D27F051260004F08F /* StringExtensions.swift */,
+			);
+			path = Alfred;
+			sourceTree = "<group>";
+		};
+		4D43A09527F052790004F08F /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				4D43A09627F052790004F08F /* main.swift */,
+				4D43A0A527F054AA0004F08F /* Colors.swift */,
+				4D43A0A927F057EA0004F08F /* Color.swift */,
+				4D43A0AF27F097B70004F08F /* String.swift */,
+				4D43A0A827F057E90004F08F /* Image.swift */,
+				4D43A0B127F0A95C0004F08F /* Util.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		4D43A09B27F052A10004F08F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D43A0A427F0540C0004F08F /* AlfredTool */ = {
+			isa = PBXGroup;
+			children = (
+				4D43A08527F052400004F08F /* Alfred */,
+				4D43A09527F052790004F08F /* Colors */,
+			);
+			path = AlfredTool;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D43A09327F052790004F08F /* Colors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D43A09827F052790004F08F /* Build configuration list for PBXNativeTarget "Colors" */;
+			buildPhases = (
+				4D43A09027F052790004F08F /* Sources */,
+				4D43A09127F052790004F08F /* Frameworks */,
+				4D43A09227F052790004F08F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Colors;
+			productName = Colors;
+			productReference = 4D43A09427F052790004F08F /* Colors */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D43A05327F04D5B0004F08F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					4D43A09327F052790004F08F = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 4D43A05627F04D5B0004F08F /* Build configuration list for PBXProject "AlfredTool" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4D43A05227F04D5B0004F08F;
+			productRefGroup = 4D43A05C27F04D5B0004F08F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D43A09327F052790004F08F /* Colors */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D43A09027F052790004F08F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D43A0BE27F18EC70004F08F /* StringExtensions.swift in Sources */,
+				4D43A0BB27F18EAB0004F08F /* FeedbackItem.swift in Sources */,
+				4D43A09727F052790004F08F /* main.swift in Sources */,
+				4D43A0B927F18EAB0004F08F /* AlfredItem.swift in Sources */,
+				4D43A0BA27F18EAB0004F08F /* AppIcon.swift in Sources */,
+				4D43A0C027F18EC70004F08F /* CommandLine.swift in Sources */,
+				4D43A0B227F0A95C0004F08F /* Util.swift in Sources */,
+				4D43A0AB27F057EA0004F08F /* Color.swift in Sources */,
+				4D43A0BF27F18EC70004F08F /* Option.swift in Sources */,
+				4D43A0B027F097B70004F08F /* String.swift in Sources */,
+				4D43A0AA27F057EA0004F08F /* Image.swift in Sources */,
+				4D43A0BD27F18EAB0004F08F /* Alfred.swift in Sources */,
+				4D43A0A727F0571A0004F08F /* Colors.swift in Sources */,
+				4D43A0BC27F18EAB0004F08F /* AlfredUtil.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4D43A06027F04D5B0004F08F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4D43A06127F04D5B0004F08F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4D43A09927F052790004F08F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4D43A09A27F052790004F08F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D43A05627F04D5B0004F08F /* Build configuration list for PBXProject "AlfredTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D43A06027F04D5B0004F08F /* Debug */,
+				4D43A06127F04D5B0004F08F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D43A09827F052790004F08F /* Build configuration list for PBXNativeTarget "Colors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D43A09927F052790004F08F /* Debug */,
+				4D43A09A27F052790004F08F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4D43A05327F04D5B0004F08F /* Project object */;
+}
