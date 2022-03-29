@@ -6,36 +6,7 @@
 //
 import Foundation
 
-public enum Alfred {
-    @discardableResult
-    public static func readLine(_ options: [Option]) -> [String] {
-        let cli = CommandLine()
-        cli.addOptions(options)
-
-        do {
-            try cli.parse(strict: true)
-        } catch {
-            cli.printUsage(error)
-            exit(EX_USAGE)
-        }
-        return cli.argumentValues
-    }
-
-    @discardableResult
-    public static func readLine(_ option: Option...) -> [String] {
-        let cli = CommandLine()
-        cli.addOptions(option)
-
-        do {
-            try cli.parse(strict: true)
-        } catch {
-            cli.printUsage(error)
-            exit(EX_USAGE)
-        }
-        return cli.argumentValues
-    }
-    
-    
+public class Alfred {
     /// 回调内容给Alfred
     /// - Parameters:
     ///   - alfredItems: 显示item项

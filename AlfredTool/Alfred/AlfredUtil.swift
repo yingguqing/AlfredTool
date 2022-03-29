@@ -15,11 +15,11 @@ public class AlfredUtil: NSObject {
     ///
     /// - Parameter path: plist路径
     /// - Returns: 内容
-    public static func readPlist(_ path:String) throws -> [String:Any]? {
+    public static func readPlist(_ path:String) throws -> Any? {
         guard path.isEmpty == false else { return nil }
         var propertyListForamt = PropertyListSerialization.PropertyListFormat.xml
         if let plistXML = FileManager.default.contents(atPath: path) {
-            return try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListForamt) as? [String: Any]
+            return try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListForamt)
         }
         return nil
     }
@@ -35,7 +35,7 @@ public class AlfredUtil: NSObject {
             return ""
         }
         do {
-            let plist = try readPlist(path)
+            let plist = try readPlist(path) as? [String:Any]
             return plist?["bundleid"] as? String ?? ""
         } catch {
             log("Error reading \(path): \(error.localizedDescription)")
@@ -43,6 +43,32 @@ public class AlfredUtil: NSObject {
         return ""
     }()
     
+    /// 获取分支的图标，如果没有就返回icon.png
+    public static func itemIcon(title: String) ->String {
+        let path = local(filename: "info.plist")
+        guard FileManager.default.fileExists(atPath: path) else {
+            log("Could not open \(path)")
+            return "icon.png"
+        }
+        do {
+            if let plist = try readPlist(path) as? [String:Any], let objects = plist["objects"] as? [[String:Any]] {
+                if let item = objects.filter({
+                    if let config = $0["config"] as? [String:Any], let t = config["title"] as? String {
+                        return title == t
+                    }
+                    return false
+                }).first {
+                    if let uid = item["uid"] as? String {
+                        return "\(uid).png"
+                    }
+                }
+            }
+            
+        } catch {
+            log("Error reading \(path): \(error.localizedDescription)")
+        }
+        return "icon.png"
+    }
     
     public static func cache(filename:String?=nil) -> String? {
         let c = FileManager.default.cacheDirectory
@@ -111,9 +137,39 @@ extension FileManager {
     }
 }
 
+extension DateFormatter {
+    convenience init(_ format:String) {
+        self.init()
+        self.dateFormat = format
+        // 转成中国时区，上海时间
+        self.timeZone = TimeZone(identifier: "Asia/Shanghai")
+    }
+}
+
 extension String {
     
     func appending(pathComponent: String) -> String {
         return (self as NSString).appendingPathComponent(pathComponent)
+    }
+    
+    func toDate(_ format:String) -> Date? {
+        let dformatter = DateFormatter(format)
+        return dformatter.date(from: self)
+    }
+}
+
+extension Date {
+    
+    static func today(_ format:String="YYYY/MM/dd") -> String {
+        return Date().format(format)
+    }
+    
+    static func now(_ format:String="YYYY-MM-dd HH:mm:ss") -> String {
+        return Date().format(format)
+    }
+    
+    func format(_ format:String="YYYY-MM-dd HH:mm:ss") -> String {
+        let dformatter = DateFormatter(format)
+        return dformatter.string(from: self)
     }
 }

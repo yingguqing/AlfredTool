@@ -67,7 +67,9 @@ class Colors {
         let image = color.toImage()
         let path = AlfredUtil.cache(filename: color.hexadecimal + ".png")
         image.save(path: path)
-        print(AppIcon(appName: path!).path)
+        
+        var items = [FeedbackItem]()
+        
         let rgb = FeedbackItem()
         rgb.uid = "RGB"
         rgb.autocomplete = String(format: "(%.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255)
@@ -78,29 +80,37 @@ class Colors {
         
         let hex = FeedbackItem()
         hex.uid = "Hex"
-        hex.autocomplete = String(color.hexadecimal.dropLast(2))
+        hex.autocomplete = color.hexadecimal
         hex.arg = hex.autocomplete
         hex.title = hex.arg
         hex.subtitle = "Hexadecimal"
         hex.icon = path ?? ""
         
-        let rgba = FeedbackItem()
-        rgba.uid = "RGB • Alpha"
-        rgba.autocomplete = String(format: "(%.f, %.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255, color.alphaComponent)
-        rgba.arg = "rgb\(rgb.autocomplete)"
-        rgba.title = rgb.arg
-        rgba.subtitle = "RGBA"
-        rgba.icon = path ?? ""
+        items.append(rgb)
+        items.append(hex)
         
-        let hexa = FeedbackItem()
-        hexa.uid = "Hex • Alpha"
-        hexa.autocomplete = color.hexadecimal
-        hexa.arg = hex.autocomplete
-        hexa.title = hexa.arg
-        hexa.subtitle = "Hexadecimal"
-        hexa.icon = path ?? ""
+        if color.alphaComponent != 1 {
+            let rgba = FeedbackItem()
+            rgba.uid = "RGB • Alpha"
+            rgba.autocomplete = String(format: "(%.f, %.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255, color.alphaComponent)
+            rgba.arg = "rgb\(rgb.autocomplete)"
+            rgba.title = rgb.arg
+            rgba.subtitle = "RGBA"
+            rgba.icon = path ?? ""
+            
+            let hexa = FeedbackItem()
+            hexa.uid = "Hex • Alpha"
+            hexa.autocomplete = color.hexadecimal
+            hexa.arg = hex.autocomplete
+            hexa.title = hexa.arg
+            hexa.subtitle = "Hexadecimal"
+            hexa.icon = path ?? ""
+            
+            items.append(rgba)
+            items.append(hexa)
+        }
         
-        Alfred.flush(alfredItem: rgb, hex, rgba, hexa)
+        Alfred.flush(alfredItems: items)
     }
     
     func openColorPanel() {

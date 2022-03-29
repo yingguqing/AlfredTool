@@ -21,10 +21,42 @@
 		4D43A0BE27F18EC70004F08F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06D27F051260004F08F /* StringExtensions.swift */; };
 		4D43A0BF27F18EC70004F08F /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06C27F051260004F08F /* Option.swift */; };
 		4D43A0C027F18EC70004F08F /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06B27F051260004F08F /* CommandLine.swift */; };
+		4D43A0E127F2D3280004F08F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0E027F2D3280004F08F /* main.swift */; };
+		4D43A0E727F2D3A10004F08F /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A07127F051260004F08F /* AlfredItem.swift */; };
+		4D43A0E827F2D3A10004F08F /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06F27F051260004F08F /* AppIcon.swift */; };
+		4D43A0E927F2D3A10004F08F /* FeedbackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AC27F094AB0004F08F /* FeedbackItem.swift */; };
+		4D43A0EA27F2D3A10004F08F /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A07027F051260004F08F /* Alfred.swift */; };
+		4D43A0EB27F2D3A10004F08F /* AlfredUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A07227F051260004F08F /* AlfredUtil.swift */; };
+		4D43A0ED27F2D5C80004F08F /* Alfred+ReadLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0EC27F2D5C80004F08F /* Alfred+ReadLine.swift */; };
+		4D43A0EF27F2DED10004F08F /* Alfred+ReadLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0EC27F2D5C80004F08F /* Alfred+ReadLine.swift */; };
+		4D43A0F027F2DED10004F08F /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06B27F051260004F08F /* CommandLine.swift */; };
+		4D43A0F127F2DED10004F08F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06D27F051260004F08F /* StringExtensions.swift */; };
+		4D43A0F227F2DED10004F08F /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A06C27F051260004F08F /* Option.swift */; };
+		4D43A0F427F2DEEF0004F08F /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0F327F2DEEF0004F08F /* Timestamp.swift */; };
+		4D43A0FC27F2ED420004F08F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0FB27F2ED420004F08F /* main.swift */; };
+		4D43A10327F2ED670004F08F /* AlfredUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A07227F051260004F08F /* AlfredUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		4D43A09227F052790004F08F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4D43A0DC27F2D3280004F08F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4D43A0F727F2ED420004F08F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -51,10 +83,31 @@
 		4D43A0AC27F094AB0004F08F /* FeedbackItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackItem.swift; sourceTree = "<group>"; };
 		4D43A0AF27F097B70004F08F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4D43A0B127F0A95C0004F08F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		4D43A0DE27F2D3280004F08F /* Timestamp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Timestamp; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D43A0E027F2D3280004F08F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4D43A0EC27F2D5C80004F08F /* Alfred+ReadLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alfred+ReadLine.swift"; sourceTree = "<group>"; };
+		4D43A0EE27F2DA010004F08F /* DateFormat.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DateFormat.plist; sourceTree = "<group>"; };
+		4D43A0F327F2DEEF0004F08F /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
+		4D43A0F927F2ED420004F08F /* QRCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = QRCode; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D43A0FB27F2ED420004F08F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4D43A09127F052790004F08F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D43A0DB27F2D3280004F08F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D43A0F627F2ED420004F08F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -68,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				4D43A0A427F0540C0004F08F /* AlfredTool */,
+				4D43A0DF27F2D3280004F08F /* Timestamp */,
+				4D43A0FA27F2ED420004F08F /* QRCode */,
 				4D43A05C27F04D5B0004F08F /* Products */,
 				4D43A09B27F052A10004F08F /* Frameworks */,
 			);
@@ -77,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				4D43A09427F052790004F08F /* Colors */,
+				4D43A0DE27F2D3280004F08F /* Timestamp */,
+				4D43A0F927F2ED420004F08F /* QRCode */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +143,7 @@
 			children = (
 				4D43A06F27F051260004F08F /* AppIcon.swift */,
 				4D43A07027F051260004F08F /* Alfred.swift */,
+				4D43A0EC27F2D5C80004F08F /* Alfred+ReadLine.swift */,
 				4D43A07127F051260004F08F /* AlfredItem.swift */,
 				4D43A0AC27F094AB0004F08F /* FeedbackItem.swift */,
 				4D43A07227F051260004F08F /* AlfredUtil.swift */,
@@ -125,6 +183,24 @@
 			path = AlfredTool;
 			sourceTree = "<group>";
 		};
+		4D43A0DF27F2D3280004F08F /* Timestamp */ = {
+			isa = PBXGroup;
+			children = (
+				4D43A0E027F2D3280004F08F /* main.swift */,
+				4D43A0F327F2DEEF0004F08F /* Timestamp.swift */,
+				4D43A0EE27F2DA010004F08F /* DateFormat.plist */,
+			);
+			path = Timestamp;
+			sourceTree = "<group>";
+		};
+		4D43A0FA27F2ED420004F08F /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				4D43A0FB27F2ED420004F08F /* main.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +221,40 @@
 			productReference = 4D43A09427F052790004F08F /* Colors */;
 			productType = "com.apple.product-type.tool";
 		};
+		4D43A0DD27F2D3280004F08F /* Timestamp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D43A0E427F2D3280004F08F /* Build configuration list for PBXNativeTarget "Timestamp" */;
+			buildPhases = (
+				4D43A0DA27F2D3280004F08F /* Sources */,
+				4D43A0DB27F2D3280004F08F /* Frameworks */,
+				4D43A0DC27F2D3280004F08F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Timestamp;
+			productName = Timestamp;
+			productReference = 4D43A0DE27F2D3280004F08F /* Timestamp */;
+			productType = "com.apple.product-type.tool";
+		};
+		4D43A0F827F2ED420004F08F /* QRCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D43A0FD27F2ED420004F08F /* Build configuration list for PBXNativeTarget "QRCode" */;
+			buildPhases = (
+				4D43A0F527F2ED420004F08F /* Sources */,
+				4D43A0F627F2ED420004F08F /* Frameworks */,
+				4D43A0F727F2ED420004F08F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRCode;
+			productName = QRCode;
+			productReference = 4D43A0F927F2ED420004F08F /* QRCode */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -156,6 +266,12 @@
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					4D43A09327F052790004F08F = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					4D43A0DD27F2D3280004F08F = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					4D43A0F827F2ED420004F08F = {
 						CreatedOnToolsVersion = 13.3;
 					};
 				};
@@ -174,6 +290,8 @@
 			projectRoot = "";
 			targets = (
 				4D43A09327F052790004F08F /* Colors */,
+				4D43A0DD27F2D3280004F08F /* Timestamp */,
+				4D43A0F827F2ED420004F08F /* QRCode */,
 			);
 		};
 /* End PBXProject section */
@@ -193,10 +311,38 @@
 				4D43A0AB27F057EA0004F08F /* Color.swift in Sources */,
 				4D43A0BF27F18EC70004F08F /* Option.swift in Sources */,
 				4D43A0B027F097B70004F08F /* String.swift in Sources */,
+				4D43A0ED27F2D5C80004F08F /* Alfred+ReadLine.swift in Sources */,
 				4D43A0AA27F057EA0004F08F /* Image.swift in Sources */,
 				4D43A0BD27F18EAB0004F08F /* Alfred.swift in Sources */,
 				4D43A0A727F0571A0004F08F /* Colors.swift in Sources */,
 				4D43A0BC27F18EAB0004F08F /* AlfredUtil.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D43A0DA27F2D3280004F08F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D43A0E727F2D3A10004F08F /* AlfredItem.swift in Sources */,
+				4D43A0E827F2D3A10004F08F /* AppIcon.swift in Sources */,
+				4D43A0F227F2DED10004F08F /* Option.swift in Sources */,
+				4D43A0F427F2DEEF0004F08F /* Timestamp.swift in Sources */,
+				4D43A0EA27F2D3A10004F08F /* Alfred.swift in Sources */,
+				4D43A0F127F2DED10004F08F /* StringExtensions.swift in Sources */,
+				4D43A0F027F2DED10004F08F /* CommandLine.swift in Sources */,
+				4D43A0EF27F2DED10004F08F /* Alfred+ReadLine.swift in Sources */,
+				4D43A0E127F2D3280004F08F /* main.swift in Sources */,
+				4D43A0EB27F2D3A10004F08F /* AlfredUtil.swift in Sources */,
+				4D43A0E927F2D3A10004F08F /* FeedbackItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D43A0F527F2ED420004F08F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D43A0FC27F2ED420004F08F /* main.swift in Sources */,
+				4D43A10327F2ED670004F08F /* AlfredUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +482,42 @@
 			};
 			name = Release;
 		};
+		4D43A0E227F2D3280004F08F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4D43A0E327F2D3280004F08F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4D43A0FE27F2ED420004F08F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4D43A0FF27F2ED420004F08F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -353,6 +535,24 @@
 			buildConfigurations = (
 				4D43A09927F052790004F08F /* Debug */,
 				4D43A09A27F052790004F08F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D43A0E427F2D3280004F08F /* Build configuration list for PBXNativeTarget "Timestamp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D43A0E227F2D3280004F08F /* Debug */,
+				4D43A0E327F2D3280004F08F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D43A0FD27F2ED420004F08F /* Build configuration list for PBXNativeTarget "QRCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D43A0FE27F2ED420004F08F /* Debug */,
+				4D43A0FF27F2ED420004F08F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
