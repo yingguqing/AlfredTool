@@ -8,14 +8,12 @@
 import Foundation
 
 public class FeedbackItem: AlfredItem {
-    public var uid: String = ""
+    public var uid: String = "" // 结果以uid排序
     public var arg: String = ""
     public var autocomplete: String = ""
     public var title: String = ""
     public var icon: String = ""
     public var subtitle: String = ""
-    public var processName: String = ""
-    public var tabIndex: Int = 0
     
     public init() {
         

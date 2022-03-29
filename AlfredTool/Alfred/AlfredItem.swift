@@ -8,14 +8,12 @@
 import Foundation
 
 public protocol AlfredItem {
-    var uid : String { get }
+    var uid : String { get } // 结果以uid排序
     var arg : String { get }
     var autocomplete : String { get }
     var title : String { get }
     var icon : String { get }
     var subtitle : String { get }
-    var processName : String { get }
-    var tabIndex : Int { get }
 }
 
 

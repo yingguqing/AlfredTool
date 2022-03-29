@@ -5,15 +5,15 @@
 //  Created by zhouziyuan on 2022/3/29.
 //
 
-import Foundation
 import Cocoa
+import Foundation
 
 class QRCode {
     static func run() {
         guard let inputStr = CommandLine.arguments.dropFirst().first, !inputStr.isEmpty,
               let image = generateQRCode(from: inputStr)
         else {
-            print("Error generating QR code")
+            AlfredUtil.log("Error generating QR code")
             return
         }
         let savePath = URL(fileURLWithPath: AlfredUtil.local(filename: "qrcode.png"))
