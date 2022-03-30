@@ -70,6 +70,43 @@ public class AlfredUtil: NSObject {
         return "icon.png"
     }
     
+    /// 获取用户配置
+    /// - Parameter key: 配置项
+    /// - Returns: 内容
+    public static func userConfig(_ key:String) -> Any? {
+        let path = local(filename: "user_config.json")
+        guard FileManager.default.fileExists(atPath: path) else {
+            log("Could not open \(path)")
+            return nil
+        }
+        if let data = try? Data(contentsOf: URL(fileURLWithPath: path)), let config = try? JSONSerialization.jsonObject(with: data) as? [String:Any] {
+            return config[key]
+        }
+        return nil
+    }
+    
+    /// 保存用户配置
+    /// - Parameters:
+    ///   - key: 配置key
+    ///   - value: 配置内容
+    public static func saveUserConfig(key:String, value:Any) {
+        let path = local(filename: "user_config.json")
+        guard FileManager.default.fileExists(atPath: path) else {
+            log("Could not open \(path)")
+            return
+        }
+        var userConfig:[String:Any]
+        if let data = try? Data(contentsOf: URL(fileURLWithPath: path)), let config = try? JSONSerialization.jsonObject(with: data) as? [String:Any] {
+            userConfig = config
+        } else {
+            userConfig = [String:Any]()
+        }
+        userConfig[key] = value
+        if let data = try? JSONSerialization.data(withJSONObject: userConfig, options: .prettyPrinted) {
+            try? data.write(to: URL(fileURLWithPath: path), options: .atomic)
+        }
+    }
+    
     public static func cache(filename:String?=nil) -> String? {
         let c = FileManager.default.cacheDirectory
         var path:String?

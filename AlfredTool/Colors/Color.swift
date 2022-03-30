@@ -47,7 +47,6 @@ extension NSColor {
     }
     
     var hexadecimal:String {
-        
         var red:CGFloat = 0
         var green:CGFloat = 0
         var blue:CGFloat = 0
@@ -59,8 +58,6 @@ extension NSColor {
         } else {
             return String(format: "#%02lX%02lX%02lX%02lX", Int(red * multiplier), Int(green * multiplier), Int(blue * multiplier), Int(alpha * multiplier) )
         }
-        
-        return String(format: "#%021X%021X%021X%021X", Int(redComponent * 255) + Int(greenComponent * 255) + Int(blueComponent * 255) + Int(alphaComponent * 255))
     }
 }
 

@@ -7,13 +7,17 @@
 
 import Foundation
 
-public protocol AlfredItem {
-    var uid : String { get } // 结果以uid排序
-    var arg : String { get }
-    var autocomplete : String { get }
-    var title : String { get }
-    var icon : String { get }
-    var subtitle : String { get }
+public class AlfredItem {
+    public var uid: String = "" // 结果以uid排序
+    public var arg: String = "" // 往后传递的参数
+    public var autocomplete: String = ""
+    public var title: String = ""
+    public var icon: String = ""
+    public var subtitle: String = ""
+    
+    public init() {
+        
+    }
 }
 
 
@@ -60,6 +64,5 @@ extension Array where Element == AlfredItem {
         root.setChildren(self.map({ $0.xmlNode }))
         return XMLDocument(rootElement: root)
     }
-    
 }
 

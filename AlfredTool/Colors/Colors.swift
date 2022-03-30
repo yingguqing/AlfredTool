@@ -15,9 +15,9 @@ class Colors {
     /// - Parameter title: 标题
     func fallbackToColorPanelResult(_ title:String="OS X Color Panel") {
         let uid = AlfredUtil.bundleID.appending(" color-pick")
-        let item = FeedbackItem()
+        let item = AlfredItem()
         item.uid = uid
-        item.icon = AppIcon(appName: "pick-color.png").path
+        item.icon = "pick-color.png"
         item.title = title
         item.subtitle = "Action this item to open the OS X color panel"
         Alfred.flush(alfredItem: item)
@@ -68,9 +68,9 @@ class Colors {
         let path = AlfredUtil.cache(filename: color.hexadecimal + ".png")
         image.save(path: path)
         
-        var items = [FeedbackItem]()
+        var items = [AlfredItem]()
         
-        let rgb = FeedbackItem()
+        let rgb = AlfredItem()
         rgb.uid = "RGB"
         rgb.autocomplete = String(format: "(%.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255)
         rgb.arg = "rgb\(rgb.autocomplete)"
@@ -78,7 +78,7 @@ class Colors {
         rgb.subtitle = "RGB"
         rgb.icon = path ?? ""
         
-        let hex = FeedbackItem()
+        let hex = AlfredItem()
         hex.uid = "Hex"
         hex.autocomplete = color.hexadecimal
         hex.arg = hex.autocomplete
@@ -90,7 +90,7 @@ class Colors {
         items.append(hex)
         
         if color.alphaComponent != 1 {
-            let rgba = FeedbackItem()
+            let rgba = AlfredItem()
             rgba.uid = "RGB • Alpha"
             rgba.autocomplete = String(format: "(%.f, %.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255, color.alphaComponent)
             rgba.arg = "rgb\(rgb.autocomplete)"
@@ -98,7 +98,7 @@ class Colors {
             rgba.subtitle = "RGBA"
             rgba.icon = path ?? ""
             
-            let hexa = FeedbackItem()
+            let hexa = AlfredItem()
             hexa.uid = "Hex • Alpha"
             hexa.autocomplete = color.hexadecimal
             hexa.arg = hex.autocomplete

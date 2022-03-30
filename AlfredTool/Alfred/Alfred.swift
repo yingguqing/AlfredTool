@@ -14,7 +14,6 @@ public class Alfred {
     public static func flush(alfredItems:[AlfredItem], isExit:Bool=true) {
         print(alfredItems.xml.xmlString)
         guard isExit else { return }
-        print("\n")
         exit(EX_USAGE)
     }
     
