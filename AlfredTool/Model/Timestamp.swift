@@ -172,10 +172,11 @@ class Timestamp {
     static func save(dateFormats: String) {
         let isAdd = dateFormats.hasPrefix("add ")
         let formats:[String]
+        let value = String(dateFormats.dropFirst(4))
         if isAdd {
-            formats = UserDateFormats + [dateFormats]
+            formats = UserDateFormats + [value]
         } else {
-            formats = UserDateFormats.filter({ $0 != dateFormats })
+            formats = UserDateFormats.filter({ $0 != value })
         }
         AlfredUtil.saveUserConfig(key: "DateFormat", value: formats)
         print(isAdd ? "添加格式样式成功" : "删除格式样式成功")

@@ -174,39 +174,10 @@ extension FileManager {
     }
 }
 
-extension DateFormatter {
-    convenience init(_ format:String) {
-        self.init()
-        self.dateFormat = format
-        // 转成中国时区，上海时间
-        self.timeZone = TimeZone(identifier: "Asia/Shanghai")
-    }
-}
-
-extension String {
+extension Array {
     
-    func appending(pathComponent: String) -> String {
-        return (self as NSString).appendingPathComponent(pathComponent)
-    }
-    
-    func toDate(_ format:String) -> Date? {
-        let dformatter = DateFormatter(format)
-        return dformatter.date(from: self)
-    }
-}
-
-extension Date {
-    
-    static func today(_ format:String="YYYY/MM/dd") -> String {
-        return Date().format(format)
-    }
-    
-    static func now(_ format:String="YYYY-MM-dd HH:mm:ss") -> String {
-        return Date().format(format)
-    }
-    
-    func format(_ format:String="YYYY-MM-dd HH:mm:ss") -> String {
-        let dformatter = DateFormatter(format)
-        return dformatter.string(from: self)
+    func value(index:Int) -> Element? {
+        guard self.count > index else { return nil }
+        return self[index]
     }
 }

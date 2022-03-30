@@ -8,7 +8,7 @@
 import Foundation
 import AppKit
 
-class Colors {
+class ColorTool {
     var color:NSColor?
     
     /// 调起颜色选择器
@@ -66,7 +66,7 @@ class Colors {
         }
         let image = color.toImage()
         let path = AlfredUtil.cache(filename: color.hexadecimal + ".png")
-        image.save(path: path)
+        _ = image.pngWrite(to: path)
         
         var items = [AlfredItem]()
         
