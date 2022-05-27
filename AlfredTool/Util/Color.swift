@@ -54,9 +54,9 @@ extension NSColor {
         let multiplier = CGFloat(255.999999)
         self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         if alpha == 1 {
-            return String(format: "#%02lX%02lX%02lX", Int(red * multiplier), Int(green * multiplier), Int(blue * multiplier))
+            return String(format: "%02lX%02lX%02lX", Int(red * multiplier), Int(green * multiplier), Int(blue * multiplier))
         } else {
-            return String(format: "#%02lX%02lX%02lX%02lX", Int(red * multiplier), Int(green * multiplier), Int(blue * multiplier), Int(alpha * multiplier) )
+            return String(format: "%02lX%02lX%02lX%02lX", Int(red * multiplier), Int(green * multiplier), Int(blue * multiplier), Int(alpha * multiplier) )
         }
     }
 }

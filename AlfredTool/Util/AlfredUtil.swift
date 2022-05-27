@@ -25,7 +25,7 @@ public class AlfredUtil: NSObject {
     }
     
     public static func local(filename:String) -> String {
-        return Bundle.main.bundlePath.appending(pathComponent: filename)
+        return Bundle.main.bundlePath/filename
     }
     
     public static var bundleID:String = {
@@ -108,29 +108,26 @@ public class AlfredUtil: NSObject {
     }
     
     public static func cache(filename:String?=nil) -> String? {
-        let c = FileManager.default.cacheDirectory
-        var path:String?
-        if let c = c {
-            path = c.appending(pathComponent: "com.runningwithcrayons.Alfred/Workfow Data/\(bundleID)")
-        }
+        guard let c = FileManager.default.cacheDirectory else { return nil }
+        let path = c/"com.runningwithcrayons.Alfred/Workfow Data/\(bundleID)"
         FileManager.default.createIfNonexistent(path)
         guard let filename = filename else {
             return path
         }
 
-        return path?.appending(pathComponent: filename)
+        return path/filename
     }
     
     public static func storage(filename:String?=nil) -> String? {
         guard let s = FileManager.default.applicationSupportDirectory else {
             return nil
         }
-        let path = s.appending(pathComponent: "Alfred/Workflow Data/\(bundleID)")
+        let path = s/"Alfred/Workflow Data/\(bundleID)"
         FileManager.default.createIfNonexistent(path)
         guard let filename = filename else {
             return path
         }
-        return path.appending(pathComponent: filename)
+        return path/filename
     }
     
     public class func log(_ str:String) {
@@ -154,7 +151,7 @@ extension FileManager {
         guard let append = append, !append.isEmpty else {
             return path
         }
-        return path.appending(pathComponent: append)
+        return path/append
     }
     
     func createIfNonexistent(_ dir:String?) {

@@ -14,13 +14,10 @@ class ColorTool {
     /// 调起颜色选择器
     /// - Parameter title: 标题
     func fallbackToColorPanelResult(_ title:String="OS X Color Panel") {
-        let uid = AlfredUtil.bundleID.appending(" color-pick")
-        let item = AlfredItem()
-        item.uid = uid
-        item.icon = "pick-color.png"
-        item.title = title
-        item.subtitle = "Action this item to open the OS X color panel"
-        Alfred.flush(alfredItem: item)
+        let item = AlfredItem.item(title: title,
+                                   subtitle: "Action this item to open the OS X color panel",
+                                   icon: .fromImage(at: URL(fileURLWithPath: "pick-color.png")))
+        Alfred.flush(item: item)
     }
     
     func input(_ value:String) -> Bool {
@@ -61,56 +58,54 @@ class ColorTool {
     
     func feedback() {
         guard let color = color else {
-            Alfred.flush(alfredItems: [])
+            Alfred.flush(items: [])
             return
         }
         let image = color.toImage()
-        let path = AlfredUtil.cache(filename: color.hexadecimal + ".png")
+        let path = Alfred.cacheDir/(color.hexadecimal + ".png")
         _ = image.pngWrite(to: path)
-        
+        let icon = AlfredItem.Icon.fromImage(at: path)
         var items = [AlfredItem]()
         
-        let rgb = AlfredItem()
-        rgb.uid = "RGB"
-        rgb.autocomplete = String(format: "(%.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255)
-        rgb.arg = "rgb\(rgb.autocomplete)"
-        rgb.title = rgb.arg
-        rgb.subtitle = "RGB"
-        rgb.icon = path ?? ""
-        
-        let hex = AlfredItem()
-        hex.uid = "Hex"
-        hex.autocomplete = color.hexadecimal
-        hex.arg = hex.autocomplete
-        hex.title = hex.arg
-        hex.subtitle = "Hexadecimal"
-        hex.icon = path ?? ""
-        
-        items.append(rgb)
-        items.append(hex)
-        
         if color.alphaComponent != 1 {
-            let rgba = AlfredItem()
-            rgba.uid = "RGB • Alpha"
-            rgba.autocomplete = String(format: "(%.f, %.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255, color.alphaComponent)
-            rgba.arg = "rgb\(rgb.autocomplete)"
-            rgba.title = rgb.arg
-            rgba.subtitle = "RGBA"
-            rgba.icon = path ?? ""
+            var arg = String(format: "rgb(%.f, %.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255, color.alphaComponent)
+            let rgba = AlfredItem.item(arg: arg,
+                                       title: arg,
+                                       subtitle: "RGBA",
+                                       autocomplete: arg,
+                                       icon: icon)
             
-            let hexa = AlfredItem()
-            hexa.uid = "Hex • Alpha"
-            hexa.autocomplete = color.hexadecimal
-            hexa.arg = hex.autocomplete
-            hexa.title = hexa.arg
-            hexa.subtitle = "Hexadecimal"
-            hexa.icon = path ?? ""
+            
+
+            arg = color.hexadecimal
+            let hexa = AlfredItem.item(arg: arg,
+                        title: arg,
+                        subtitle: "Hexadecimal",
+                        autocomplete: arg,
+                        icon: icon)
             
             items.append(rgba)
             items.append(hexa)
+        } else {
+            var arg = String(format: "rgb(%.f, %.f, %.f)", color.redComponent * 255, color.greenComponent * 255, color.blueComponent * 255)
+            let rgb = AlfredItem.item(arg: arg,
+                                      title: arg,
+                                      subtitle: "RGB",
+                                      autocomplete: arg,
+                                      icon: icon)
+            
+            arg = color.hexadecimal
+            let hex = AlfredItem.item(arg: arg,
+                                      title: arg,
+                                      subtitle: "Hexadecimal",
+                                      autocomplete: arg,
+                                      icon: icon)
+            
+            items.append(rgb)
+            items.append(hex)
         }
         
-        Alfred.flush(alfredItems: items)
+        Alfred.flush(items: items)
     }
     
     func openColorPanel() {

@@ -18,6 +18,7 @@ import ArgumentParser
  --qr-code              二维码
  --encoode              编码
  --decoode              解码
+ --flat-decrypt         flat数据解密
  */
 
 struct Repeat: ParsableCommand {
@@ -38,6 +39,8 @@ struct Repeat: ParsableCommand {
     var encode: String?
     @Option(help: "解码")
     var decode: String?
+    @Option(help: "flat数据解密")
+    var flatDecrypt: String?
     
     func run() {
         
@@ -87,8 +90,12 @@ struct Repeat: ParsableCommand {
             DecodeEncodeTool.encode(encode)
         } else if let decode = decode { // 解码工具
             DecodeEncodeTool.decode(decode)
+        } else if let flatDecrypt = flatDecrypt {// flat sdk 数据解密
+            FlatAESCrypto.decrypt(flatDecrypt)
         }
     }
 }
 
 Repeat.main()
+
+

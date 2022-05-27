@@ -15,10 +15,10 @@ extension NSImage {
         return bitmapImage.representation(using: .png, properties: [:])
     }
 
-    func pngWrite(to path: String?, options: Data.WritingOptions = .atomic) -> Bool {
+    func pngWrite(to path: URL?, options: Data.WritingOptions = .atomic) -> Bool {
         guard let path = path else { return false }
         do {
-            try pngData?.write(to: URL(fileURLWithPath: path), options: options)
+            try pngData?.write(to:path, options: options)
             return true
         } catch {
             print(error)

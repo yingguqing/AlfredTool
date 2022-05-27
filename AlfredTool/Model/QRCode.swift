@@ -11,10 +11,10 @@ import Foundation
 class QRCode {
     static func run(_ inputStr: String) {
         guard !inputStr.isEmpty, let image = generateQRCode(from: inputStr) else {
-            AlfredUtil.log("Error generating QR code")
+            log("Error generating QR code")
             return
         }
-        _ = image.pngWrite(to: AlfredUtil.local(filename: "qrcode.png"))
+        _ = image.pngWrite(to: Alfred.localDir/"qrcode.png")
     }
 
     static func generateQRCode(from content: String) -> NSImage? {
@@ -22,7 +22,7 @@ class QRCode {
 
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
+            let transform = CGAffineTransform(scaleX: 30, y: 30)
 
             if let output = filter.outputImage?.transformed(by: transform) {
                 let rep = NSCIImageRep(ciImage: output)
