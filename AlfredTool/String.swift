@@ -30,11 +30,6 @@ extension String {
         return stringArray.filter({ !$0.isEmpty })
     }
     
-    func toDate(_ format:String) -> Date? {
-        let dformatter = DateFormatter(format)
-        return dformatter.date(from: self)
-    }
-    
     func urlEncode() -> String {
         var allowedQueryParamAndKey = NSCharacterSet.urlQueryAllowed
         allowedQueryParamAndKey.remove(charactersIn: "!*'\"();:@&=+$,/?%#[]% ")

@@ -78,22 +78,6 @@ func saveUserConfig(key: String, value: Any) {
     try? data?.write(to: path, options: .atomic)
 }
 
-let info = Plist(path: Alfred.localDir/"info.plist")
-/// 获取分支的图标，如果没有就返回icon.png
-func itemIcon(title: String) -> String {
-    if let objects: [[String: Any]] = info.get("objects") {
-        if let uid = objects.filter({
-            if let config = $0["config"] as? [String: Any], let t = config["title"] as? String {
-                return title == t
-            }
-            return false
-        }).first?["uid"] as? String {
-            return "\(uid).png"
-        }
-    }
-    return "icon.png"
-}
-
 /// Flatten a JSON object (ignoring any arrays)
 ///
 /// ```

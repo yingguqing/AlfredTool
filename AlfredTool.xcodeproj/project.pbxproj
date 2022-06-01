@@ -7,26 +7,90 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D43A12827F424110004F08F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A12727F424110004F08F /* main.swift */; };
-		4D43A12D27F424270004F08F /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4D43A12C27F424270004F08F /* ArgumentParser */; };
-		4D43A13327F4273F0004F08F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
-		4D43A13427F427570004F08F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
-		4D43A13A27F4283E0004F08F /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A827F057E90004F08F /* Image.swift */; };
-		4D43A13B27F428430004F08F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A927F057EA0004F08F /* Color.swift */; };
-		4D43A13C27F428DD0004F08F /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0FB27F2ED420004F08F /* QRCode.swift */; };
-		4D43A13D27F428E40004F08F /* DecodeEncodeToolTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A11927F404340004F08F /* DecodeEncodeToolTool.swift */; };
-		4D43A13E27F428E40004F08F /* ColorTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A527F054AA0004F08F /* ColorTool.swift */; };
-		4D43A13F27F428E40004F08F /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0F327F2DEEF0004F08F /* Timestamp.swift */; };
-		4D8107EC280E9CC500F66817 /* FlatAESCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */; };
-		4D8107F2280FD4DE00F66817 /* CurlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8107F1280FD4DE00F66817 /* CurlParser.swift */; };
-		4DFFEBAB27F71998000B2C9C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
-		4DFFEBAC27F71998000B2C9C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
-		4DFFEBAD27F71998000B2C9C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
-		4DFFEBB327F84C4E000B2C9C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4DAC73E3284713DA00F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC73E2284713DA00F17A3C /* main.swift */; };
+		4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */; };
+		4DAC73E92847147300F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC73E82847147300F17A3C /* ArgumentParser */; };
+		4DAC73EA2847149300F17A3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
+		4DAC73EB284714A100F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4DAC73EC284714A100F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4DAC73ED284714B000F17A3C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4DAC73EE284714BE00F17A3C /* CurlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8107F1280FD4DE00F66817 /* CurlParser.swift */; };
+		4DAC73F72847195400F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC73F62847195400F17A3C /* main.swift */; };
+		4DAC73FB2847196600F17A3C /* DecodeEncodeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A11927F404340004F08F /* DecodeEncodeTool.swift */; };
+		4DAC73FC2847197700F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4DAC73FD2847197700F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4DAC74002847199D00F17A3C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4DAC7401284719B800F17A3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
+		4DAC7404284719FF00F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC7403284719FF00F17A3C /* ArgumentParser */; };
+		4DAC740C28471AC400F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC740B28471AC400F17A3C /* main.swift */; };
+		4DAC741028471ACA00F17A3C /* ColorTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A527F054AA0004F08F /* ColorTool.swift */; };
+		4DAC741128471AD300F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4DAC741328471AD300F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4DAC741428471AD300F17A3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
+		4DAC741628471ADF00F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC741528471ADF00F17A3C /* ArgumentParser */; };
+		4DAC741728471B4100F17A3C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4DAC741828471B6700F17A3C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A927F057EA0004F08F /* Color.swift */; };
+		4DAC741928471B7600F17A3C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A827F057E90004F08F /* Image.swift */; };
+		4DAC741A28471E0100F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
+		4DAC741B28471E0200F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
+		4DAC741C28471E0200F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
+		4DAC742428471EE800F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC742328471EE800F17A3C /* main.swift */; };
+		4DAC742828471EEE00F17A3C /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0F327F2DEEF0004F08F /* Timestamp.swift */; };
+		4DAC742928471F6F00F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4DAC742A28471F6F00F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
+		4DAC742B28471F6F00F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4DAC742C28471F7900F17A3C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4DAC742D28471F8900F17A3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
+		4DAC742E2847205600F17A3C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
+		4DAC74302847208100F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC742F2847208100F17A3C /* ArgumentParser */; };
+		4DAC7438284734A500F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC7437284734A500F17A3C /* main.swift */; };
+		4DAC743D284734E600F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC743C284734E600F17A3C /* ArgumentParser */; };
+		4DAC743E284734EF00F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
+		4DAC743F284734EF00F17A3C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A827F057E90004F08F /* Image.swift */; };
+		4DAC7440284734EF00F17A3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
+		4DAC7441284734EF00F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4DAC7443284734F400F17A3C /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0FB27F2ED420004F08F /* QRCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4D43A12327F424110004F08F /* CopyFiles */ = {
+		4DAC73DE284713DA00F17A3C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4DAC73F22847195400F17A3C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4DAC740728471AC400F17A3C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4DAC741F28471EE800F17A3C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4DAC7433284734A500F17A3C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -44,13 +108,21 @@
 		4D43A0AF27F097B70004F08F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		4D43A0F327F2DEEF0004F08F /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
 		4D43A0FB27F2ED420004F08F /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
-		4D43A11927F404340004F08F /* DecodeEncodeToolTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeEncodeToolTool.swift; sourceTree = "<group>"; };
-		4D43A12527F424110004F08F /* AlfredTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AlfredTool; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D43A12727F424110004F08F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4D43A11927F404340004F08F /* DecodeEncodeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeEncodeTool.swift; sourceTree = "<group>"; };
 		4D43A13227F4273F0004F08F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		4D8107E9280E9C9600F66817 /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
 		4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatAESCrypto.swift; sourceTree = "<group>"; };
 		4D8107F1280FD4DE00F66817 /* CurlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurlParser.swift; sourceTree = "<group>"; };
+		4DAC73E0284713DA00F17A3C /* FlatAESCrypto */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FlatAESCrypto; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DAC73E2284713DA00F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4DAC73F42847195400F17A3C /* CodeTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeTool; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DAC73F62847195400F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4DAC740928471AC400F17A3C /* ColorTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ColorTool; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DAC740B28471AC400F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4DAC742128471EE800F17A3C /* Timestamp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Timestamp; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DAC742328471EE800F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4DAC7435284734A500F17A3C /* QRCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = QRCode; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DAC7437284734A500F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4DFFEBA727F71998000B2C9C /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		4DFFEBA827F71998000B2C9C /* AlfredItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfredItem.swift; sourceTree = "<group>"; };
 		4DFFEBA927F71998000B2C9C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -58,11 +130,43 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4D43A12227F424110004F08F /* Frameworks */ = {
+		4DAC73DD284713DA00F17A3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D43A12D27F424270004F08F /* ArgumentParser in Frameworks */,
+				4DAC73E92847147300F17A3C /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAC73F12847195400F17A3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC7404284719FF00F17A3C /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAC740628471AC400F17A3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC741628471ADF00F17A3C /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAC741E28471EE800F17A3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC74302847208100F17A3C /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAC7432284734A500F17A3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC743D284734E600F17A3C /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +177,11 @@
 			isa = PBXGroup;
 			children = (
 				4D43A12627F424110004F08F /* AlfredTool */,
+				4DAC73E1284713DA00F17A3C /* FlatAESCrypto */,
+				4DAC73F52847195400F17A3C /* CodeTool */,
+				4DAC740A28471AC400F17A3C /* ColorTool */,
+				4DAC742228471EE800F17A3C /* Timestamp */,
+				4DAC7436284734A500F17A3C /* QRCode */,
 				4D43A05C27F04D5B0004F08F /* Products */,
 				4D43A09B27F052A10004F08F /* Frameworks */,
 			);
@@ -81,7 +190,11 @@
 		4D43A05C27F04D5B0004F08F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D43A12527F424110004F08F /* AlfredTool */,
+				4DAC73E0284713DA00F17A3C /* FlatAESCrypto */,
+				4DAC73F42847195400F17A3C /* CodeTool */,
+				4DAC740928471AC400F17A3C /* ColorTool */,
+				4DAC742128471EE800F17A3C /* Timestamp */,
+				4DAC7435284734A500F17A3C /* QRCode */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,62 +210,165 @@
 		4D43A12627F424110004F08F /* AlfredTool */ = {
 			isa = PBXGroup;
 			children = (
-				4D43A12727F424110004F08F /* main.swift */,
-				4D43A13627F4279A0004F08F /* Model */,
-				4D43A13127F426EA0004F08F /* Util */,
-			);
-			path = AlfredTool;
-			sourceTree = "<group>";
-		};
-		4D43A13127F426EA0004F08F /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				4D43A0A927F057EA0004F08F /* Color.swift */,
 				4D43A0A827F057E90004F08F /* Image.swift */,
 				4DFFEBB227F84C4E000B2C9C /* Alfred.swift */,
 				4DFFEBA827F71998000B2C9C /* AlfredItem.swift */,
 				4DFFEBA727F71998000B2C9C /* Plist.swift */,
 				4DFFEBA927F71998000B2C9C /* Utils.swift */,
 				4D43A0AF27F097B70004F08F /* String.swift */,
-				4D8107F1280FD4DE00F66817 /* CurlParser.swift */,
-				4D43A13227F4273F0004F08F /* Date.swift */,
 			);
-			path = Util;
+			path = AlfredTool;
 			sourceTree = "<group>";
 		};
-		4D43A13627F4279A0004F08F /* Model */ = {
+		4DAC73E1284713DA00F17A3C /* FlatAESCrypto */ = {
 			isa = PBXGroup;
 			children = (
-				4D43A0A527F054AA0004F08F /* ColorTool.swift */,
-				4D43A0F327F2DEEF0004F08F /* Timestamp.swift */,
-				4D43A11927F404340004F08F /* DecodeEncodeToolTool.swift */,
-				4D43A0FB27F2ED420004F08F /* QRCode.swift */,
+				4DAC73E2284713DA00F17A3C /* main.swift */,
 				4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */,
+				4D8107F1280FD4DE00F66817 /* CurlParser.swift */,
 			);
-			path = Model;
+			path = FlatAESCrypto;
+			sourceTree = "<group>";
+		};
+		4DAC73F52847195400F17A3C /* CodeTool */ = {
+			isa = PBXGroup;
+			children = (
+				4DAC73F62847195400F17A3C /* main.swift */,
+				4D43A11927F404340004F08F /* DecodeEncodeTool.swift */,
+			);
+			path = CodeTool;
+			sourceTree = "<group>";
+		};
+		4DAC740A28471AC400F17A3C /* ColorTool */ = {
+			isa = PBXGroup;
+			children = (
+				4DAC740B28471AC400F17A3C /* main.swift */,
+				4D43A0A527F054AA0004F08F /* ColorTool.swift */,
+				4D43A0A927F057EA0004F08F /* Color.swift */,
+			);
+			path = ColorTool;
+			sourceTree = "<group>";
+		};
+		4DAC742228471EE800F17A3C /* Timestamp */ = {
+			isa = PBXGroup;
+			children = (
+				4DAC742328471EE800F17A3C /* main.swift */,
+				4D43A0F327F2DEEF0004F08F /* Timestamp.swift */,
+				4D43A13227F4273F0004F08F /* Date.swift */,
+			);
+			path = Timestamp;
+			sourceTree = "<group>";
+		};
+		4DAC7436284734A500F17A3C /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				4DAC7437284734A500F17A3C /* main.swift */,
+				4D43A0FB27F2ED420004F08F /* QRCode.swift */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4D43A12427F424110004F08F /* AlfredTool */ = {
+		4DAC73DF284713DA00F17A3C /* FlatAESCrypto */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D43A12927F424110004F08F /* Build configuration list for PBXNativeTarget "AlfredTool" */;
+			buildConfigurationList = 4DAC73E4284713DA00F17A3C /* Build configuration list for PBXNativeTarget "FlatAESCrypto" */;
 			buildPhases = (
-				4D43A12127F424110004F08F /* Sources */,
-				4D43A12227F424110004F08F /* Frameworks */,
-				4D43A12327F424110004F08F /* CopyFiles */,
+				4DAC73DC284713DA00F17A3C /* Sources */,
+				4DAC73DD284713DA00F17A3C /* Frameworks */,
+				4DAC73DE284713DA00F17A3C /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AlfredTool;
+			name = FlatAESCrypto;
 			packageProductDependencies = (
-				4D43A12C27F424270004F08F /* ArgumentParser */,
+				4DAC73E82847147300F17A3C /* ArgumentParser */,
 			);
-			productName = AlfredTool;
-			productReference = 4D43A12527F424110004F08F /* AlfredTool */;
+			productName = FlatAESCrypto;
+			productReference = 4DAC73E0284713DA00F17A3C /* FlatAESCrypto */;
+			productType = "com.apple.product-type.tool";
+		};
+		4DAC73F32847195400F17A3C /* CodeTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DAC73F82847195400F17A3C /* Build configuration list for PBXNativeTarget "CodeTool" */;
+			buildPhases = (
+				4DAC73F02847195400F17A3C /* Sources */,
+				4DAC73F12847195400F17A3C /* Frameworks */,
+				4DAC73F22847195400F17A3C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodeTool;
+			packageProductDependencies = (
+				4DAC7403284719FF00F17A3C /* ArgumentParser */,
+			);
+			productName = CodeTool;
+			productReference = 4DAC73F42847195400F17A3C /* CodeTool */;
+			productType = "com.apple.product-type.tool";
+		};
+		4DAC740828471AC400F17A3C /* ColorTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DAC740D28471AC400F17A3C /* Build configuration list for PBXNativeTarget "ColorTool" */;
+			buildPhases = (
+				4DAC740528471AC400F17A3C /* Sources */,
+				4DAC740628471AC400F17A3C /* Frameworks */,
+				4DAC740728471AC400F17A3C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorTool;
+			packageProductDependencies = (
+				4DAC741528471ADF00F17A3C /* ArgumentParser */,
+			);
+			productName = ColorTool;
+			productReference = 4DAC740928471AC400F17A3C /* ColorTool */;
+			productType = "com.apple.product-type.tool";
+		};
+		4DAC742028471EE800F17A3C /* Timestamp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DAC742528471EE800F17A3C /* Build configuration list for PBXNativeTarget "Timestamp" */;
+			buildPhases = (
+				4DAC741D28471EE800F17A3C /* Sources */,
+				4DAC741E28471EE800F17A3C /* Frameworks */,
+				4DAC741F28471EE800F17A3C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Timestamp;
+			packageProductDependencies = (
+				4DAC742F2847208100F17A3C /* ArgumentParser */,
+			);
+			productName = Timestamp;
+			productReference = 4DAC742128471EE800F17A3C /* Timestamp */;
+			productType = "com.apple.product-type.tool";
+		};
+		4DAC7434284734A500F17A3C /* QRCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DAC7439284734A500F17A3C /* Build configuration list for PBXNativeTarget "QRCode" */;
+			buildPhases = (
+				4DAC7431284734A500F17A3C /* Sources */,
+				4DAC7432284734A500F17A3C /* Frameworks */,
+				4DAC7433284734A500F17A3C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRCode;
+			packageProductDependencies = (
+				4DAC743C284734E600F17A3C /* ArgumentParser */,
+			);
+			productName = QRCode;
+			productReference = 4DAC7435284734A500F17A3C /* QRCode */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -162,11 +378,23 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					4D43A12427F424110004F08F = {
-						CreatedOnToolsVersion = 13.3;
+					4DAC73DF284713DA00F17A3C = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					4DAC73F32847195400F17A3C = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					4DAC740828471AC400F17A3C = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					4DAC742028471EE800F17A3C = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					4DAC7434284734A500F17A3C = {
+						CreatedOnToolsVersion = 13.4;
 					};
 				};
 			};
@@ -186,31 +414,87 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4D43A12427F424110004F08F /* AlfredTool */,
+				4DAC73DF284713DA00F17A3C /* FlatAESCrypto */,
+				4DAC73F32847195400F17A3C /* CodeTool */,
+				4DAC740828471AC400F17A3C /* ColorTool */,
+				4DAC742028471EE800F17A3C /* Timestamp */,
+				4DAC7434284734A500F17A3C /* QRCode */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4D43A12127F424110004F08F /* Sources */ = {
+		4DAC73DC284713DA00F17A3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DFFEBAB27F71998000B2C9C /* Plist.swift in Sources */,
-				4D43A13427F427570004F08F /* String.swift in Sources */,
-				4D43A13A27F4283E0004F08F /* Image.swift in Sources */,
-				4D43A13327F4273F0004F08F /* Date.swift in Sources */,
-				4D8107F2280FD4DE00F66817 /* CurlParser.swift in Sources */,
-				4D43A13F27F428E40004F08F /* Timestamp.swift in Sources */,
-				4DFFEBAC27F71998000B2C9C /* AlfredItem.swift in Sources */,
-				4DFFEBAD27F71998000B2C9C /* Utils.swift in Sources */,
-				4D43A12827F424110004F08F /* main.swift in Sources */,
-				4D43A13D27F428E40004F08F /* DecodeEncodeToolTool.swift in Sources */,
-				4D8107EC280E9CC500F66817 /* FlatAESCrypto.swift in Sources */,
-				4DFFEBB327F84C4E000B2C9C /* Alfred.swift in Sources */,
-				4D43A13B27F428430004F08F /* Color.swift in Sources */,
-				4D43A13C27F428DD0004F08F /* QRCode.swift in Sources */,
-				4D43A13E27F428E40004F08F /* ColorTool.swift in Sources */,
+				4DAC73ED284714B000F17A3C /* String.swift in Sources */,
+				4DAC73EE284714BE00F17A3C /* CurlParser.swift in Sources */,
+				4DAC741A28471E0100F17A3C /* Plist.swift in Sources */,
+				4DAC73EC284714A100F17A3C /* Alfred.swift in Sources */,
+				4DAC73EB284714A100F17A3C /* AlfredItem.swift in Sources */,
+				4DAC73E3284713DA00F17A3C /* main.swift in Sources */,
+				4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */,
+				4DAC73EA2847149300F17A3C /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAC73F02847195400F17A3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC741B28471E0200F17A3C /* Plist.swift in Sources */,
+				4DAC73FD2847197700F17A3C /* AlfredItem.swift in Sources */,
+				4DAC73FC2847197700F17A3C /* Alfred.swift in Sources */,
+				4DAC74002847199D00F17A3C /* String.swift in Sources */,
+				4DAC73F72847195400F17A3C /* main.swift in Sources */,
+				4DAC73FB2847196600F17A3C /* DecodeEncodeTool.swift in Sources */,
+				4DAC7401284719B800F17A3C /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAC740528471AC400F17A3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC741128471AD300F17A3C /* Alfred.swift in Sources */,
+				4DAC741928471B7600F17A3C /* Image.swift in Sources */,
+				4DAC741328471AD300F17A3C /* AlfredItem.swift in Sources */,
+				4DAC741C28471E0200F17A3C /* Plist.swift in Sources */,
+				4DAC740C28471AC400F17A3C /* main.swift in Sources */,
+				4DAC741728471B4100F17A3C /* String.swift in Sources */,
+				4DAC741828471B6700F17A3C /* Color.swift in Sources */,
+				4DAC741028471ACA00F17A3C /* ColorTool.swift in Sources */,
+				4DAC741428471AD300F17A3C /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAC741D28471EE800F17A3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC742C28471F7900F17A3C /* String.swift in Sources */,
+				4DAC742B28471F6F00F17A3C /* Alfred.swift in Sources */,
+				4DAC742828471EEE00F17A3C /* Timestamp.swift in Sources */,
+				4DAC742E2847205600F17A3C /* Date.swift in Sources */,
+				4DAC742D28471F8900F17A3C /* Utils.swift in Sources */,
+				4DAC742928471F6F00F17A3C /* AlfredItem.swift in Sources */,
+				4DAC742A28471F6F00F17A3C /* Plist.swift in Sources */,
+				4DAC742428471EE800F17A3C /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DAC7431284734A500F17A3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC7443284734F400F17A3C /* QRCode.swift in Sources */,
+				4DAC7441284734EF00F17A3C /* Alfred.swift in Sources */,
+				4DAC743E284734EF00F17A3C /* Plist.swift in Sources */,
+				4DAC743F284734EF00F17A3C /* Image.swift in Sources */,
+				4DAC7438284734A500F17A3C /* main.swift in Sources */,
+				4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */,
+				4DAC7440284734EF00F17A3C /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +614,7 @@
 			};
 			name = Release;
 		};
-		4D43A12A27F424110004F08F /* Debug */ = {
+		4DAC73E5284713DA00F17A3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -340,7 +624,87 @@
 			};
 			name = Debug;
 		};
-		4D43A12B27F424110004F08F /* Release */ = {
+		4DAC73E6284713DA00F17A3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4DAC73F92847195400F17A3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4DAC73FA2847195400F17A3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4DAC740E28471AC400F17A3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4DAC740F28471AC400F17A3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4DAC742628471EE800F17A3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4DAC742728471EE800F17A3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4DAC743A284734A500F17A3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4DAC743B284734A500F17A3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -362,11 +726,47 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D43A12927F424110004F08F /* Build configuration list for PBXNativeTarget "AlfredTool" */ = {
+		4DAC73E4284713DA00F17A3C /* Build configuration list for PBXNativeTarget "FlatAESCrypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4D43A12A27F424110004F08F /* Debug */,
-				4D43A12B27F424110004F08F /* Release */,
+				4DAC73E5284713DA00F17A3C /* Debug */,
+				4DAC73E6284713DA00F17A3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DAC73F82847195400F17A3C /* Build configuration list for PBXNativeTarget "CodeTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DAC73F92847195400F17A3C /* Debug */,
+				4DAC73FA2847195400F17A3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DAC740D28471AC400F17A3C /* Build configuration list for PBXNativeTarget "ColorTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DAC740E28471AC400F17A3C /* Debug */,
+				4DAC740F28471AC400F17A3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DAC742528471EE800F17A3C /* Build configuration list for PBXNativeTarget "Timestamp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DAC742628471EE800F17A3C /* Debug */,
+				4DAC742728471EE800F17A3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DAC7439284734A500F17A3C /* Build configuration list for PBXNativeTarget "QRCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DAC743A284734A500F17A3C /* Debug */,
+				4DAC743B284734A500F17A3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -385,7 +785,27 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4D43A12C27F424270004F08F /* ArgumentParser */ = {
+		4DAC73E82847147300F17A3C /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		4DAC7403284719FF00F17A3C /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		4DAC741528471ADF00F17A3C /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		4DAC742F2847208100F17A3C /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		4DAC743C284734E600F17A3C /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;

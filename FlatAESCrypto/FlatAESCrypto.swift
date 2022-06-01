@@ -57,9 +57,7 @@ struct FlatAESCrypto {
 
     static func decrypt(_ value: String) {
         let dataString = value.curlRequestData.replacingOccurrences(of: "\n", with: "")
-        let icon = AlfredItem.Icon.forTitle("FlatDecrypt")
         var item = AlfredItem()
-        item.icon = icon
         item.uid = "1"
         item.subtitle = "Flat数据解密"
         if value.isEmpty {
