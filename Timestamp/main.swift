@@ -9,29 +9,30 @@ import Foundation
 import ArgumentParser
 
 struct Repeat: ParsableCommand {
-    @Flag(help: "检查结果")
-    var check = false
-    @Option(help: "时间戳")
-    var timestamp: String?
+    @Option(help: "输入内容")
+    var input: String?
+    @Flag(help: "新增格式前")
+    var addBefore = false
+    @Flag(help: "新增格式")
+    var add = false
+    @Flag(help: "删除格式")
+    var del = false
+    @Flag(help: "格式列表")
+    var list = false
 
     func run() {
-        if let timestamp = timestamp { // 时间戳工具
-            if check {
-                guard !timestamp.isEmpty else { Repeat.exit(withError: nil) }
-                if timestamp.lowercased().hasPrefix("save ") {
-                    Timestamp.save(dateFormats: String(timestamp.dropFirst(5)))
-                } else {
-                    print(timestamp)
-                }
-            } else {
-                if timestamp.lowercased().hasPrefix("add ") {
-                    Timestamp.add(dateFormat: String(timestamp.dropFirst(4)))
-                } else if timestamp.lowercased().hasPrefix("remove ") {
-                    Timestamp.remove(dateFormat: String(timestamp.dropFirst(7)))
-                } else {
-                    Timestamp.run(timestamp)
-                }
-            }
+        guard let input = input else { return }
+        
+        if addBefore {
+            Timestamp.addBefore(input)
+        } else if add {
+            Timestamp.save(dateFormats: input, isAdd: true)
+        } else if del, !input.isEmpty {
+            Timestamp.save(dateFormats: input, isAdd: false)
+        } else if list {
+            Timestamp.formatList(del)
+        } else {
+            Timestamp.run(input)
         }
     }
 }

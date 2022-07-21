@@ -69,60 +69,41 @@ class Timestamp {
         return flushItems
     }
     
-    /// 新增一条日期格式化样式
-    static func add(dateFormat: String) {
+    static func addBefore(_ input:String) {
         var item = AlfredItem.item(title: "新增日期格式化样式")
-        if dateFormat.isEmpty {
+        if input.isEmpty {
             item.subtitle = "请输入新的样式，如：YYYY-MM-dd HH:mm:ss"
-        } else if UserDateFormats.contains(dateFormat) {
-            item.subtitle = "\(dateFormat) 已存在"
+        } else if UserDateFormats.contains(input) {
+            item.subtitle = "\(input) 已存在"
         } else {
-            item.arg = "save add \(dateFormat)"
-            item.subtitle = "新增 \(dateFormat)"
+            item.arg = input
+            item.subtitle = "新增 \(input)"
         }
         Alfred.flush(item: item)
     }
     
-    /// 删除一条日期格式化样式
-    static func remove(dateFormat: String) {
-        var item = AlfredItem.item(title: "删除日期格式化样式")
-        if dateFormat.isEmpty {
-            item.subtitle = "请输入删除样式，如：YYYY-MM-dd HH:mm:ss"
+    /// 新增一条日期格式化样式
+    static func formatList(_ isDelete:Bool) {
+        if UserDateFormats.isEmpty {
+            var item = AlfredItem.item(title: "无")
+            item.subtitle = "没有任何日期格式化样式"
             Alfred.flush(item: item)
         } else {
-            let items = UserDateFormats.filter { $0.hasPrefix(dateFormat) }.map {
-                AlfredItem.item(arg: "save del \($0)", title: "删除日期格式化样式", subtitle: "删除 \($0)")
-            }
-            if !items.isEmpty {
-                Alfred.flush(items: items)
-            } else {
-                item.subtitle = "\(dateFormat) 不存在"
-                Alfred.flush(item: item)
-            }
+            let items = UserDateFormats.map({ AlfredItem.item(arg: $0, title: $0, uid: $0, subtitle: isDelete ? "删除：\($0)" : "")})
+            Alfred.flush(items: items)
         }
     }
     
     /// 保存日期格式化样式
-    /// - Parameter dateFormats: json格式
-    static func save(dateFormats: String) {
-        let isAdd = dateFormats.hasPrefix("add ")
+    static func save(dateFormats: String, isAdd:Bool) {
         let formats:[String]
-        let value = String(dateFormats.dropFirst(4))
         if isAdd {
-            formats = UserDateFormats + [value]
+            formats = UserDateFormats + [dateFormats]
         } else {
-            formats = UserDateFormats.filter({ $0 != value })
+            formats = UserDateFormats.filter({ $0 != dateFormats })
         }
         saveUserConfig(key: "DateFormat", value: formats)
         print(isAdd ? "添加格式样式成功" : "删除格式样式成功")
     }
 }
 
-private extension String {
-    
-    func toDate(_ format:String) -> Date? {
-        let dformatter = DateFormatter()
-        dformatter.dateFormat = format
-        return dformatter.date(from: self)
-    }
-}
