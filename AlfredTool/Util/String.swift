@@ -96,9 +96,4 @@ extension String {
         guard let data = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys]) else { return self }
         return String(data: data, encoding: .utf8) ?? self
     }
-    
-    func toDate(_ format:String="YYYYMMdd") -> Date? {
-        let mat = DateFormatter(format)
-        return mat.date(from: self)
-    }
 }

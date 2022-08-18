@@ -3,21 +3,13 @@ import Foundation
 enum Alfred {
     private static let fs: FileManager = .default
     // 用户主目录
-    private static let home: URL = fs.homeDirectoryForCurrentUser
+    static let home: URL = fs.homeDirectoryForCurrentUser
     // Alfred 4 app所在目录
     static let appBundlePath: URL = .init(fileURLWithPath: "/Applications/Alfred 4.app")
     // 是否安装Alfred 4
     static let isInstalled: Bool = fs.exists(appBundlePath)
-    // Alfred 4的info.plist
-    private static let alfredPlist: Plist = .init(path: appBundlePath/"Contents"/"Info.plist")
-    // Alfred 4的版本号
-    static let build: Int = .init(alfredPlist.get("CFBundleVersion", orElse: "0"))!
-    // Alfred 4的bundle id
-    static let bundleID: String = alfredPlist.get("CFBundleIdentifier", orElse: "com.runningwithcrayons.Alfred")
     // Alfred 的Application Support目录
     static let appSupportDir: URL = home/"Library"/"Application Support"/"Alfred"
-    // Alfred的缓存目录
-    static let cacheDir: URL = home/"Library"/"Caches"/bundleID
     // workflow所在的目录
     static let localDir: URL = Bundle.main.bundleURL
 }

@@ -7,6 +7,13 @@
 
 import Foundation
 
+extension String {
+    func toDate(_ format:String="YYYYMMdd") -> Date? {
+        let mat = DateFormatter(format)
+        return mat.date(from: self)
+    }
+}
+
 extension DateFormatter {
     convenience init(_ format: String) {
         self.init()

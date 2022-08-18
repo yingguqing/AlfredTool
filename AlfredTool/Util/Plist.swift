@@ -1,5 +1,16 @@
 import Foundation
 
+extension Alfred {
+    // Alfred 4的info.plist
+    private static let alfredPlist: Plist = .init(path: appBundlePath/"Contents"/"Info.plist")
+    // Alfred 4的版本号
+    static let build: Int = Int(alfredPlist.get("CFBundleVersion", orElse: "0"))!
+    // Alfred 4的bundle id
+    static let bundleID: String = alfredPlist.get("CFBundleIdentifier", orElse: "com.runningwithcrayons.Alfred")
+    // Alfred的缓存目录
+    static let cacheDir: URL = home/"Library"/"Caches"/bundleID
+}
+
 class Plist {
     private var dict: [String: Any] = .init()
 
@@ -26,11 +37,6 @@ class Plist {
             return orElse
         }
     }
-}
-
-extension Alfred {
-    // Alfred 4的info.plist
-    private static let alfredPlist: Plist = .init(path: appBundlePath/"Contents"/"Info.plist")
 }
 
 let info = Plist(path: Alfred.localDir/"info.plist")

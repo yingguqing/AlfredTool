@@ -12,10 +12,8 @@
 		4D7044EF2890E23A004C4BFB /* SearchOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7044EE2890E23A004C4BFB /* SearchOpen.swift */; };
 		4D7044F02890E252004C4BFB /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
 		4D7044F12890E252004C4BFB /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
-		4D7044F22890E252004C4BFB /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
 		4D7044F32890E252004C4BFB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
 		4D7044F42890E252004C4BFB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
-		4D7044F52890EFC6004C4BFB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
 		4D7060CF2887FA790029A04B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7060CE2887FA790029A04B /* main.swift */; };
 		4D7060D42887FAB90029A04B /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4D7060D32887FAB90029A04B /* ArgumentParser */; };
 		4D7060D52887FEDF0029A04B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
@@ -25,8 +23,7 @@
 		4D7060DA288802B60029A04B /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
 		4D7060DB288802B90029A04B /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
 		4D7060DC288802FA0029A04B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
-		4D7060DD288803950029A04B /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
-		4D7473A928AB94C8002CD4DD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
+		4D7473F628AE0E47002CD4DD /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
 		4DAC73E3284713DA00F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC73E2284713DA00F17A3C /* main.swift */; };
 		4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */; };
 		4DAC73E92847147300F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC73E82847147300F17A3C /* ArgumentParser */; };
@@ -51,13 +48,9 @@
 		4DAC741728471B4100F17A3C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
 		4DAC741828471B6700F17A3C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A927F057EA0004F08F /* Color.swift */; };
 		4DAC741928471B7600F17A3C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A827F057E90004F08F /* Image.swift */; };
-		4DAC741A28471E0100F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
-		4DAC741B28471E0200F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
-		4DAC741C28471E0200F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
 		4DAC742428471EE800F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC742328471EE800F17A3C /* main.swift */; };
 		4DAC742828471EEE00F17A3C /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0F327F2DEEF0004F08F /* Timestamp.swift */; };
 		4DAC742928471F6F00F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
-		4DAC742A28471F6F00F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
 		4DAC742B28471F6F00F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
 		4DAC742C28471F7900F17A3C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
 		4DAC742D28471F8900F17A3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
@@ -65,13 +58,11 @@
 		4DAC74302847208100F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC742F2847208100F17A3C /* ArgumentParser */; };
 		4DAC7438284734A500F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC7437284734A500F17A3C /* main.swift */; };
 		4DAC743D284734E600F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC743C284734E600F17A3C /* ArgumentParser */; };
-		4DAC743E284734EF00F17A3C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
 		4DAC743F284734EF00F17A3C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0A827F057E90004F08F /* Image.swift */; };
 		4DAC7440284734EF00F17A3C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
 		4DAC7441284734EF00F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
 		4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
 		4DAC7443284734F400F17A3C /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0FB27F2ED420004F08F /* QRCode.swift */; };
-		4DE7459828A509500034AC75 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -575,10 +566,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D7044F22890E252004C4BFB /* Plist.swift in Sources */,
 				4D7044F12890E252004C4BFB /* AlfredItem.swift in Sources */,
 				4D7044F02890E252004C4BFB /* Alfred.swift in Sources */,
-				4D7044F52890EFC6004C4BFB /* Date.swift in Sources */,
 				4D7044E82890E1D5004C4BFB /* main.swift in Sources */,
 				4D7044F42890E252004C4BFB /* String.swift in Sources */,
 				4D7044EF2890E23A004C4BFB /* SearchOpen.swift in Sources */,
@@ -592,7 +581,6 @@
 			files = (
 				4D7060DA288802B60029A04B /* Alfred.swift in Sources */,
 				4D7060CF2887FA790029A04B /* main.swift in Sources */,
-				4D7060DD288803950029A04B /* Plist.swift in Sources */,
 				4D7060D52887FEDF0029A04B /* Date.swift in Sources */,
 				4D7060DC288802FA0029A04B /* Utils.swift in Sources */,
 				4D7060D8288801A30029A04B /* String.swift in Sources */,
@@ -607,12 +595,10 @@
 			files = (
 				4DAC73ED284714B000F17A3C /* String.swift in Sources */,
 				4DAC73EE284714BE00F17A3C /* CurlParser.swift in Sources */,
-				4DAC741A28471E0100F17A3C /* Plist.swift in Sources */,
 				4DAC73EC284714A100F17A3C /* Alfred.swift in Sources */,
 				4DAC73EB284714A100F17A3C /* AlfredItem.swift in Sources */,
 				4DAC73E3284713DA00F17A3C /* main.swift in Sources */,
 				4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */,
-				4DE7459828A509500034AC75 /* Date.swift in Sources */,
 				4DAC73EA2847149300F17A3C /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,7 +607,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DAC741B28471E0200F17A3C /* Plist.swift in Sources */,
 				4DAC73FD2847197700F17A3C /* AlfredItem.swift in Sources */,
 				4DAC73FC2847197700F17A3C /* Alfred.swift in Sources */,
 				4DAC74002847199D00F17A3C /* String.swift in Sources */,
@@ -638,7 +623,6 @@
 				4DAC741128471AD300F17A3C /* Alfred.swift in Sources */,
 				4DAC741928471B7600F17A3C /* Image.swift in Sources */,
 				4DAC741328471AD300F17A3C /* AlfredItem.swift in Sources */,
-				4DAC741C28471E0200F17A3C /* Plist.swift in Sources */,
 				4DAC740C28471AC400F17A3C /* main.swift in Sources */,
 				4DAC741728471B4100F17A3C /* String.swift in Sources */,
 				4DAC741828471B6700F17A3C /* Color.swift in Sources */,
@@ -657,7 +641,6 @@
 				4DAC742E2847205600F17A3C /* Date.swift in Sources */,
 				4DAC742D28471F8900F17A3C /* Utils.swift in Sources */,
 				4DAC742928471F6F00F17A3C /* AlfredItem.swift in Sources */,
-				4DAC742A28471F6F00F17A3C /* Plist.swift in Sources */,
 				4DAC742428471EE800F17A3C /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,12 +651,11 @@
 			files = (
 				4DAC7443284734F400F17A3C /* QRCode.swift in Sources */,
 				4DAC7441284734EF00F17A3C /* Alfred.swift in Sources */,
-				4DAC743E284734EF00F17A3C /* Plist.swift in Sources */,
+				4D7473F628AE0E47002CD4DD /* Plist.swift in Sources */,
 				4DAC743F284734EF00F17A3C /* Image.swift in Sources */,
 				4DAC7438284734A500F17A3C /* main.swift in Sources */,
 				4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */,
 				4D7060D9288801A80029A04B /* String.swift in Sources */,
-				4D7473A928AB94C8002CD4DD /* Date.swift in Sources */,
 				4DAC7440284734EF00F17A3C /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
