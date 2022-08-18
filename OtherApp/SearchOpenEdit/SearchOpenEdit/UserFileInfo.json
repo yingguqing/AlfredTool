@@ -1,0 +1,77 @@
+{
+    "App":
+    {
+        "XcodeProj": "/Applications/Xcode.app",
+        "Fold":"/System/Library/CoreServices/Finder.app"
+    },
+    "XcodeProj":
+    [
+        {
+            "name": "棋牌游戏主包",
+            "path": "/Users/zhouziyuan/Documents/iOS/client-teen-patti-zone/ios_proj/proj.ios_mac/TeenPattiZone.xcodeproj",
+            "search": "tpz"
+        },
+        {
+            "name": "棋牌游戏调试工程",
+            "path": "/Users/zhouziyuan/Documents/iOS/client-teen-patti-zone/iOS马甲包工程/马甲包调试工程/ios_proj/proj.ios_mac/TeenPattiZone.xcodeproj",
+            "search": ""
+        },
+        {
+            "name": "1号棋牌游戏马甲包工程",
+            "path": "/Users/zhouziyuan/Documents/iOS/client-teen-patti-zone/iOS马甲包工程/ios_proj/proj.ios_mac/TeenPattiZone.xcodeproj",
+            "search": ""
+        },
+        {
+            "name": "支付SDK",
+            "path": "/Users/zhouziyuan/Documents/iOS/game-activation/FlatSDK/棋牌游戏SDK/FlatSDK/FlatSDK.xcodeproj",
+            "search": "paysdk"
+        },
+        {
+            "name": "FictionCrawl",
+            "path": "/Users/zhouziyuan/Documents/MyProject/FictionCrawl/FictionCrawl.xcodeproj",
+            "search": ""
+        },
+        {
+            "name": "",
+            "path": "/Users/zhouziyuan/Documents/GitHub/AlfredTool/AlfredTool.xcodeproj",
+            "search": ""
+        },
+        {
+            "name": "混淆工具",
+            "path": "/Users/zhouziyuan/Documents/Project/SwiftUI/ProjectConfusion/ProjectConfusion.xcodeproj",
+            "search": ""
+        },
+        {
+            "name": "文件删除工具",
+            "path": "/Users/zhouziyuan/Documents/Project/SwiftUI/RemoveFiles/RemoveFiles.xcodeproj",
+            "search": "fileremove"
+        },
+        {
+            "name": "",
+            "path": "/Users/zhouziyuan/Documents/MyProject/星飞/PackTool/Sources/FusionPackTool.xcworkspace",
+            "search": ""
+        }
+    ],
+    "Fold":[
+        {
+            "name": "棋牌游戏主目录",
+            "path": "/Users/zhouziyuan/Documents/iOS/client-teen-patti-zone",
+            "search": "tpz"
+        },
+        {
+            "name": "马甲包主目录",
+            "path": "/Users/zhouziyuan/Documents/iOS/client-teen-patti-zone/iOS马甲包工程",
+            "search": ""
+        },
+        {
+            "name": "",
+            "path": "/Users/zhouziyuan/Documents/MyProject",
+            "search": ""
+        },
+        {
+            "name": "",
+            "path": "/Users/zhouziyuan/Documents/Project/SwiftUI",
+            "search": ""
+        }
+    ]
+}

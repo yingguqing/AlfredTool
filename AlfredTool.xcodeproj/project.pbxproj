@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D7044E82890E1D5004C4BFB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7044E72890E1D5004C4BFB /* main.swift */; };
+		4D7044ED2890E1E5004C4BFB /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4D7044EC2890E1E5004C4BFB /* ArgumentParser */; };
+		4D7044EF2890E23A004C4BFB /* SearchOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7044EE2890E23A004C4BFB /* SearchOpen.swift */; };
+		4D7044F02890E252004C4BFB /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4D7044F12890E252004C4BFB /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4D7044F22890E252004C4BFB /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
+		4D7044F32890E252004C4BFB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
+		4D7044F42890E252004C4BFB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4D7044F52890EFC6004C4BFB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
 		4D7060CF2887FA790029A04B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7060CE2887FA790029A04B /* main.swift */; };
 		4D7060D42887FAB90029A04B /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4D7060D32887FAB90029A04B /* ArgumentParser */; };
 		4D7060D52887FEDF0029A04B /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
@@ -17,6 +26,7 @@
 		4D7060DB288802B90029A04B /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
 		4D7060DC288802FA0029A04B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* Utils.swift */; };
 		4D7060DD288803950029A04B /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
+		4D7473A928AB94C8002CD4DD /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
 		4DAC73E3284713DA00F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC73E2284713DA00F17A3C /* main.swift */; };
 		4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */; };
 		4DAC73E92847147300F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC73E82847147300F17A3C /* ArgumentParser */; };
@@ -61,9 +71,19 @@
 		4DAC7441284734EF00F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
 		4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
 		4DAC7443284734F400F17A3C /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0FB27F2ED420004F08F /* QRCode.swift */; };
+		4DE7459828A509500034AC75 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A13227F4273F0004F08F /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		4D7044E32890E1D5004C4BFB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		4D7060CA2887FA790029A04B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,6 +149,9 @@
 		4D43A0FB27F2ED420004F08F /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		4D43A11927F404340004F08F /* DecodeEncodeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeEncodeTool.swift; sourceTree = "<group>"; };
 		4D43A13227F4273F0004F08F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		4D7044E52890E1D5004C4BFB /* SearchOpen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SearchOpen; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D7044E72890E1D5004C4BFB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4D7044EE2890E23A004C4BFB /* SearchOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOpen.swift; sourceTree = "<group>"; };
 		4D7060CC2887FA790029A04B /* WeeklyData */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WeeklyData; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7060CE2887FA790029A04B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4D7060D62888008F0029A04B /* WeeklyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyDataManager.swift; sourceTree = "<group>"; };
@@ -152,6 +175,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4D7044E22890E1D5004C4BFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D7044ED2890E1E5004C4BFB /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D7060C92887FA790029A04B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,12 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				4D43A12627F424110004F08F /* AlfredTool */,
-				4DAC73E1284713DA00F17A3C /* FlatAESCrypto */,
-				4DAC73F52847195400F17A3C /* CodeTool */,
-				4DAC740A28471AC400F17A3C /* ColorTool */,
-				4DAC742228471EE800F17A3C /* Timestamp */,
-				4DAC7436284734A500F17A3C /* QRCode */,
-				4D7060CD2887FA790029A04B /* WeeklyData */,
 				4D43A05C27F04D5B0004F08F /* Products */,
 				4D43A09B27F052A10004F08F /* Frameworks */,
 			);
@@ -227,6 +252,7 @@
 				4DAC742128471EE800F17A3C /* Timestamp */,
 				4DAC7435284734A500F17A3C /* QRCode */,
 				4D7060CC2887FA790029A04B /* WeeklyData */,
+				4D7044E52890E1D5004C4BFB /* SearchOpen */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,6 +268,24 @@
 		4D43A12627F424110004F08F /* AlfredTool */ = {
 			isa = PBXGroup;
 			children = (
+				4D70455E2897847E004C4BFB /* Module */,
+				4D70455D28978431004C4BFB /* Util */,
+			);
+			path = AlfredTool;
+			sourceTree = "<group>";
+		};
+		4D7044E62890E1D5004C4BFB /* SearchOpen */ = {
+			isa = PBXGroup;
+			children = (
+				4D7044E72890E1D5004C4BFB /* main.swift */,
+				4D7044EE2890E23A004C4BFB /* SearchOpen.swift */,
+			);
+			path = SearchOpen;
+			sourceTree = "<group>";
+		};
+		4D70455D28978431004C4BFB /* Util */ = {
+			isa = PBXGroup;
+			children = (
 				4D43A0A827F057E90004F08F /* Image.swift */,
 				4DFFEBB227F84C4E000B2C9C /* Alfred.swift */,
 				4DFFEBA827F71998000B2C9C /* AlfredItem.swift */,
@@ -250,7 +294,21 @@
 				4D43A0AF27F097B70004F08F /* String.swift */,
 				4D43A13227F4273F0004F08F /* Date.swift */,
 			);
-			path = AlfredTool;
+			path = Util;
+			sourceTree = "<group>";
+		};
+		4D70455E2897847E004C4BFB /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				4DAC73E1284713DA00F17A3C /* FlatAESCrypto */,
+				4DAC73F52847195400F17A3C /* CodeTool */,
+				4DAC740A28471AC400F17A3C /* ColorTool */,
+				4DAC742228471EE800F17A3C /* Timestamp */,
+				4DAC7436284734A500F17A3C /* QRCode */,
+				4D7060CD2887FA790029A04B /* WeeklyData */,
+				4D7044E62890E1D5004C4BFB /* SearchOpen */,
+			);
+			path = Module;
 			sourceTree = "<group>";
 		};
 		4D7060CD2887FA790029A04B /* WeeklyData */ = {
@@ -312,6 +370,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4D7044E42890E1D5004C4BFB /* SearchOpen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D7044EB2890E1D5004C4BFB /* Build configuration list for PBXNativeTarget "SearchOpen" */;
+			buildPhases = (
+				4D7044E12890E1D5004C4BFB /* Sources */,
+				4D7044E22890E1D5004C4BFB /* Frameworks */,
+				4D7044E32890E1D5004C4BFB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SearchOpen;
+			packageProductDependencies = (
+				4D7044EC2890E1E5004C4BFB /* ArgumentParser */,
+			);
+			productName = SearchOpen;
+			productReference = 4D7044E52890E1D5004C4BFB /* SearchOpen */;
+			productType = "com.apple.product-type.tool";
+		};
 		4D7060CB2887FA790029A04B /* WeeklyData */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D7060D22887FA790029A04B /* Build configuration list for PBXNativeTarget "WeeklyData" */;
@@ -442,6 +520,9 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					4D7044E42890E1D5004C4BFB = {
+						CreatedOnToolsVersion = 13.4;
+					};
 					4D7060CB2887FA790029A04B = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -484,11 +565,27 @@
 				4DAC742028471EE800F17A3C /* Timestamp */,
 				4DAC7434284734A500F17A3C /* QRCode */,
 				4D7060CB2887FA790029A04B /* WeeklyData */,
+				4D7044E42890E1D5004C4BFB /* SearchOpen */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4D7044E12890E1D5004C4BFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D7044F22890E252004C4BFB /* Plist.swift in Sources */,
+				4D7044F12890E252004C4BFB /* AlfredItem.swift in Sources */,
+				4D7044F02890E252004C4BFB /* Alfred.swift in Sources */,
+				4D7044F52890EFC6004C4BFB /* Date.swift in Sources */,
+				4D7044E82890E1D5004C4BFB /* main.swift in Sources */,
+				4D7044F42890E252004C4BFB /* String.swift in Sources */,
+				4D7044EF2890E23A004C4BFB /* SearchOpen.swift in Sources */,
+				4D7044F32890E252004C4BFB /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D7060C82887FA790029A04B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -515,6 +612,7 @@
 				4DAC73EB284714A100F17A3C /* AlfredItem.swift in Sources */,
 				4DAC73E3284713DA00F17A3C /* main.swift in Sources */,
 				4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */,
+				4DE7459828A509500034AC75 /* Date.swift in Sources */,
 				4DAC73EA2847149300F17A3C /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +673,7 @@
 				4DAC7438284734A500F17A3C /* main.swift in Sources */,
 				4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */,
 				4D7060D9288801A80029A04B /* String.swift in Sources */,
+				4D7473A928AB94C8002CD4DD /* Date.swift in Sources */,
 				4DAC7440284734EF00F17A3C /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,6 +791,26 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4D7044E92890E1D5004C4BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4D7044EA2890E1D5004C4BFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -839,6 +958,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		4D7044EB2890E1D5004C4BFB /* Build configuration list for PBXNativeTarget "SearchOpen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D7044E92890E1D5004C4BFB /* Debug */,
+				4D7044EA2890E1D5004C4BFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4D7060D22887FA790029A04B /* Build configuration list for PBXNativeTarget "WeeklyData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -907,6 +1035,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4D7044EC2890E1E5004C4BFB /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
 		4D7060D32887FAB90029A04B /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
