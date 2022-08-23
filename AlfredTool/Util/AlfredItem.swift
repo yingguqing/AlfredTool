@@ -121,9 +121,11 @@ struct AlfredItem: Codable {
             Icon(type: "fileicon", path: filePath.path)
         }
         
+/*
         static func forTitle(_ title:String) -> Icon {
             Icon(path: itemIcon(title: title))
         }
+*/
     }
 
     /// The mod element gives you control over how the modifier keys react.
