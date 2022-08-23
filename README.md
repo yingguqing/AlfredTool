@@ -3,6 +3,12 @@
 
 
 
+对于`Keyword`是输入`cmd xxx`后按enter才能触发.
+
+ 对于`XXX Filter`是输入时不停地调用脚本触发.
+
+
+
 ## Colors
 
 颜色转换，参照[大神](https://github.com/TylerEich/Alfred-Extras)的代码和图标。去掉很多和本人使用不相关的代码，只保留个人习惯结果。

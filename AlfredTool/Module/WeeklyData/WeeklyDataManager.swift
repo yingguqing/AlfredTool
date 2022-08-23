@@ -120,7 +120,7 @@ class WeeklyDataManager {
                 let count = (dict[$0.week] ?? 0) + 1
                 dict.updateValue(count, forKey: $0.week)
             }
-            let items = dict.keys.sorted(by: >).map { AlfredItem.item(arg: $0, title: $0, uid: $0, subtitle: "周报 \(dict[$0] ?? 0) 份") }
+            let items = dict.keys.sorted(by: >).map { AlfredItem.item(arg: $0, title: $0, subtitle: "周报 \(dict[$0] ?? 0) 份") }
             Alfred.flush(items: items)
         } else {
             let list = readAllWeeklyData().filter { $0.week == date.weekRange }.sorted(by: { $0.timestamp < $1.timestamp })

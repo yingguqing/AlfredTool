@@ -46,9 +46,10 @@ class SearchOpen {
         }
         
         /// alfred的item项
-        func item(_ index: Int) -> AlfredItem {
+        func item() -> AlfredItem {
             var item = AlfredItem()
-            item.uid = "\(index + 100)"
+            // 设置uid，用于alfred记忆，最近选择的排在前面
+            item.uid = path
             item.subtitle = path
             item.arg = arg
             item.title = name
@@ -80,7 +81,7 @@ class SearchOpen {
                 return
             }
             let defaultApp = allApp?[group]
-            let items = list.compactMap { File(json: $0, defaultApp: defaultApp) }.filter { $0.isValid(input) }.enumerated().map { $0.element.item($0.offset) }
+            let items = list.compactMap { File(json: $0, defaultApp: defaultApp) }.filter { $0.isValid(input) }.map { $0.item() }
             guard !items.isEmpty else {
                 Alfred.flush(item: File.empty)
                 return

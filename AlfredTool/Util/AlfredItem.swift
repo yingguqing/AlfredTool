@@ -19,7 +19,7 @@ struct AlfredItem: Codable {
     /// executions of your script to take advantage of Alfred's knowledge
     /// and sorting. If you would like Alfred to always show the results
     /// in the order you return them from your script, exclude the UID field.
-    /// 给 Alfred 进行记忆和排序的编号
+    /// 给 Alfred 进行记忆和排序的编号(有值才能记忆，如果固定排序，就不要设置)
     var uid: String?
 
     /// 标题内容
