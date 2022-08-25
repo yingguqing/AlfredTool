@@ -25,4 +25,10 @@ extension NSImage {
             return false
         }
     }
+    
+    /// 保存文件当前显示的icon
+    class func saveFileIcon(filePath:String, savePath:String) -> Bool {
+        let image = NSWorkspace.shared.icon(forFile: filePath)
+        return image.pngWrite(to: URL(fileURLWithPath: savePath))
+    }
 }

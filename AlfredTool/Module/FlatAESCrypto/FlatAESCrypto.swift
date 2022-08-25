@@ -31,6 +31,12 @@ struct FlatAESCrypto {
         return Data(decryptedBytes)
     }
 
+    func decrypt(_ string:String) throws -> String? {
+        guard let data = Data(base64Encoded: string) else { return nil }
+        let deData = try decrypt(data)
+        return String(data: deData, encoding: .utf8)?.trimmingCharacters(in: CharacterSet(charactersIn: "\0"))
+    }
+    
     static func decrypt(_ value: String) {
         let dataString = value.curlRequestData.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\\/", with: "/")
         var item = AlfredItem()
@@ -40,8 +46,8 @@ struct FlatAESCrypto {
             item.arg = value
             item.title = "输入Flat的网络加密数据"
         } else if let decrypt = dataString.flatDecryptList {
-            item.arg = decrypt.jsonFormat
-            item.title = "解密成功"
+            item.arg = decrypt.1.jsonFormat
+            item.title = decrypt.0
         } else {
             item.arg = ""
             item.title = "解密失败"
@@ -112,13 +118,9 @@ private extension String {
         guard !self.isEmpty else {
             return nil
         }
-        guard let contentData = Data(base64Encoded: self) else {
-            return nil
-        }
         do {
             let aes = try FlatAESCrypto(keyIndex: "a")
-            let data = try aes.decrypt(contentData)
-            return String(data: data, encoding: .utf8)
+            return try aes.decrypt(self)
         } catch {
             return nil
         }
@@ -128,10 +130,8 @@ private extension String {
     var flatCustomerDecrypt: String? {
         guard let dic = userConfig("FlatCustomerKeyIv") as? [String: String], let key = dic["key"], let iv = dic["iv"] else { return nil }
         do {
-            guard let data = Data(base64Encoded: self) else { return nil }
             let aes = try FlatAESCrypto(key: key, blockMode: CBC(iv: iv))
-            let deData = try aes.decrypt(data)
-            return String(data: deData, encoding: .utf8)
+            return try aes.decrypt(self)
         } catch {
             debugPrint(error.localizedDescription)
             return nil
@@ -142,10 +142,8 @@ private extension String {
     var flatGameCenterDecrypt: String? {
         guard let key = userConfig("FlatGameCenterKey") as? String else { return nil }
         do {
-            guard let data = Data(base64Encoded: self) else { return nil }
             let aes = try FlatAESCrypto(key: key)
-            let deData = try aes.decrypt(data)
-            return String(data: deData, encoding: .utf8)
+            return try aes.decrypt(self)
         } catch {
             debugPrint(error.localizedDescription)
             return nil
@@ -155,7 +153,14 @@ private extension String {
 
 private extension String {
     /// 所有解密方式都解一遍
-    var flatDecryptList: String? {
-        return self.flatPayDecrypt ?? self.flatCustomerDecrypt ?? self.flatGameCenterDecrypt ?? self.flatDecrypt
+    var flatDecryptList: (String, String)? {
+        let item = [
+            ("支付数据解密成功", self.flatPayDecrypt),
+            ("客服数据解密成功", self.flatCustomerDecrypt),
+            ("用户中心解密成功", self.flatGameCenterDecrypt),
+            ("网络数据解密成功", self.flatDecrypt)
+        ].filter({ $0.1 != nil }).first
+        guard let item = item else { return nil }
+        return (item.0, item.1!)
     }
 }

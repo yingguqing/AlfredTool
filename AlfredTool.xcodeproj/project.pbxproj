@@ -66,6 +66,15 @@
 		4D98AA2528B474E100CF256E /* OFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98A9FC28B474E100CF256E /* OFB.swift */; };
 		4D98AA2628B474E100CF256E /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98A9FD28B474E100CF256E /* Array+Extension.swift */; };
 		4D98AA2928B4771200CF256E /* Alfred+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA2728B476F400CF256E /* Alfred+Script.swift */; };
+		4D98AA4728B7556D00CF256E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4628B7556D00CF256E /* main.swift */; };
+		4D98AA4D28B7559600CF256E /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4B28B7559600CF256E /* Regex.swift */; };
+		4D98AA4E28B7559600CF256E /* NSTask-execute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4C28B7559600CF256E /* NSTask-execute.swift */; };
+		4D98AA4F28B755A100CF256E /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4D98AA5028B755A300CF256E /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4D98AA5128B755A700CF256E /* AlfredUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */; };
+		4D98AA5228B755B000CF256E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4D98AA5428B7560600CF256E /* DistinctProvisionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA5328B7560600CF256E /* DistinctProvisionProfile.swift */; };
+		4D98AA5628B756AB00CF256E /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4D98AA5528B756AB00CF256E /* ArgumentParser */; };
 		4DAC73E3284713DA00F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC73E2284713DA00F17A3C /* main.swift */; };
 		4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */; };
 		4DAC73E92847147300F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC73E82847147300F17A3C /* ArgumentParser */; };
@@ -118,6 +127,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		4D7060CA2887FA790029A04B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4D98AA4228B7556D00CF256E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -233,6 +251,11 @@
 		4D98A9FC28B474E100CF256E /* OFB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OFB.swift; sourceTree = "<group>"; };
 		4D98A9FD28B474E100CF256E /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		4D98AA2728B476F400CF256E /* Alfred+Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alfred+Script.swift"; sourceTree = "<group>"; };
+		4D98AA4428B7556D00CF256E /* DistinctProvisionProfile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DistinctProvisionProfile; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D98AA4628B7556D00CF256E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4D98AA4B28B7559600CF256E /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		4D98AA4C28B7559600CF256E /* NSTask-execute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTask-execute.swift"; sourceTree = "<group>"; };
+		4D98AA5328B7560600CF256E /* DistinctProvisionProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistinctProvisionProfile.swift; sourceTree = "<group>"; };
 		4DAC73E0284713DA00F17A3C /* FlatAESCrypto */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FlatAESCrypto; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAC73E2284713DA00F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4DAC73F42847195400F17A3C /* CodeTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CodeTool; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +286,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7060D42887FAB90029A04B /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D98AA4128B7556D00CF256E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D98AA5628B756AB00CF256E /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +359,7 @@
 				4DAC7435284734A500F17A3C /* QRCode */,
 				4D7060CC2887FA790029A04B /* WeeklyData */,
 				4D7044E52890E1D5004C4BFB /* SearchOpen */,
+				4D98AA4428B7556D00CF256E /* DistinctProvisionProfile */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -361,6 +393,8 @@
 		4D70455D28978431004C4BFB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				4D98AA4C28B7559600CF256E /* NSTask-execute.swift */,
+				4D98AA4B28B7559600CF256E /* Regex.swift */,
 				4D43A0A827F057E90004F08F /* Image.swift */,
 				4DFFEBB227F84C4E000B2C9C /* Alfred.swift */,
 				4D98AA2728B476F400CF256E /* Alfred+Script.swift */,
@@ -383,6 +417,7 @@
 				4DAC7436284734A500F17A3C /* QRCode */,
 				4D7060CD2887FA790029A04B /* WeeklyData */,
 				4D7044E62890E1D5004C4BFB /* SearchOpen */,
+				4D98AA4528B7556D00CF256E /* DistinctProvisionProfile */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -466,6 +501,15 @@
 				4D98A9FC28B474E100CF256E /* OFB.swift */,
 			);
 			path = BlockMode;
+			sourceTree = "<group>";
+		};
+		4D98AA4528B7556D00CF256E /* DistinctProvisionProfile */ = {
+			isa = PBXGroup;
+			children = (
+				4D98AA4628B7556D00CF256E /* main.swift */,
+				4D98AA5328B7560600CF256E /* DistinctProvisionProfile.swift */,
+			);
+			path = DistinctProvisionProfile;
 			sourceTree = "<group>";
 		};
 		4DAC73E1284713DA00F17A3C /* FlatAESCrypto */ = {
@@ -557,6 +601,26 @@
 			);
 			productName = WeeklyData;
 			productReference = 4D7060CC2887FA790029A04B /* WeeklyData */;
+			productType = "com.apple.product-type.tool";
+		};
+		4D98AA4328B7556D00CF256E /* DistinctProvisionProfile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D98AA4A28B7556D00CF256E /* Build configuration list for PBXNativeTarget "DistinctProvisionProfile" */;
+			buildPhases = (
+				4D98AA4028B7556D00CF256E /* Sources */,
+				4D98AA4128B7556D00CF256E /* Frameworks */,
+				4D98AA4228B7556D00CF256E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DistinctProvisionProfile;
+			packageProductDependencies = (
+				4D98AA5528B756AB00CF256E /* ArgumentParser */,
+			);
+			productName = DistinctProvisionProfile;
+			productReference = 4D98AA4428B7556D00CF256E /* DistinctProvisionProfile */;
 			productType = "com.apple.product-type.tool";
 		};
 		4DAC73DF284713DA00F17A3C /* FlatAESCrypto */ = {
@@ -675,6 +739,9 @@
 					4D7060CB2887FA790029A04B = {
 						CreatedOnToolsVersion = 13.4;
 					};
+					4D98AA4328B7556D00CF256E = {
+						CreatedOnToolsVersion = 13.4;
+					};
 					4DAC73DF284713DA00F17A3C = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -715,6 +782,7 @@
 				4DAC7434284734A500F17A3C /* QRCode */,
 				4D7060CB2887FA790029A04B /* WeeklyData */,
 				4D7044E42890E1D5004C4BFB /* SearchOpen */,
+				4D98AA4328B7556D00CF256E /* DistinctProvisionProfile */,
 			);
 		};
 /* End PBXProject section */
@@ -744,6 +812,21 @@
 				4D7060D8288801A30029A04B /* String.swift in Sources */,
 				4D7060DB288802B90029A04B /* AlfredItem.swift in Sources */,
 				4D7060D72888008F0029A04B /* WeeklyDataManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D98AA4028B7556D00CF256E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D98AA4728B7556D00CF256E /* main.swift in Sources */,
+				4D98AA5028B755A300CF256E /* AlfredItem.swift in Sources */,
+				4D98AA4F28B755A100CF256E /* Alfred.swift in Sources */,
+				4D98AA5128B755A700CF256E /* AlfredUtils.swift in Sources */,
+				4D98AA5228B755B000CF256E /* String.swift in Sources */,
+				4D98AA5428B7560600CF256E /* DistinctProvisionProfile.swift in Sources */,
+				4D98AA4D28B7559600CF256E /* Regex.swift in Sources */,
+				4D98AA4E28B7559600CF256E /* NSTask-execute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,6 +1101,24 @@
 			};
 			name = Release;
 		};
+		4D98AA4828B7556D00CF256E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4D98AA4928B7556D00CF256E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		4DAC73E5284713DA00F17A3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1158,6 +1259,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		4D98AA4A28B7556D00CF256E /* Build configuration list for PBXNativeTarget "DistinctProvisionProfile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D98AA4828B7556D00CF256E /* Debug */,
+				4D98AA4928B7556D00CF256E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4DAC73E4284713DA00F17A3C /* Build configuration list for PBXNativeTarget "FlatAESCrypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1223,6 +1333,11 @@
 			productName = ArgumentParser;
 		};
 		4D7060D32887FAB90029A04B /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		4D98AA5528B756AB00CF256E /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;
