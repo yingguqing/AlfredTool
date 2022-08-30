@@ -163,7 +163,7 @@ class WeeklyDataManager {
 
     /// 插入周报前
     class func insertBefor(report: String) {
-        let array = report.components(separatedBy: " ").filter { !$0.isEmpty }
+        let array = report.components(separatedBy: ";").filter { !$0.isEmpty }
         if array.count == 0 {
             var item = AlfredItem()
             item.uid = "1"

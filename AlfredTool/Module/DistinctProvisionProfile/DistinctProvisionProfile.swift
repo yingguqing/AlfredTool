@@ -18,7 +18,7 @@ class DistinctProvisionProfile {
         let created: Date
         let expires: Date
         let bundleId: String
-        let teamID: Set<String>
+        let teamID: String
         let platforms: [String]
         let rawXML: String
         let devices: [String]
@@ -32,12 +32,12 @@ class DistinctProvisionProfile {
         // 通过标识获取同一个证书的不同版本
         files.forEach {
             // 描述文件有相应证书
-            if !allTeamId.intersection($0.teamID).isEmpty {
+            if allTeamId.contains($0.teamID) {
                 let id = "\($0.applicationIdentifier)-\($0.name)"
                 var list = profileDic[id] ?? []
                 list.append($0)
                 // 最新创建的排在最前面
-                list.sort(by: { $0.created > $1.created})
+                list.sort(by: { $0.created.timeIntervalSince1970 > $1.created.timeIntervalSince1970 })
                 profileDic.updateValue(list, forKey: id)
             } else {
                 // 描述文件没有证书时，直接删除
@@ -86,18 +86,18 @@ extension DistinctProvisionProfile.ProvisioningProfile {
         let expirationDate = result["ExpirationDate"] as? Date
         let creationDate = result["CreationDate"] as? Date
         let name = result["Name"] as? String
-        let teamIds = result["ApplicationIdentifierPrefix"] as? [String]
         let platforms = result["Platform"] as? [String]
         let entitlements = result["Entitlements"] as? [String: Any]
+        let teamId = entitlements?["com.apple.developer.team-identifier"] as? String
         let applicationIdentifier = entitlements?["application-identifier"] as? String
-        guard let expirationDate = expirationDate, let creationDate = creationDate, let name = name, let platforms = platforms, let applicationIdentifier = applicationIdentifier, let periodIndex = applicationIdentifier.firstIndex(of: ".") else { return nil }
+        guard let expirationDate = expirationDate, let creationDate = creationDate, let name = name, let platforms = platforms, let applicationIdentifier = applicationIdentifier, let teamId = teamId, let periodIndex = applicationIdentifier.firstIndex(of: ".") else { return nil }
         self.devices = result["ProvisionedDevices"] as? [String] ?? []
         self.path = path
         self.expires = expirationDate
         self.created = creationDate
         self.platforms = platforms
         self.bundleId = String(applicationIdentifier[applicationIdentifier.index(periodIndex, offsetBy: 1)...])
-        self.teamID = Set(teamIds ?? [])
+        self.teamID = teamId
         self.name = name
         self.applicationIdentifier = applicationIdentifier
     }
