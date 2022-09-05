@@ -114,6 +114,15 @@
 		4DAC7441284734EF00F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
 		4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
 		4DAC7443284734F400F17A3C /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0FB27F2ED420004F08F /* QRCode.swift */; };
+		4DF25C9928C1A09E00D47C8C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF25C9828C1A09E00D47C8C /* main.swift */; };
+		4DF25C9E28C1A0E000D47C8C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF25C9D28C1A0E000D47C8C /* ArgumentParser */; };
+		4DF25C9F28C1A10000D47C8C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4DF25CA028C1A10000D47C8C /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4B28B7559600CF256E /* Regex.swift */; };
+		4DF25CA128C1A10000D47C8C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4DF25CA228C1A10400D47C8C /* AlfredUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */; };
+		4DF25CA328C1A10700D47C8C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4DF25CA528C1A23E00D47C8C /* SecurityExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF25CA428C1A23E00D47C8C /* SecurityExam.swift */; };
+		4DF25CB128C1F42D00D47C8C /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -181,6 +190,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		4DAC7433284734A500F17A3C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4DF25C9428C1A09E00D47C8C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -266,6 +284,9 @@
 		4DAC742328471EE800F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4DAC7435284734A500F17A3C /* QRCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = QRCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAC7437284734A500F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4DF25C9628C1A09E00D47C8C /* SecurityExam */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SecurityExam; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DF25C9828C1A09E00D47C8C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4DF25CA428C1A23E00D47C8C /* SecurityExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExam.swift; sourceTree = "<group>"; };
 		4DFFEBA727F71998000B2C9C /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		4DFFEBA827F71998000B2C9C /* AlfredItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfredItem.swift; sourceTree = "<group>"; };
 		4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfredUtils.swift; sourceTree = "<group>"; };
@@ -337,6 +358,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DF25C9328C1A09E00D47C8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF25C9E28C1A0E000D47C8C /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -360,6 +389,7 @@
 				4D7060CC2887FA790029A04B /* WeeklyData */,
 				4D7044E52890E1D5004C4BFB /* SearchOpen */,
 				4D98AA4428B7556D00CF256E /* DistinctProvisionProfile */,
+				4DF25C9628C1A09E00D47C8C /* SecurityExam */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -418,6 +448,7 @@
 				4D7060CD2887FA790029A04B /* WeeklyData */,
 				4D7044E62890E1D5004C4BFB /* SearchOpen */,
 				4D98AA4528B7556D00CF256E /* DistinctProvisionProfile */,
+				4DF25C9728C1A09E00D47C8C /* SecurityExam */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -560,6 +591,15 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		4DF25C9728C1A09E00D47C8C /* SecurityExam */ = {
+			isa = PBXGroup;
+			children = (
+				4DF25C9828C1A09E00D47C8C /* main.swift */,
+				4DF25CA428C1A23E00D47C8C /* SecurityExam.swift */,
+			);
+			path = SecurityExam;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -570,6 +610,7 @@
 				4D7044E12890E1D5004C4BFB /* Sources */,
 				4D7044E22890E1D5004C4BFB /* Frameworks */,
 				4D7044E32890E1D5004C4BFB /* CopyFiles */,
+				4DF25CAE28C1F35D00D47C8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -590,6 +631,7 @@
 				4D7060C82887FA790029A04B /* Sources */,
 				4D7060C92887FA790029A04B /* Frameworks */,
 				4D7060CA2887FA790029A04B /* CopyFiles */,
+				4DF25CB228C1F45400D47C8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -610,6 +652,7 @@
 				4D98AA4028B7556D00CF256E /* Sources */,
 				4D98AA4128B7556D00CF256E /* Frameworks */,
 				4D98AA4228B7556D00CF256E /* CopyFiles */,
+				4DF25CAD28C1F32200D47C8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -630,6 +673,7 @@
 				4DAC73DC284713DA00F17A3C /* Sources */,
 				4DAC73DD284713DA00F17A3C /* Frameworks */,
 				4DAC73DE284713DA00F17A3C /* CopyFiles */,
+				4DF25CB328C1F48C00D47C8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -650,6 +694,7 @@
 				4DAC73F02847195400F17A3C /* Sources */,
 				4DAC73F12847195400F17A3C /* Frameworks */,
 				4DAC73F22847195400F17A3C /* CopyFiles */,
+				4DF25CAF28C1F3A100D47C8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -670,6 +715,7 @@
 				4DAC740528471AC400F17A3C /* Sources */,
 				4DAC740628471AC400F17A3C /* Frameworks */,
 				4DAC740728471AC400F17A3C /* CopyFiles */,
+				4DF25CB028C1F3F600D47C8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -690,6 +736,7 @@
 				4DAC741D28471EE800F17A3C /* Sources */,
 				4DAC741E28471EE800F17A3C /* Frameworks */,
 				4DAC741F28471EE800F17A3C /* CopyFiles */,
+				4DF25CB428C1F4CB00D47C8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -710,6 +757,7 @@
 				4DAC7431284734A500F17A3C /* Sources */,
 				4DAC7432284734A500F17A3C /* Frameworks */,
 				4DAC7433284734A500F17A3C /* CopyFiles */,
+				4DF25CB528C1F4FA00D47C8C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -721,6 +769,27 @@
 			);
 			productName = QRCode;
 			productReference = 4DAC7435284734A500F17A3C /* QRCode */;
+			productType = "com.apple.product-type.tool";
+		};
+		4DF25C9528C1A09E00D47C8C /* SecurityExam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DF25C9C28C1A09E00D47C8C /* Build configuration list for PBXNativeTarget "SecurityExam" */;
+			buildPhases = (
+				4DF25C9228C1A09E00D47C8C /* Sources */,
+				4DF25C9328C1A09E00D47C8C /* Frameworks */,
+				4DF25C9428C1A09E00D47C8C /* CopyFiles */,
+				4DF25CAC28C1F26700D47C8C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SecurityExam;
+			packageProductDependencies = (
+				4DF25C9D28C1A0E000D47C8C /* ArgumentParser */,
+			);
+			productName = SecurityExam;
+			productReference = 4DF25C9628C1A09E00D47C8C /* SecurityExam */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -757,6 +826,9 @@
 					4DAC7434284734A500F17A3C = {
 						CreatedOnToolsVersion = 13.4;
 					};
+					4DF25C9528C1A09E00D47C8C = {
+						CreatedOnToolsVersion = 13.4;
+					};
 				};
 			};
 			buildConfigurationList = 4D43A05627F04D5B0004F08F /* Build configuration list for PBXProject "AlfredTool" */;
@@ -783,9 +855,166 @@
 				4D7060CB2887FA790029A04B /* WeeklyData */,
 				4D7044E42890E1D5004C4BFB /* SearchOpen */,
 				4D98AA4328B7556D00CF256E /* DistinctProvisionProfile */,
+				4DF25C9528C1A09E00D47C8C /* SecurityExam */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DF25CAC28C1F26700D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"81DF1D9A-E54F-4671-B4E0-24AFEE0FF9E2\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+		};
+		4DF25CAD28C1F32200D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"8ABEC8D2-DFF2-495A-901E-FA5C2AC94887\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
+		};
+		4DF25CAE28C1F35D00D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"2F7B02CE-0C5D-41CB-8961-04FCD3A4CEBA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+		};
+		4DF25CAF28C1F3A100D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"6E4FA43D-24A8-4B1B-91F6-3B9CF487C601\"\nBuildPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$BuildPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
+		};
+		4DF25CB028C1F3F600D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"11FC8A05-7749-4927-BD4F-284B7F5C9455\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n\n";
+		};
+		4DF25CB228C1F45400D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"89D7B10B-3411-4415-850D-5919344A52BA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
+		};
+		4DF25CB328C1F48C00D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"9437B0E4-26B3-428F-B14F-B47B478B5425\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
+		};
+		4DF25CB428C1F4CB00D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"BD260455-7A66-42CA-BB8B-B5772AC8EABA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n\n";
+		};
+		4DF25CB528C1F4FA00D47C8C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"CE2DA1E8-A104-42DC-8D9B-A005031AA467\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D7044E12890E1D5004C4BFB /* Sources */ = {
@@ -902,6 +1131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DF25CB128C1F42D00D47C8C /* Plist.swift in Sources */,
 				4DAC741128471AD300F17A3C /* Alfred.swift in Sources */,
 				4DAC741928471B7600F17A3C /* Image.swift in Sources */,
 				4D98AA2928B4771200CF256E /* Alfred+Script.swift in Sources */,
@@ -940,6 +1170,20 @@
 				4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */,
 				4D7060D9288801A80029A04B /* String.swift in Sources */,
 				4DAC7440284734EF00F17A3C /* AlfredUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DF25C9228C1A09E00D47C8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF25CA328C1A10700D47C8C /* String.swift in Sources */,
+				4DF25C9F28C1A10000D47C8C /* AlfredItem.swift in Sources */,
+				4DF25CA128C1A10000D47C8C /* Alfred.swift in Sources */,
+				4DF25CA228C1A10400D47C8C /* AlfredUtils.swift in Sources */,
+				4DF25CA528C1A23E00D47C8C /* SecurityExam.swift in Sources */,
+				4DF25C9928C1A09E00D47C8C /* main.swift in Sources */,
+				4DF25CA028C1A10000D47C8C /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1134,9 +1378,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1145,9 +1391,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alfred.codetool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1156,9 +1405,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1178,9 +1429,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1200,9 +1453,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1224,6 +1479,24 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4DF25C9A28C1A09E00D47C8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4DF25C9B28C1A09E00D47C8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1313,6 +1586,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		4DF25C9C28C1A09E00D47C8C /* Build configuration list for PBXNativeTarget "SecurityExam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DF25C9A28C1A09E00D47C8C /* Debug */,
+				4DF25C9B28C1A09E00D47C8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1363,6 +1645,11 @@
 			productName = ArgumentParser;
 		};
 		4DAC743C284734E600F17A3C /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		4DF25C9D28C1A0E000D47C8C /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;

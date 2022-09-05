@@ -165,6 +165,6 @@ extension Dictionary where Key == String {
 
     var jsonString: String? {
         guard let data = jsonData else { return nil }
-        return String(data: data, encoding: .utf8)
+        return String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\\/", with: "/")
     }
 }

@@ -19,6 +19,12 @@ struct Repeat: ParsableCommand {
     @Option(help: "内容")
     var input: String?
     
+    @Option(help: "插入时间戳")
+    var t:String?
+    
+    @Option(help: "插入日期")
+    var d:String?
+    
     @Flag(help: "查看周报")
     var check:Bool = false
     
@@ -29,11 +35,14 @@ struct Repeat: ParsableCommand {
     var export:Bool = false
     
     func run() {
-        guard let input = input else { return }
-        if insertBefor {
-            WeeklyDataManager.insertBefor(report: input)
-        } else if insert {
-            WeeklyDataManager.insert(report: input)
+        guard let input = input?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        /*
+         if insertBefor {
+             WeeklyDataManager.insertBefor(report: input)
+         } else 
+         */
+        if insert {
+            WeeklyDataManager.insert(report: input, insertTimestamp: t, insertDate: d)
         } else if check {
             WeeklyDataManager.weeklyDataList(query: input, isDelete: delete)
         } else if export {

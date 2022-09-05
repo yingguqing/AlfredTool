@@ -9,6 +9,7 @@ import Cocoa
 
 class WeeklyDataManager {
     static let thisYear = Date().format("YYYY")
+    static let thisMonth = Date().format("MM")
     static let path = Alfred.localDir / "WeeklyData.json"
 
     struct WeeklyData {
@@ -41,12 +42,13 @@ class WeeklyDataManager {
         }
 
         init(timestamp: TimeInterval = Date().timeIntervalSince1970, report: String) {
+            let array = report.components(separatedBy: ";").filter { !$0.isEmpty }
             self.timestamp = timestamp
-            self.report = report
+            self.report = array.isEmpty ? "" : array[0]
+            self.remake = array.count > 1 ? array[1] : ""
             let date = Date(timeIntervalSince1970: timestamp)
             self.date = date.format("YYYY-MM-dd")
             self.week = date.weekRange
-            self.remake = ""
         }
     }
 
@@ -193,13 +195,34 @@ class WeeklyDataManager {
     }
 
     /// 插入周报
-    class func insert(report: String) {
+    class func insert(report: String, insertTimestamp:String?, insertDate:String?) {
         guard !report.isEmpty else { return }
-        let data = WeeklyData(report: report)
+        var timestamp: TimeInterval = Date().timeIntervalSince1970
+        if let insertTimestamp = insertTimestamp {
+            if insertTimestamp.count >= 10, insertTimestamp.count <= 13, let t = Double(insertTimestamp) {
+                timestamp = t / pow(10, Double(t - 10))
+            }
+        } else if let insertDate = insertDate {
+            let date:String
+            switch insertDate.count {
+                case 2:
+                    date = thisYear + thisMonth + insertDate
+                case 4:
+                    date = thisYear + insertDate
+                case 8:
+                    date = insertDate
+                default:
+                    date = ""
+            }
+            timestamp = date.toDate()?.timeIntervalSince1970 ?? Date().timeIntervalSince1970
+        }
+        let data = WeeklyData(timestamp: timestamp, report: report)
         var list = readAllWeeklyData()
         list.append(data)
+        // 按时间倒序排列
+        list.sort(by: { $0.timestamp > $1.timestamp})
         let flag = save(weeklyDatas: list) ? "成功" : "失败"
-        print("插入周报" + flag)
+        print("周报新增 \(data.date) " + flag)
     }
 
     /// 删除一条周报

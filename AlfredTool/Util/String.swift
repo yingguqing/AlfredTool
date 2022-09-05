@@ -53,6 +53,31 @@ extension String {
         return isDirectory.boolValue && isExists
     }
     
+    // 生成目录所有文件
+    @discardableResult func createFilePath(isDelOldPath: Bool = false) -> String {
+        guard !self.isEmpty else { return self }
+        do {
+            if isDelOldPath, self.fileExists {
+                self.pathRemove()
+            } else if self.fileExists {
+                return self
+            }
+            try FileManager.default.createDirectory(atPath: self, withIntermediateDirectories: true, attributes: nil)
+        } catch let error as NSError {
+            print("创建目录失败 \(error.localizedDescription)")
+        }
+        return self
+    }
+    
+    func pathRemove() {
+        guard !self.isEmpty, self.fileExists else { return }
+        do {
+            try FileManager.default.removeItem(atPath: self)
+        } catch let error as NSError {
+            print("文件删除失败 \(error.localizedDescription)")
+        }
+    }
+    
     /// 提取特定字符
     func stringByPreservingCharacters(_ preservedCharacters:String) -> String {
         let set = CharacterSet(charactersIn: preservedCharacters).inverted
