@@ -29,6 +29,8 @@ class DistinctProvisionProfile {
         // 获取本地所有的描述文件
         let files = findFiles(path: ProvisioningProfilesPath, filterTypes: ["mobileprovision"]).compactMap { ProvisioningProfile(path: $0) }
         var profileDic = [String:[ProvisioningProfile]]()
+        var noTemeIds = 0
+        var sameCount = 0
         // 通过标识获取同一个证书的不同版本
         files.forEach {
             // 描述文件有相应证书
@@ -42,6 +44,7 @@ class DistinctProvisionProfile {
             } else {
                 // 描述文件没有证书时，直接删除
                 try? FileManager.default.removeItem(atPath: $0.path)
+                noTemeIds += 1
             }
         }
         // 删除相同证书的其他版本，只保留最新创建的描述文件
@@ -50,9 +53,20 @@ class DistinctProvisionProfile {
             let removeFiles = Array($0.dropFirst())
             removeFiles.forEach {
                 try? FileManager.default.removeItem(atPath: $0.path)
+                sameCount += 1
             }
         }
-        print("清除重复描述文件完成")
+        var msg = "清除描述文件"
+        if noTemeIds > 0 {
+            msg += "\n无证书：\(noTemeIds)"
+        }
+        if sameCount > 0 {
+            msg += "\n相同文件：\(sameCount)"
+        }
+        if noTemeIds + sameCount == 0 {
+            msg += ": 无"
+        }
+        print(msg)
     }
     
     /// 获取本地所有证书的teamId
