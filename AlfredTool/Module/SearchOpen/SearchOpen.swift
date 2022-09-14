@@ -8,22 +8,22 @@
 import Cocoa
 
 class SearchOpen {
-    static let path = Alfred.localDir / "UserFileInfo.json"
+    static let configPath = Alfred.localDir / "UserFileInfo.json"
 
     struct File {
-        // 文件显示别名，如果没有设置，就显示文件名
+        /// 文件显示别名，如果没有设置，就显示文件名
         let name: String
-        // 文件路径
+        /// 文件路径
         let path: String
-        // 除了名字和文件名以外的查询内容
+        /// 除了名字和文件名以外的查询内容
         let search: String
-        // 使用app打开
+        /// 使用app打开
         let app: String
         
         var arg:String {
             let out = "'" + path + "'"
-            guard !app.isEmpty else { return out }
-            return "-a '\(app)' " + "'" + path + "'"
+            guard app.fileExists else { return out }
+            return "-a '\(app)' " + out
         }
         
         init?(json: [String: String], defaultApp:String?) {
@@ -52,6 +52,7 @@ class SearchOpen {
             item.uid = path
             item.subtitle = path
             item.arg = arg
+            item.quicklookurl = URL(fileURLWithPath: path)
             item.title = name
             item.icon = .ofFile(at: URL(fileURLWithPath: path))
             return item
@@ -61,7 +62,7 @@ class SearchOpen {
             var item = AlfredItem()
             item.uid = "0"
             item.subtitle = "没有查询到包含关键词的文件，可以在配置文件中新增。"
-            item.arg = "-a '" + (Alfred.localDir / "SearchOpenEdit.app").path + "'" + " '" + SearchOpen.path.path + "'"
+            item.arg = " '" + SearchOpen.configPath.path + "'"
             item.title = "没有结果"
             return item
         }()
@@ -71,9 +72,10 @@ class SearchOpen {
     /// - Parameters:
     ///   - group: 组
     ///   - input: 关键词
+    ///   - isOpen: 是否打开文件
     class func searchFile(group: String, input: String) {
         do {
-            let data = try Data(contentsOf: path)
+            let data = try Data(contentsOf: configPath)
             guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
             let allApp = json["App"] as? [String: String]
             guard let list = json[group] as? [[String: String]] else {
@@ -90,15 +92,5 @@ class SearchOpen {
         } catch {
             print("解析记录失败")
         }
-    }
-    
-    /// 打开编辑App
-    class func openEditApp() {
-        let panel = Process()
-        panel.launchPath = "SearchOpenEdit.app/Contents/MacOS/SearchOpenEdit"
-        panel.arguments = [path.path]
-        panel.standardInput = FileHandle.nullDevice
-        panel.launch()
-        panel.waitUntilExit()
     }
 }
