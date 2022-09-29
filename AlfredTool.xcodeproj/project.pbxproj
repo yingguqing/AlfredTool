@@ -114,6 +114,12 @@
 		4DAC7441284734EF00F17A3C /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
 		4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
 		4DAC7443284734F400F17A3C /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0FB27F2ED420004F08F /* QRCode.swift */; };
+		4DC2670628E463D300007CDE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2670528E463D300007CDE /* main.swift */; };
+		4DC2670B28E463F100007CDE /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DC2670A28E463F100007CDE /* ArgumentParser */; };
+		4DC2670C28E464AB00007CDE /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
+		4DC2670D28E464B000007CDE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D43A0AF27F097B70004F08F /* String.swift */; };
+		4DC2670E28E464B300007CDE /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
+		4DC2670F28E464C700007CDE /* AlfredUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */; };
 		4DF25C9928C1A09E00D47C8C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF25C9828C1A09E00D47C8C /* main.swift */; };
 		4DF25C9E28C1A0E000D47C8C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DF25C9D28C1A0E000D47C8C /* ArgumentParser */; };
 		4DF25C9F28C1A10000D47C8C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
@@ -190,6 +196,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		4DAC7433284734A500F17A3C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4DC2670128E463D200007CDE /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -284,6 +299,8 @@
 		4DAC742328471EE800F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4DAC7435284734A500F17A3C /* QRCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = QRCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DAC7437284734A500F17A3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4DC2670328E463D200007CDE /* DeleteDerivedData */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DeleteDerivedData; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DC2670528E463D300007CDE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4DF25C9628C1A09E00D47C8C /* SecurityExam */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SecurityExam; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF25C9828C1A09E00D47C8C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4DF25CA428C1A23E00D47C8C /* SecurityExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExam.swift; sourceTree = "<group>"; };
@@ -358,6 +375,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DC2670028E463D200007CDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DC2670B28E463F100007CDE /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4DF25C9328C1A09E00D47C8C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,6 +415,7 @@
 				4D7044E52890E1D5004C4BFB /* SearchOpen */,
 				4D98AA4428B7556D00CF256E /* DistinctProvisionProfile */,
 				4DF25C9628C1A09E00D47C8C /* SecurityExam */,
+				4DC2670328E463D200007CDE /* DeleteDerivedData */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -423,15 +449,15 @@
 		4D70455D28978431004C4BFB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				4DFFEBB227F84C4E000B2C9C /* Alfred.swift */,
+				4DFFEBA827F71998000B2C9C /* AlfredItem.swift */,
+				4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */,
+				4D43A0AF27F097B70004F08F /* String.swift */,
 				4D98AA4C28B7559600CF256E /* NSTask-execute.swift */,
 				4D98AA4B28B7559600CF256E /* Regex.swift */,
 				4D43A0A827F057E90004F08F /* Image.swift */,
-				4DFFEBB227F84C4E000B2C9C /* Alfred.swift */,
 				4D98AA2728B476F400CF256E /* Alfred+Script.swift */,
-				4DFFEBA827F71998000B2C9C /* AlfredItem.swift */,
 				4DFFEBA727F71998000B2C9C /* Plist.swift */,
-				4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */,
-				4D43A0AF27F097B70004F08F /* String.swift */,
 				4D43A13227F4273F0004F08F /* Date.swift */,
 			);
 			path = Util;
@@ -449,6 +475,7 @@
 				4D7044E62890E1D5004C4BFB /* SearchOpen */,
 				4D98AA4528B7556D00CF256E /* DistinctProvisionProfile */,
 				4DF25C9728C1A09E00D47C8C /* SecurityExam */,
+				4DC2670428E463D300007CDE /* DeleteDerivedData */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -589,6 +616,14 @@
 				4D43A0FB27F2ED420004F08F /* QRCode.swift */,
 			);
 			path = QRCode;
+			sourceTree = "<group>";
+		};
+		4DC2670428E463D300007CDE /* DeleteDerivedData */ = {
+			isa = PBXGroup;
+			children = (
+				4DC2670528E463D300007CDE /* main.swift */,
+			);
+			path = DeleteDerivedData;
 			sourceTree = "<group>";
 		};
 		4DF25C9728C1A09E00D47C8C /* SecurityExam */ = {
@@ -771,6 +806,27 @@
 			productReference = 4DAC7435284734A500F17A3C /* QRCode */;
 			productType = "com.apple.product-type.tool";
 		};
+		4DC2670228E463D200007CDE /* DeleteDerivedData */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DC2670928E463D300007CDE /* Build configuration list for PBXNativeTarget "DeleteDerivedData" */;
+			buildPhases = (
+				4DC266FF28E463D200007CDE /* Sources */,
+				4DC2670028E463D200007CDE /* Frameworks */,
+				4DC2670128E463D200007CDE /* CopyFiles */,
+				4DC2671028E46ADC00007CDE /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeleteDerivedData;
+			packageProductDependencies = (
+				4DC2670A28E463F100007CDE /* ArgumentParser */,
+			);
+			productName = DeleteDerivedData;
+			productReference = 4DC2670328E463D200007CDE /* DeleteDerivedData */;
+			productType = "com.apple.product-type.tool";
+		};
 		4DF25C9528C1A09E00D47C8C /* SecurityExam */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DF25C9C28C1A09E00D47C8C /* Build configuration list for PBXNativeTarget "SecurityExam" */;
@@ -799,7 +855,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					4D7044E42890E1D5004C4BFB = {
@@ -825,6 +881,9 @@
 					};
 					4DAC7434284734A500F17A3C = {
 						CreatedOnToolsVersion = 13.4;
+					};
+					4DC2670228E463D200007CDE = {
+						CreatedOnToolsVersion = 14.0;
 					};
 					4DF25C9528C1A09E00D47C8C = {
 						CreatedOnToolsVersion = 13.4;
@@ -856,11 +915,29 @@
 				4D7044E42890E1D5004C4BFB /* SearchOpen */,
 				4D98AA4328B7556D00CF256E /* DistinctProvisionProfile */,
 				4DF25C9528C1A09E00D47C8C /* SecurityExam */,
+				4DC2670228E463D200007CDE /* DeleteDerivedData */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4DC2671028E46ADC00007CDE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"B6E7BFF6-F7BA-4402-9344-29D0A8550509\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+		};
 		4DF25CAC28C1F26700D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -1179,6 +1256,18 @@
 				4DAC7442284734EF00F17A3C /* AlfredItem.swift in Sources */,
 				4D7060D9288801A80029A04B /* String.swift in Sources */,
 				4DAC7440284734EF00F17A3C /* AlfredUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DC266FF28E463D200007CDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DC2670E28E464B300007CDE /* AlfredItem.swift in Sources */,
+				4DC2670D28E464B000007CDE /* String.swift in Sources */,
+				4DC2670F28E464C700007CDE /* AlfredUtils.swift in Sources */,
+				4DC2670628E463D300007CDE /* main.swift in Sources */,
+				4DC2670C28E464AB00007CDE /* Alfred.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1515,6 +1604,26 @@
 			};
 			name = Release;
 		};
+		4DC2670728E463D300007CDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4DC2670828E463D300007CDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		4DF25C9A28C1A09E00D47C8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1621,6 +1730,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		4DC2670928E463D300007CDE /* Build configuration list for PBXNativeTarget "DeleteDerivedData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DC2670728E463D300007CDE /* Debug */,
+				4DC2670828E463D300007CDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4DF25C9C28C1A09E00D47C8C /* Build configuration list for PBXNativeTarget "SecurityExam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1680,6 +1798,11 @@
 			productName = ArgumentParser;
 		};
 		4DAC743C284734E600F17A3C /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		4DC2670A28E463F100007CDE /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;

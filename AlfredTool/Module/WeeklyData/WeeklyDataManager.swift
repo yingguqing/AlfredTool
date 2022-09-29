@@ -77,7 +77,7 @@ class WeeklyDataManager {
     }
 
     /// 周报列表
-    class func weeklyDataList(query: String, isDelete: Bool) {
+    class func weeklyDataList(query: String) {
         let dateString: String
         let isList: Bool
         switch query.count {
@@ -134,13 +134,12 @@ class WeeklyDataManager {
                 item.title = "查询周报失败"
                 Alfred.flush(item: item)
             } else {
-                let target = isDelete ? "删除" : "导出"
                 var item = AlfredItem()
                 item.uid = "10"
-                item.subtitle = "\(target)时期：\(date.weekRange)"
+                item.subtitle = "导出时期：\(date.weekRange)"
                 item.arg = "~" + date.weekRange
-                item.title = target + "下面所有周报"
-                let items = [item] + list.enumerated().map { AlfredItem.item(arg: isDelete ? "~" + String($0.element.timestamp) : "", title: (isDelete ? "删除" : "") + $0.element.report, uid: String($0.offset + 11), subtitle: $0.element.date.dropThisYear) }
+                item.title = "导出下面所有周报"
+                let items = [item] + list.enumerated().map { AlfredItem.item(title: $0.element.report, uid: String($0.offset + 11), subtitle: $0.element.date.dropThisYear) }
                 Alfred.flush(items: items)
             }
         }
@@ -163,52 +162,19 @@ class WeeklyDataManager {
         }
     }
 
-    /// 插入周报前
-    class func insertBefor(report: String) {
-        let array = report.components(separatedBy: ";").filter { !$0.isEmpty }
-        if array.count == 0 {
-            var item = AlfredItem()
-            item.uid = "1"
-            item.title = "输入今天的工作任务"
-            item.subtitle = "如果有备注，请在工作任务后面加上空格后再输入内容"
-            item.arg = ""
-            Alfred.flush(item: item)
-        } else if array.count == 1 {
-            let data = WeeklyData(report: report)
-            var item = AlfredItem()
-            item.uid = "1"
-            item.subtitle = "Enter插入周报 -> " + data.week.dropThisYear
-            item.arg = data.report
-            item.title = data.report
-            Alfred.flush(item: item)
-        } else {
-            let report = array.first!
-            let remake = array[1]
-            let data = WeeklyData(report: report)
-            var item = AlfredItem()
-            item.uid = "1"
-            item.subtitle = "备注：" + remake + " Enter插入周报 -> " + data.week.dropThisYear
-            item.arg = data.report
-            item.title = data.report
-            Alfred.flush(item: item)
-        }
-    }
-
     /// 插入周报
-    class func insert(report: String, insertTimestamp:String?, insertDate:String?) {
+    class func insert(report: String, date:String?) {
         guard !report.isEmpty else { return }
         var timestamp: TimeInterval = Date().timeIntervalSince1970
-        if let insertTimestamp = insertTimestamp {
-            if insertTimestamp.count >= 10, insertTimestamp.count <= 13, let t = Double(insertTimestamp) {
-                timestamp = t / pow(10, Double(t - 10))
-            }
-        } else if let insertDate = insertDate {
+        if let insertDate = date {
             let date:String
             switch insertDate.count {
                 case 2:
                     date = thisYear + thisMonth + insertDate
                 case 4:
                     date = thisYear + insertDate
+                case 6:
+                    date = thisYear[0..<2] + insertDate
                 case 8:
                     date = insertDate
                 default:
@@ -223,25 +189,6 @@ class WeeklyDataManager {
         list.sort(by: { $0.timestamp > $1.timestamp})
         let flag = save(weeklyDatas: list) ? "成功" : "失败"
         print("周报新增 \(data.date) " + flag)
-    }
-
-    /// 删除一条周报
-    class func delete(_ input: String) {
-        // 删除一周的周报
-        if input.count == 22, input.contains("~") {
-            var list = readAllWeeklyData()
-            list.removeAll(where: { $0.week == String(input.dropFirst()) })
-            let flag = save(weeklyDatas: list) ? "成功" : "失败"
-            print("删除周报" + flag)
-        } else if input.hasPrefix("~"), let timestamp = Int64(String(input.dropFirst())) {
-            // 传入时间戳表示删除一条
-            var list = readAllWeeklyData()
-            list.removeAll(where: { Int64($0.timestamp) == timestamp })
-            let flag = save(weeklyDatas: list) ? "成功" : "失败"
-            print("删除周报" + flag)
-        } else {
-            print("删除周报失败，没有相应的周报")
-        }
     }
 }
 

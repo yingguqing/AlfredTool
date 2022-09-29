@@ -119,6 +119,35 @@ extension String {
     var jsonFormat:String {
         guard let json = try? JSONSerialization.jsonObject(with: Data(self.utf8), options: .allowFragments) else { return self }
         guard let data = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys]) else { return self }
-        return String(data: data, encoding: .utf8) ?? self
+        return String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\\/", with: "/") ?? self
+    }
+    
+    private func validIndex(original: Int) -> String.Index {
+        switch original {
+        case ...startIndex.utf16Offset(in: self): return startIndex
+        case endIndex.utf16Offset(in: self)...: return endIndex
+        default: return index(startIndex, offsetBy: original)
+        }
+    }
+    
+    private func validStartIndex(original: Int) -> String.Index? {
+        guard original <= endIndex.utf16Offset(in: self) else { return nil }
+        return self.validIndex(original: original)
+    }
+    
+    private func validEndIndex(original: Int) -> String.Index? {
+        guard original >= startIndex.utf16Offset(in: self) else { return nil }
+        return self.validIndex(original: original)
+    }
+    
+    subscript(_ range: CountableRange<Int>) -> String {
+        guard
+            let startIndex = validStartIndex(original: range.lowerBound),
+            let endIndex = validEndIndex(original: range.upperBound),
+            startIndex < endIndex
+        else {
+            return ""
+        }
+        return String(self[startIndex..<endIndex])
     }
 }
