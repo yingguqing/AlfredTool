@@ -20,13 +20,25 @@ class SearchOpen {
         /// 使用app打开
         let app: String
         
-        var arg:String {
+        var arg: String {
             let out = "'" + path + "'"
             guard app.fileExists else { return out }
             return "-a '\(app)' " + out
         }
         
-        init?(json: [String: String], defaultApp:String?) {
+        /// 读取文件，自动区分配置的是单个文件还是读取目录下所有文件
+        static func readFiles(json: [String: String], defaultApp: String?, pathExtensions: [String]?) -> [File] {
+            if let child = json["child"] {
+                guard child.directoryExists, let pathExtensions = pathExtensions else { return [] }
+                let files = findFiles(path: child, filterTypes: pathExtensions)
+                return files.compactMap({ File(json: ["path": $0], defaultApp: defaultApp) })
+            } else if let file = File(json: json, defaultApp: defaultApp) {
+                return [file]
+            }
+            return []
+        }
+        
+        init?(json: [String: String], defaultApp: String?) {
             guard let path = json["path"], path.fileExists || path.directoryExists else { return nil }
             self.path = path
             let name = json["name"] ?? ""
@@ -58,7 +70,7 @@ class SearchOpen {
             return item
         }
         
-        static var empty:AlfredItem = {
+        static var empty: AlfredItem = {
             var item = AlfredItem()
             item.uid = "0"
             item.subtitle = "没有查询到包含关键词的文件，可以在配置文件中新增。"
@@ -78,12 +90,15 @@ class SearchOpen {
             let data = try Data(contentsOf: configPath)
             guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
             let allApp = json["App"] as? [String: String]
+            let allPathExtension = json["PathExtension"] as? [String: String]
+            // 指定查询目录下文件后缀
+            let pathExtensions = allPathExtension?[group]?.components(separatedBy: ",")
             guard let list = json[group] as? [[String: String]] else {
                 Alfred.flush(item: File.empty)
                 return
             }
             let defaultApp = allApp?[group]
-            let items = list.compactMap { File(json: $0, defaultApp: defaultApp) }.filter { $0.isValid(input) }.map { $0.item() }
+            let items = list.flatMap({ File.readFiles(json: $0, defaultApp: defaultApp, pathExtensions: pathExtensions) }).filter { $0.isValid(input) }.map({ $0.item() })
             guard !items.isEmpty else {
                 Alfred.flush(item: File.empty)
                 return
