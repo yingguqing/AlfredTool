@@ -49,7 +49,7 @@ class DerivedData {
                 item.title = "DerivedData目录没有需要删除的目录"
                 Alfred.flush(item: item)
             } else if !input.isEmpty {
-                let select = names.filter({ $0.contains(input) })
+                let select = names.filter({ $0.lowercased().contains(input) })
                 if select.isEmpty {
                     var item = AlfredItem()
                     item.title = "没有包含 \(input) 的目录"
@@ -58,7 +58,7 @@ class DerivedData {
                     let items = select.map { name in
                         var item = AlfredItem()
                         item.arg = name
-                        item.subtitle = name
+                        item.subtitle = name + " · 按钮⌘可删除同名"
                         item.title =  name.lastPathComponent.components(separatedBy: "-").first!
                         return item
                     }
@@ -68,7 +68,7 @@ class DerivedData {
                 var items = names.map { name in
                     var item = AlfredItem()
                     item.arg = name
-                    item.subtitle = name
+                    item.subtitle = name + " · 按钮⌘可删除同名"
                     item.title = name.lastPathComponent.components(separatedBy: "-").first!
                     return item
                 }
@@ -91,7 +91,8 @@ class DerivedData {
     class func delete(_ input: String, isDeleteSameName:Bool) {
         guard !input.isEmpty else { return }
         if input == "Delete All" {
-            DerivedDataPath.createFilePath(isDelOldPath: true)
+            let paths = findFiles(path: DerivedDataPath, isFindSubpaths: false, isFull: true)
+            paths.forEach({ $0.pathRemove() })
             print("删除所有DerivedData完成")
         } else {
             var name = input
