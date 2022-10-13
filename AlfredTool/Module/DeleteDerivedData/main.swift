@@ -43,8 +43,9 @@ class DerivedData {
     /// 查询DerivedData
     class func searchList(_ input: String) {
         if DerivedDataPath.directoryExists {
-            let names = findFiles(path: DerivedDataPath, isFindSubpaths: false, isFull: false).filter({ $0.lastPathComponent != "ModuleCache.noindex" && !$0.lastPathComponent.hasPrefix(".") }).sorted(by: <)
-            if names.isEmpty {
+            let paths = findFiles(path: DerivedDataPath, isFindSubpaths: false, isFull: false).filter({ $0.lastPathComponent != "ModuleCache.noindex" }).sorted(by: <)
+            let names = Set(paths.map({ $0.lastPathComponent.components(separatedBy: "-").first! }))
+            if paths.isEmpty {
                 var item = AlfredItem()
                 item.title = "DerivedData目录没有需要删除的目录"
                 Alfred.flush(item: item)
@@ -56,20 +57,24 @@ class DerivedData {
                     Alfred.flush(item: item)
                 } else {
                     let items = select.map { name in
+                        let path = paths.filter({ ($0.contains("-") && $0.hasPrefix("\(name)-")) || $0.hasPrefix(name) })
+                        let subtitle = path.count == 1 ? path.first! : "\(name)同名项目 \(path.count) 个"
                         var item = AlfredItem()
                         item.arg = name
-                        item.subtitle = name + " · 按钮⌘可删除同名"
-                        item.title =  name.lastPathComponent.components(separatedBy: "-").first!
+                        item.subtitle = subtitle
+                        item.title = name
                         return item
                     }
                     Alfred.flush(items: items)
                 }
             } else {
                 var items = names.map { name in
+                    let path = paths.filter({ ($0.contains("-") && $0.hasPrefix("\(name)-")) || $0.hasPrefix(name) })
+                    let subtitle = path.count == 1 ? path.first! : "\(name)同名项目 \(path.count) 个"
                     var item = AlfredItem()
                     item.arg = name
-                    item.subtitle = name + " · 按钮⌘可删除同名"
-                    item.title = name.lastPathComponent.components(separatedBy: "-").first!
+                    item.subtitle = subtitle
+                    item.title = name
                     return item
                 }
                 var item = AlfredItem()

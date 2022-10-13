@@ -132,11 +132,11 @@ func findFiles(path: String, filterTypes: [String] = [], isFindSubpaths: Bool = 
     do {
         var files = [String]()
         if isFindSubpaths { // 递归查找
-            if let array = FileManager.default.subpaths(atPath: path) {
+            if let array = FileManager.default.subpaths(atPath: path)?.filter({ !$0.lastPathComponent.hasPrefix(".")}) {
                 files = array
             }
         } else {
-            files = try FileManager.default.contentsOfDirectory(atPath: path)
+            files = try FileManager.default.contentsOfDirectory(atPath: path).filter({ !$0.lastPathComponent.hasPrefix(".")})
         }
         if isFull {
             files = files.map { path / $0 }
