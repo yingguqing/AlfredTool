@@ -23,14 +23,12 @@ struct Repeat: ParsableCommand {
     @Option(help: "删除目录")
     var deleteName: String?
     
-    @Flag(help: "删除所有同名的")
-    var deleteSameName:Bool = false
 
     func run() {
         if let search = search {
             DerivedData.searchList(search)
         } else if let deleteName = deleteName {
-            DerivedData.delete(deleteName, isDeleteSameName: deleteSameName)
+            DerivedData.delete(deleteName)
         }
     }
 }
@@ -93,16 +91,18 @@ class DerivedData {
     }
 
     /// 删除相应的DerivedData
-    class func delete(_ input: String, isDeleteSameName:Bool) {
+    class func delete(_ input: String) {
         guard !input.isEmpty else { return }
         if input == "Delete All" {
             let paths = findFiles(path: DerivedDataPath, isFindSubpaths: false, isFull: true)
             paths.forEach({ $0.pathRemove() })
             print("删除所有DerivedData完成")
         } else {
-            var name = input
-            if isDeleteSameName {
-                name = input.components(separatedBy: "-").first!
+            let name:String
+            if let index = input.range(of: "-", options: .backwards) {
+                name = String(input[input.startIndex..<index.lowerBound]) + "-"
+            } else {
+                name = input
             }
             let paths = findFiles(path: DerivedDataPath, isFindSubpaths: false, isFull: true).filter({ $0.lastPathComponent.hasPrefix(name) })
             paths.forEach {

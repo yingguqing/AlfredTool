@@ -11,7 +11,7 @@ class SecurityExam {
     /// 题目
     let topic: String
     /// 答案
-    let answers: [String]
+    var answers: [String]
     
     init(topic: String, answers: [String]) {
         self.topic = topic
@@ -32,20 +32,23 @@ class SecurityExam {
         return item
     }
     
-    var answer: [AlfredItem] {
-        var items = [AlfredItem]()
-        for answer in answers {
-            var item = AlfredItem()
-            item.arg = ""
-            item.title = answer
-            items.append(item)
+    /// 当前题目的所有答案，是否在第一行显示题目
+    func answerItems(isNeedTopic:Bool) -> [AlfredItem] {
+        var items = answers.map({ AlfredItem.item(title: $0) })
+        if isNeedTopic {
+            let item = AlfredItem.item(title: "题目：\(topic)")
+            items.insert(item, at: 0)
         }
         return items
     }
 }
 
 extension SecurityExam {
+#if DEBUG
+    static let SecurityExamPath = URL(fileURLWithPath: "/Users/zhouziyuan/Desktop/记录/考题记录/信息安全&平台政策考试.json")
+#else
     static let SecurityExamPath = Alfred.localDir / "信息安全&平台政策考试.json"
+#endif
     
     /// 所有的考题
     static let allTopic: [SecurityExam] = {
@@ -90,19 +93,23 @@ extension SecurityExam {
                     dic[key] = (dic[key] ?? "") + line
                 }
             }
-            if allQuestions.map({ $0.topic }).contains(title) {
-                same += 1
-            }
             let answers = dic.filter { awswerKeys.contains($0.0) }.map { $0.1 }
-            let item = SecurityExam(topic: title, answers: answers)
-            allQuestions.append(item)
+            if let item = allQuestions.filter({ $0.topic == title }).first {// 旧题
+                same += 1
+                // 把当前的答案和旧答案合并去重
+                item.answers = Array(Set(answers + item.answers))
+            } else { // 新题
+                let item = SecurityExam(topic: title, answers: answers)
+                print(title)
+                allQuestions.append(item)
+            }
             count += 1
         }
         do {
             let dic = Dictionary(uniqueKeysWithValues: allQuestions.map { ($0.topic, $0.answers) })
             let data = try JSONSerialization.data(withJSONObject: dic, options: [.sortedKeys, .prettyPrinted])
             try data.write(to: SecurityExamPath)
-            print("解析题目数：\(count)。\n其中相同题目数：\(same)。\n生成题库数：\(allQuestions.count)")
+            print("解析题目数：\(count)。\n其中相同题目数：\(same)。\n生成题库数：\(allQuestions.count)\n新增：\(allQuestions.count - allTopic.count)")
         } catch {
             print("保存题目失败:\(error.localizedDescription)")
         }
@@ -115,7 +122,7 @@ extension SecurityExam {
             Alfred.flush(items: items)
             return
         }
-        let result = allTopic.filter({ $0.topic.contains(topic) })
+        let result = allTopic.filter({ $0.topic.lowercased().contains(topic.lowercased()) })
         switch result.count {
             case 0:
                 var item = AlfredItem()
@@ -123,7 +130,9 @@ extension SecurityExam {
                 item.title = "该考题还未收录"
                 Alfred.flush(item: item)
             case 1:
-                Alfred.flush(items: result[0].answer)
+                let item = result[0]
+                let answers = item.answerItems(isNeedTopic: item.topic != topic)
+                Alfred.flush(items: answers)
             default:
                 let items = result.map({ $0.simple })
                 Alfred.flush(items: items)
