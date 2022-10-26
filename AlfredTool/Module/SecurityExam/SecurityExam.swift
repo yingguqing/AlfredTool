@@ -45,7 +45,7 @@ class SecurityExam {
 
 extension SecurityExam {
 #if DEBUG
-    static let SecurityExamPath = URL(fileURLWithPath: "/Users/zhouziyuan/Desktop/记录/考题记录/信息安全&平台政策考试.json")
+    static let SecurityExamPath = Alfred.home / "Desktop/记录/考题记录/信息安全&平台政策考试.json"
 #else
     static let SecurityExamPath = Alfred.localDir / "信息安全&平台政策考试.json"
 #endif
