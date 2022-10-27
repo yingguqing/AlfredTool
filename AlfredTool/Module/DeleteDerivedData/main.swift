@@ -16,6 +16,7 @@ import Foundation
    --delete-same-name      删除所有同名的
    -h, --help              Show help information.
  */
+/// 删除xcode项目DerivedData
 struct Repeat: ParsableCommand {
     @Option(help: "查询")
     var search: String?
