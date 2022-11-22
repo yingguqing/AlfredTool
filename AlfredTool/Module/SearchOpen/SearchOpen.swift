@@ -39,7 +39,7 @@ class SearchOpen {
         }
         
         init?(json: [String: String], defaultApp: String?) {
-            guard let path = json["path"], path.fileExists || path.directoryExists else { return nil }
+            guard let path = json["path"] else { return nil }
             self.path = path
             let name = json["name"] ?? ""
             if name.isEmpty {
@@ -62,11 +62,15 @@ class SearchOpen {
             var item = AlfredItem()
             // 设置uid，用于alfred记忆，最近选择的排在前面
             item.uid = path
-            item.subtitle = path
-            item.arg = arg
-            item.quicklookurl = URL(fileURLWithPath: path)
             item.title = name
-            item.icon = .ofFile(at: URL(fileURLWithPath: path))
+            if path.fileExists || path.directoryExists {
+                item.subtitle = path
+                item.arg = arg
+                item.quicklookurl = URL(fileURLWithPath: path)
+                item.icon = .ofFile(at: URL(fileURLWithPath: path))
+            } else {
+                item.subtitle = "文件不存在 * " + path
+            }
             return item
         }
         

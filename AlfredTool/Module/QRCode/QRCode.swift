@@ -33,4 +33,14 @@ class QRCode {
         }
         return nil
     }
+    
+    /// 解析二唯图片里的内容
+    static func decode(_ inputStr: String) {
+        guard inputStr.fileExists else { return }
+        guard let ciImage = CIImage(contentsOf: URL(fileURLWithPath: inputStr)) else { return }
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyLow])
+        let results = detector?.features(in: ciImage).compactMap({ ($0 as? CIQRCodeFeature)?.messageString?.trimmingCharacters(in: .whitespacesAndNewlines) }).filter({ !$0.isEmpty }) ?? []
+        guard let item = results.first, !item.isEmpty else { return }
+        print(item)
+    }
 }
