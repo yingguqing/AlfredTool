@@ -46,8 +46,9 @@ struct FlatAESCrypto {
             item.arg = value
             item.title = "输入Flat的网络加密数据"
         } else if let decrypt = dataString.flatDecryptList {
-            item.arg = decrypt.1.jsonFormat
-            item.title = decrypt.0
+            item.arg = decrypt.jsonFormat
+            item.title = "解密成功"
+            item.subtitle = decrypt
         } else {
             item.arg = ""
             item.title = "解密失败"
@@ -95,18 +96,18 @@ private extension String {
     }
 
     /// 所有解密方式都解一遍
-    var flatDecryptList: (String, String)? {
-        let item = DecryptType.allCases.map({ ($0.rawValue + "解密成功", $0.flatDecodeDecrypt(value: self)) }).filter({ $0.1 != nil }).map({ ($0.0, $0.1!) })
+    var flatDecryptList: String? {
+        let item = DecryptType.allCases.compactMap({ $0.flatDecodeDecrypt(value: self) }).filter({ !$0.isEmpty })
         return item.first
     }
 }
 
 ///  所有解密方法
 enum DecryptType: String, CaseIterable {
-    case Pay = "支付"
-    case Customer = "客服"
-    case GameCenter = "游戏中心"
-    case Network = "网络"
+    case Pay
+    case Customer
+    case GameCenter
+    case Network
 
     /// 解码解密，优先直接解，如果解不了，尝试urldecode后再解密
     func flatDecodeDecrypt(value: String) -> String? {
