@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D266C982946C5F9004B9F2C /* FlatDecrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D266C972946C5F9004B9F2C /* FlatDecrypto.swift */; };
 		4D7044E82890E1D5004C4BFB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7044E72890E1D5004C4BFB /* main.swift */; };
 		4D7044ED2890E1E5004C4BFB /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4D7044EC2890E1E5004C4BFB /* ArgumentParser */; };
 		4D7044EF2890E23A004C4BFB /* SearchOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7044EE2890E23A004C4BFB /* SearchOpen.swift */; };
@@ -76,7 +77,6 @@
 		4D98AA5428B7560600CF256E /* DistinctProvisionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA5328B7560600CF256E /* DistinctProvisionProfile.swift */; };
 		4D98AA5628B756AB00CF256E /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4D98AA5528B756AB00CF256E /* ArgumentParser */; };
 		4DAC73E3284713DA00F17A3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC73E2284713DA00F17A3C /* main.swift */; };
-		4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */; };
 		4DAC73E92847147300F17A3C /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAC73E82847147300F17A3C /* ArgumentParser */; };
 		4DAC73EA2847149300F17A3C /* AlfredUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */; };
 		4DAC73EB284714A100F17A3C /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
@@ -225,6 +225,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4D266C972946C5F9004B9F2C /* FlatDecrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatDecrypto.swift; sourceTree = "<group>"; };
 		4D43A0A527F054AA0004F08F /* ColorTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTool.swift; sourceTree = "<group>"; };
 		4D43A0A827F057E90004F08F /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4D43A0A927F057EA0004F08F /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -240,7 +241,6 @@
 		4D7060CE2887FA790029A04B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4D7060D62888008F0029A04B /* WeeklyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyDataManager.swift; sourceTree = "<group>"; };
 		4D8107E9280E9C9600F66817 /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
-		4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatAESCrypto.swift; sourceTree = "<group>"; };
 		4D8107F1280FD4DE00F66817 /* CurlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurlParser.swift; sourceTree = "<group>"; };
 		4D98A9D228B474E100CF256E /* AES.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
 		4D98A9D328B474E100CF256E /* StreamDecryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamDecryptor.swift; sourceTree = "<group>"; };
@@ -575,7 +575,7 @@
 			children = (
 				4D98A9D128B474E100CF256E /* CryptoSwift */,
 				4DAC73E2284713DA00F17A3C /* main.swift */,
-				4D8107EB280E9CC500F66817 /* FlatAESCrypto.swift */,
+				4D266C972946C5F9004B9F2C /* FlatDecrypto.swift */,
 				4D8107F1280FD4DE00F66817 /* CurlParser.swift */,
 			);
 			path = FlatAESCrypto;
@@ -1190,9 +1190,9 @@
 				4D98AA0128B474E100CF256E /* UInt64+Extension.swift in Sources */,
 				4D98AA2628B474E100CF256E /* Array+Extension.swift in Sources */,
 				4D98AA0628B474E100CF256E /* AES.Cryptors.swift in Sources */,
+				4D266C982946C5F9004B9F2C /* FlatDecrypto.swift in Sources */,
 				4D98AA0E28B474E100CF256E /* BatchedCollection.swift in Sources */,
 				4D98A9FE28B474E100CF256E /* AES.swift in Sources */,
-				4DAC73E7284713F400F17A3C /* FlatAESCrypto.swift in Sources */,
 				4D98AA0028B474E100CF256E /* BlockEncryptor.swift in Sources */,
 				4D98AA0A28B474E100CF256E /* Data+Extension.swift in Sources */,
 				4DAC73EA2847149300F17A3C /* AlfredUtils.swift in Sources */,

@@ -16,7 +16,7 @@ struct Repeat: ParsableCommand {
     
     func run() {
         if let flatDecrypt = flatDecrypt {// flat sdk 数据解密
-            FlatAESCrypto.decrypt(flatDecrypt)
+            FlatDecrypto.decrypt(flatDecrypt)
         }
     }
 }
