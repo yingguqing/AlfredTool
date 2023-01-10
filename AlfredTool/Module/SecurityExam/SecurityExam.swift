@@ -21,22 +21,30 @@ class SecurityExam {
     var simple: AlfredItem {
         var item = AlfredItem()
         let subtitle: String
+        var args = [String]()
         if answers.count == 1 {
             subtitle = "单选题"
+            args += ["单选题：\(topic)", "", "答案："]
+            args += answers
         } else {
             subtitle = "多选题，\(answers.count) 个答案"
+            args += ["多选题：\(topic)", "", "答案："]
+            // 多选题时，答案前面显示序号
+            args += answers.enumerated().map({ "\($0.offset + 1):\($0.element)" })
         }
         item.subtitle = subtitle
-        item.arg = topic
+        item.arg = args.joined(separator: "\n")
         item.title = topic
         return item
     }
     
     /// 当前题目的所有答案，是否在第一行显示题目
-    func answerItems(isNeedTopic:Bool) -> [AlfredItem] {
-        var items = answers.map({ AlfredItem.item(title: $0) })
+    func answerItems(isNeedTopic: Bool = true) -> [AlfredItem] {
+        let args = ["题目：\(topic)"] + answers.enumerated().map({ "\($0.offset + 1):\($0.element)" })
+        let arg = args.joined(separator: "\n")
+        var items = answers.map({ AlfredItem.item(arg: arg, title: $0) })
         if isNeedTopic {
-            let item = AlfredItem.item(title: "题目：\(topic)")
+            let item = AlfredItem.item(arg: arg, title: "题目：\(topic)")
             items.insert(item, at: 0)
         }
         return items
@@ -44,11 +52,11 @@ class SecurityExam {
 }
 
 extension SecurityExam {
-#if DEBUG
-    static let SecurityExamPath = Alfred.home / "Desktop/记录/考题记录/信息安全&平台政策考试.json"
-#else
-    static let SecurityExamPath = Alfred.localDir / "信息安全&平台政策考试.json"
-#endif
+    #if DEBUG
+        static let SecurityExamPath = Alfred.home / "Desktop/记录/考题记录/信息安全&平台政策考试.json"
+    #else
+        static let SecurityExamPath = Alfred.localDir / "信息安全&平台政策考试.json"
+    #endif
     
     /// 所有的考题
     static let allTopic: [SecurityExam] = {
@@ -94,7 +102,7 @@ extension SecurityExam {
                 }
             }
             let answers = dic.filter { awswerKeys.contains($0.0) }.map { $0.1 }
-            if let item = allQuestions.filter({ $0.topic == title }).first {// 旧题
+            if let item = allQuestions.filter({ $0.topic == title }).first { // 旧题
                 same += 1
                 // 把当前的答案和旧答案合并去重
                 item.answers = Array(Set(answers + item.answers))
@@ -140,7 +148,7 @@ extension SecurityExam {
     }
     
     /// 导出所有题目保存成文件
-    class func export(path:String) {
+    class func export(path: String) {
         guard !path.isEmpty else {
             print("导出保存路径不能为空")
             return
