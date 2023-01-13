@@ -25,6 +25,12 @@
 		4D7060DB288802B90029A04B /* AlfredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA827F71998000B2C9C /* AlfredItem.swift */; };
 		4D7060DC288802FA0029A04B /* AlfredUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */; };
 		4D7473F628AE0E47002CD4DD /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBA727F71998000B2C9C /* Plist.swift */; };
+		4D7BA6F7296EBA4D00D1FB44 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7BA6F6296EBA4D00D1FB44 /* libresolv.tbd */; };
+		4D7BA6F9296EBA5500D1FB44 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7BA6F8296EBA5500D1FB44 /* SystemConfiguration.framework */; };
+		4D7BA6FB296EBA5E00D1FB44 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7BA6FA296EBA5E00D1FB44 /* CoreTelephony.framework */; };
+		4D7BA9A529700CD800D1FB44 /* AliyunOSSiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7BA9A429700CD800D1FB44 /* AliyunOSSiOS.framework */; };
+		4D7BA9A829700D5B00D1FB44 /* AlibabacloudSts20150401 in Frameworks */ = {isa = PBXBuildFile; productRef = 4D7BA9A729700D5B00D1FB44 /* AlibabacloudSts20150401 */; };
+		4D7BA9AA29700D8E00D1FB44 /* UploadFileToOss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7BA9A929700D8E00D1FB44 /* UploadFileToOss.swift */; };
 		4D98A9FE28B474E100CF256E /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98A9D228B474E100CF256E /* AES.swift */; };
 		4D98A9FF28B474E100CF256E /* StreamDecryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98A9D328B474E100CF256E /* StreamDecryptor.swift */; };
 		4D98AA0028B474E100CF256E /* BlockEncryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98A9D428B474E100CF256E /* BlockEncryptor.swift */; };
@@ -240,6 +246,11 @@
 		4D7060CC2887FA790029A04B /* WeeklyData */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WeeklyData; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7060CE2887FA790029A04B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4D7060D62888008F0029A04B /* WeeklyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyDataManager.swift; sourceTree = "<group>"; };
+		4D7BA6F6296EBA4D00D1FB44 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		4D7BA6F8296EBA5500D1FB44 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4D7BA6FA296EBA5E00D1FB44 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4D7BA9A429700CD800D1FB44 /* AliyunOSSiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AliyunOSSiOS.framework; sourceTree = "<group>"; };
+		4D7BA9A929700D8E00D1FB44 /* UploadFileToOss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileToOss.swift; sourceTree = "<group>"; };
 		4D8107E9280E9C9600F66817 /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
 		4D8107F1280FD4DE00F66817 /* CurlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurlParser.swift; sourceTree = "<group>"; };
 		4D98A9D228B474E100CF256E /* AES.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
@@ -387,6 +398,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7BA6FB296EBA5E00D1FB44 /* CoreTelephony.framework in Frameworks */,
+				4D7BA9A829700D5B00D1FB44 /* AlibabacloudSts20150401 in Frameworks */,
+				4D7BA9A529700CD800D1FB44 /* AliyunOSSiOS.framework in Frameworks */,
+				4D7BA6F9296EBA5500D1FB44 /* SystemConfiguration.framework in Frameworks */,
+				4D7BA6F7296EBA4D00D1FB44 /* libresolv.tbd in Frameworks */,
 				4DF25C9E28C1A0E000D47C8C /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +439,9 @@
 		4D43A09B27F052A10004F08F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D7BA6FA296EBA5E00D1FB44 /* CoreTelephony.framework */,
+				4D7BA6F8296EBA5500D1FB44 /* SystemConfiguration.framework */,
+				4D7BA6F6296EBA4D00D1FB44 /* libresolv.tbd */,
 				4D8107E9280E9C9600F66817 /* CryptoKit.framework */,
 			);
 			name = Frameworks;
@@ -431,6 +450,7 @@
 		4D43A12627F424110004F08F /* AlfredTool */ = {
 			isa = PBXGroup;
 			children = (
+				4D7BA6F3296EB6C900D1FB44 /* Libs */,
 				4D70455E2897847E004C4BFB /* Module */,
 				4D70455D28978431004C4BFB /* Util */,
 			);
@@ -452,6 +472,7 @@
 				4DFFEBB227F84C4E000B2C9C /* Alfred.swift */,
 				4DFFEBA827F71998000B2C9C /* AlfredItem.swift */,
 				4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */,
+				4D7BA9A929700D8E00D1FB44 /* UploadFileToOss.swift */,
 				4D43A0AF27F097B70004F08F /* String.swift */,
 				4D98AA4C28B7559600CF256E /* NSTask-execute.swift */,
 				4D98AA4B28B7559600CF256E /* Regex.swift */,
@@ -487,6 +508,14 @@
 				4D7060D62888008F0029A04B /* WeeklyDataManager.swift */,
 			);
 			path = WeeklyData;
+			sourceTree = "<group>";
+		};
+		4D7BA6F3296EB6C900D1FB44 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				4D7BA9A429700CD800D1FB44 /* AliyunOSSiOS.framework */,
+			);
+			path = Libs;
 			sourceTree = "<group>";
 		};
 		4D98A9D128B474E100CF256E /* CryptoSwift */ = {
@@ -843,6 +872,7 @@
 			name = SecurityExam;
 			packageProductDependencies = (
 				4DF25C9D28C1A0E000D47C8C /* ArgumentParser */,
+				4D7BA9A729700D5B00D1FB44 /* AlibabacloudSts20150401 */,
 			);
 			productName = SecurityExam;
 			productReference = 4DF25C9628C1A09E00D47C8C /* SecurityExam */;
@@ -901,6 +931,7 @@
 			mainGroup = 4D43A05227F04D5B0004F08F;
 			packageReferences = (
 				4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				4D7BA9A629700D5B00D1FB44 /* XCRemoteSwiftPackageReference "sts-20150401" */,
 			);
 			productRefGroup = 4D43A05C27F04D5B0004F08F /* Products */;
 			projectDirPath = "";
@@ -1280,6 +1311,7 @@
 				4DF25CA128C1A10000D47C8C /* Alfred.swift in Sources */,
 				4DF25CA228C1A10400D47C8C /* AlfredUtils.swift in Sources */,
 				4DF25CA528C1A23E00D47C8C /* SecurityExam.swift in Sources */,
+				4D7BA9AA29700D8E00D1FB44 /* UploadFileToOss.swift in Sources */,
 				4DF25C9928C1A09E00D47C8C /* main.swift in Sources */,
 				4DF25CA028C1A10000D47C8C /* Regex.swift in Sources */,
 			);
@@ -1630,6 +1662,11 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AlfredTool/Libs",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1641,6 +1678,11 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AlfredTool/Libs",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1759,6 +1801,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		4D7BA9A629700D5B00D1FB44 /* XCRemoteSwiftPackageReference "sts-20150401" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alibabacloud-sdk-swift/sts-20150401.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1771,6 +1821,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;
+		};
+		4D7BA9A729700D5B00D1FB44 /* AlibabacloudSts20150401 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D7BA9A629700D5B00D1FB44 /* XCRemoteSwiftPackageReference "sts-20150401" */;
+			productName = AlibabacloudSts20150401;
 		};
 		4D98AA5528B756AB00CF256E /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
