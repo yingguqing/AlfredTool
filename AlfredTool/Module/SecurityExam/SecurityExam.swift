@@ -63,7 +63,7 @@ extension SecurityExam {
         do {
             let data = try Data(contentsOf: SecurityExamPath)
             let allQuestions = try JSONSerialization.jsonObject(with: data) as? [String: [String]] ?? [:]
-            return allQuestions.map { SecurityExam(topic: $0.0, answers: $0.1) }
+            return allQuestions.map ({ SecurityExam(topic: $0.0, answers: $0.1) }).sorted(by: { $0.topic < $1.topic })
         } catch {
             print("考题文本读取失败：\(error.localizedDescription)")
             exit(1)
@@ -141,7 +141,12 @@ extension SecurityExam {
     /// 通过题目内容查询考题，为空时，显示所有考题
     class func query(topic: String) {
         guard !topic.isEmpty else {
-            let items = allTopic.map({ $0.simple })
+            var items = allTopic.map({ $0.simple })
+            var item = AlfredItem()
+            item.title = "总共收录 \(allTopic.count) 道考题"
+            let radioCount = allTopic.filter({ $0.answers.count == 1}).count
+            item.subtitle = "单选：\(radioCount)。多选：\(allTopic.count - radioCount)"
+            items.insert(item, at: 0)
             Alfred.flush(items: items)
             return
         }
