@@ -11,12 +11,12 @@ import ArgumentParser
 
 struct Repeat: ParsableCommand {
     
-    @Option(help: "flat数据解密")
-    var flatDecrypt: String?
+    @Flag(help: "flat数据解密")
+    var decrypt:Bool = false
     
     func run() {
-        if let flatDecrypt = flatDecrypt {// flat sdk 数据解密
-            FlatDecrypto.decrypt(flatDecrypt)
+        if decrypt {
+            FlatDecrypto.decrypt()
         }
     }
 }

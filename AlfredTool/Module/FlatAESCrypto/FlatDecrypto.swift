@@ -5,7 +5,6 @@
 //  Created by zhouziyuan on 2022/12/12.
 //
 
-
 import CommonCrypto
 import Foundation
 
@@ -27,9 +26,7 @@ struct FlatAESCrypto {
         return String(data: deData, encoding: .utf8)?.trimmingCharacters(in: CharacterSet(charactersIn: "\0"))
     }
 
-    static func decrypt(_ value: String) {
-        
-    }
+    static func decrypt(_ value: String) {}
 }
 
 extension CBC {
@@ -59,9 +56,10 @@ private extension String {
         }
         return self
     }
-    
+
     /// 所有解密方式都解一遍
-    func flatDecryptList(infos:[FlatDecrypto.Info], defaultKeyValue:[String:String]) -> AlfredItem? {
+    func flatDecryptList(infos: [FlatDecrypto.Info], defaultKeyValue: [String: String]) -> AlfredItem? {
+        guard !self.isEmpty else { return nil }
         // 优先使用配置的解密方法
         for info in infos {
             guard let result = info.flatDecrypt(value: self) ?? info.flatDecrypt(value: self.urlDecode()) else { continue }
@@ -95,40 +93,41 @@ private extension String {
     }
 }
 
-class FlatDecrypto {
+enum FlatDecrypto {
     /// 默认私钥
-    static let defaultKeyValue:[String:String] = {
-        guard let value = userConfig("Default") as? [String:String] else {
+    static let defaultKeyValue: [String: String] = {
+        guard let value = userConfig("Default") as? [String: String] else {
             print("解密私钥配置文件错误。")
             exit(1)
         }
         return value
     }()
+
     /// 具体的解密配置
-    static let infos:[FlatDecrypto.Info] = {
-        guard let values = userConfig("Decrypto") as? [[String:String]] else {
+    static let infos: [FlatDecrypto.Info] = {
+        guard let values = userConfig("Decrypto") as? [[String: String]] else {
             print("解密私钥配置文件错误。")
             exit(1)
         }
         return values.map({ FlatDecrypto.Info(json: $0) })
     }()
-    
+
     struct Info {
         /// 解密方法服务归属
-        let name:String
-        private let aes:FlatAESCrypto
-        
-        init(json:[String:String]) {
+        let name: String
+        private let aes: FlatAESCrypto
+
+        init(json: [String: String]) {
             guard let name = json["name"] else {
                 print("缺少参数name，内容为解密方法服务归属。")
                 exit(1)
             }
             self.name = name
-            guard let mod = json["mod"]?.uppercased(), ["CBC","ECB"].contains(mod) else {
+            guard let mod = json["mod"]?.uppercased(), ["CBC", "ECB"].contains(mod) else {
                 print("缺少参数mod，内容为解密模式。")
                 exit(1)
             }
-            guard let paddingString = json["padding"]?.lowercased(), ["0","5", "7", "no"].contains(paddingString) else {
+            guard let paddingString = json["padding"]?.lowercased(), ["0", "5", "7", "no"].contains(paddingString) else {
                 print("\(name) 缺少参数padding，内容为解密Padding。")
                 exit(1)
             }
@@ -142,7 +141,7 @@ class FlatDecrypto {
                 print("CBC模式，缺少解密iv。")
                 exit(1)
             }
-            let padding:Padding
+            let padding: Padding
             switch paddingString {
                 case "0":
                     padding = .zeroPadding
@@ -164,25 +163,24 @@ class FlatDecrypto {
                 exit(1)
             }
         }
-        
+
         /// 对应的解密方法
         func flatDecrypt(value: String) -> String? {
             return try? aes.decrypt(value)
         }
     }
-    
-    static func decrypt(_ value: String) {
-        let dataString = value.curlRequestData.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\\/", with: "/")
+
+    static func decrypt() {
+        let pasteboard = String.pasteboard ?? ""
+        let dataString = pasteboard.curlRequestData.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\\/", with: "/")
         var item = AlfredItem()
         item.uid = "1"
-        item.subtitle = "Flat数据解密"
-        if value.isEmpty {
-            item.arg = value
-            item.title = "输入Flat的网络加密数据"
-        } else if let deItem = dataString.flatDecryptList(infos: infos, defaultKeyValue: defaultKeyValue) {
+        if let deItem = pasteboard.flatDecryptList(infos: infos, defaultKeyValue: defaultKeyValue) {
             item = deItem
+            item.subtitle = "Flat数据解密->自动获取剪切板"
+        } else if pasteboard.isEmpty {
+            item.title = "输入Flat的网络加密数据"
         } else {
-            item.arg = ""
             item.title = "解密失败"
         }
 

@@ -5,7 +5,7 @@
 //  Created by zhouziyuan on 2022/3/27.
 //
 
-import Foundation
+import Cocoa
 
 extension String {
     
@@ -149,5 +149,10 @@ extension String {
             return ""
         }
         return String(self[startIndex..<endIndex])
+    }
+    
+    /// 剪切板上的字符串
+    static var pasteboard:String? {
+        NSPasteboard.general.string(forType: .string)
     }
 }
