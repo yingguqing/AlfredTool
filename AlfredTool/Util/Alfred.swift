@@ -1,15 +1,10 @@
 import Foundation
 
 enum Alfred {
-    private static let fs: FileManager = .default
     // 用户主目录
-    static let home: URL = fs.homeDirectoryForCurrentUser
-    // Alfred 4 app所在目录
-    static let appBundlePath: URL = .init(fileURLWithPath: "/Applications/Alfred 4.app")
-    // 是否安装Alfred 4
-    static let isInstalled: Bool = fs.exists(appBundlePath)
+    static let home: URL = FileManager.default.homeDirectoryForCurrentUser
     // Alfred 的Application Support目录
-    static let appSupportDir: URL = home/"Library"/"Application Support"/"Alfred"
+    static let appSupportDir: URL = home / "Library" / "Application Support" / "Alfred"
     // workflow所在的目录
     static let localDir: URL = Bundle.main.bundleURL
 }

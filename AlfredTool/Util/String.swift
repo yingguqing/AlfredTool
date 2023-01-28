@@ -152,7 +152,14 @@ extension String {
     }
     
     /// 剪切板上的字符串
-    static var pasteboard:String? {
+    static var clipboard:String? {
         NSPasteboard.general.string(forType: .string)
+    }
+    
+    /// 把内容放到剪切板上
+    @discardableResult func toClipboard() -> Bool {
+        guard !self.isEmpty else { return false }
+        NSPasteboard.general.setString(self, forType: .string)
+        return NSPasteboard.general.string(forType: .string) == self
     }
 }

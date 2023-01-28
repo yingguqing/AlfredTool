@@ -58,20 +58,20 @@ func jsonObj(contentsOf filepath: URL) -> [String: Any]? {
 /// 获取用户配置
 /// - Parameter key: 配置项
 /// - Returns: 内容
-func userConfig(_ key: String) -> Any? {
-    let path = Alfred.localDir/"user_config.json"
+func userConfig<T>(_ key: String, fileName: String = "user_config.json") -> T? {
+    let path = Alfred.localDir / fileName
     guard let config = jsonObj(contentsOf: path) else {
         return nil
     }
-    return config[key]
+    return config[key] as? T
 }
 
 /// 保存用户配置
 /// - Parameters:
 ///   - key: 配置key
 ///   - value: 配置内容
-func saveUserConfig(key: String, value: Any) {
-    let path = Alfred.localDir/"user_config.json"
+func saveUserConfig(key: String, value: Any, fileName: String = "user_config.json") {
+    let path = Alfred.localDir / fileName
     var config = jsonObj(contentsOf: path) ?? [String: Any]()
     config[key] = value
     let data = try? JSONSerialization.data(withJSONObject: config, options: .prettyPrinted)
@@ -132,11 +132,11 @@ func findFiles(path: String, filterTypes: [String] = [], isFindSubpaths: Bool = 
     do {
         var files = [String]()
         if isFindSubpaths { // 递归查找
-            if let array = FileManager.default.subpaths(atPath: path)?.filter({ !$0.lastPathComponent.hasPrefix(".")}) {
+            if let array = FileManager.default.subpaths(atPath: path)?.filter({ !$0.lastPathComponent.hasPrefix(".") }) {
                 files = array
             }
         } else {
-            files = try FileManager.default.contentsOfDirectory(atPath: path).filter({ !$0.lastPathComponent.hasPrefix(".")})
+            files = try FileManager.default.contentsOfDirectory(atPath: path).filter({ !$0.lastPathComponent.hasPrefix(".") })
         }
         if isFull {
             files = files.map { path / $0 }
