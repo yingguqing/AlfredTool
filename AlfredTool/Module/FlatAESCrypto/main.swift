@@ -14,6 +14,9 @@ struct Repeat: ParsableCommand {
     @Flag(help: "flat数据解密－剪切板")
     var decrypt:Bool = false
     
+    @Flag(help: "flat数据加密－剪切板")
+    var encrypt:Bool = false
+    
     @Option(help: "flat数据解密特定内容")
     var decryptValue:String?
     
@@ -23,6 +26,9 @@ struct Repeat: ParsableCommand {
         } else if decrypt {
             let pasteboard = String.clipboard ?? ""
             FlatDecrypto.decrypt(value: pasteboard, isPrint: false)
+        } else if encrypt {
+            let pasteboard = String.clipboard ?? ""
+            FlatDecrypto.encrypt(value: pasteboard)
         }
     }
 }

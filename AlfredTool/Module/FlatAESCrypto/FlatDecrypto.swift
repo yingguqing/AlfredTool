@@ -20,13 +20,17 @@ struct FlatAESCrypto {
         return Data(decryptedBytes)
     }
 
+    func encrypt(_ string: String) throws -> Data {
+        let data = Data(string.utf8)
+        let encryptedBytes = try aes.encrypt(data.bytes)
+        return Data(encryptedBytes)
+    }
+
     func decrypt(_ string: String) throws -> String? {
         guard let data = Data(base64Encoded: string.replacingOccurrences(of: "\n", with: "")) else { return nil }
         let deData = try decrypt(data)
         return String(data: deData, encoding: .utf8)?.trimmingCharacters(in: CharacterSet(charactersIn: "\0"))
     }
-
-    static func decrypt(_ value: String) {}
 }
 
 extension CBC {
@@ -39,14 +43,17 @@ extension CBC {
 struct DecryptoInfo {
     /// 解密方法服务归属
     let name: String
+    /// 默认加解密参数的索引
+    let indexKey: String
+    /// 是否为默认加解密参数
+    var isDefault: Bool
+
     private let aes: FlatAESCrypto
 
-    init(json: [String: String]) {
-        guard let name = json["name"] else {
-            print("缺少参数name，内容为解密方法服务归属。")
-            exit(1)
-        }
-        self.name = name
+    init(json: [String: String], key:String) {
+        self.name = json["name"] ?? key
+        self.indexKey = key
+        self.isDefault = json["isDefault"] == "1"
         guard let mod = json["mod"]?.uppercased(), ["CBC", "ECB"].contains(mod) else {
             print("缺少参数mod，内容为解密模式。")
             exit(1)
@@ -88,9 +95,39 @@ struct DecryptoInfo {
         }
     }
 
+    /// 所有解密参数集 isOnlyOneDefault:表示随机保留一个默认解密集，用于加密
+    static func all(isOnlyOneDefault: Bool = false) -> [DecryptoInfo] {
+        let values:[String:[String:String]] = userConfig() ?? [:]
+        var infos = values.map({ DecryptoInfo(json: $0.1, key: $0.0) })
+        if isOnlyOneDefault, let item = infos.filter({  $0.isDefault }).randomElement() {
+            infos = infos.filter({ !$0.isDefault }) + [item]
+        }
+        return infos
+    }
+
     /// 对应的解密方法
     func flatDecrypt(value: String) -> String? {
-        return try? aes.decrypt(value)
+        if isDefault {
+            guard let data = Data(base64Encoded: value) else { return nil }
+            let contentData = data.subdata(in: 0 ..< (data.count-1))
+            let keyData = data.subdata(in: (data.count-1) ..< (data.count))
+            guard let index = String(data: keyData, encoding: .utf8), indexKey == index, let dedata = try? aes.decrypt(contentData) else { return nil }
+            guard let result = String(data: dedata, encoding: .utf8), !result.isEmpty else { return nil }
+            return result
+        } else {
+            return try? aes.decrypt(value)
+        }
+    }
+
+    /// 对应的加密方法
+    func flatEncrypt(value: String) -> String? {
+        if isDefault {
+            var data = try? aes.encrypt(value)
+            data?.append(Data(indexKey.utf8))
+            return data?.base64EncodedString()
+        } else {
+            return try? aes.encrypt(value).base64EncodedString()
+        }
     }
 }
 
@@ -118,46 +155,44 @@ private extension String {
 
     /// 所有解密方式都解一遍
     func flatDecryptList() -> AlfredItem? {
-        guard !self.isEmpty, let values:[[String: String]] = userConfig("Decrypto") else { return nil }
         // 具体的解密配置
-        let infos = values.map({ DecryptoInfo(json: $0) })
+        let infos = DecryptoInfo.all(isOnlyOneDefault: false)
+        guard !self.isEmpty, !infos.isEmpty else { return nil }
+        let urlDecode = self.urlDecode()
         // 优先使用配置的解密方法
         for info in infos {
-            guard let result = info.flatDecrypt(value: self) ?? info.flatDecrypt(value: self.urlDecode()) else { continue }
+            guard let result = info.flatDecrypt(value: self) ?? info.flatDecrypt(value: urlDecode) else { continue }
             var item = AlfredItem()
-            item.uid = "1"
             item.subtitle = "Flat数据解密"
             item.arg = result.jsonFormat
-            item.title = "\(info.name) • 解密成功"
+            item.title = "\(info.name) • 解密"
             item.subtitle = result
             return item
         }
-        // 再使用默认的解密方法
-        guard let data = Data(base64Encoded: self) else { return nil }
-        let contentData = data.subdata(in: 0 ..< (data.count-1))
-        let keyData = data.subdata(in: (data.count-1) ..< (data.count))
-        // 默认私钥
-        guard let keyIndex = String(data: keyData, encoding: .utf8), let defaultKeyValue:[String: String] = userConfig("Default"), let key = defaultKeyValue[keyIndex], !key.isEmpty else { return nil }
-        do {
-            let aes = try FlatAESCrypto(key: key, blockMode: CBC(iv: key), padding: .zeroPadding)
-            let dedata = try aes.decrypt(contentData)
-            guard let result = String(data: dedata, encoding: .utf8), !result.isEmpty else { return nil }
+        return nil
+    }
+    
+    /// 所有加密都加一遍，默认就只随机使用一个
+    func flatEncryptList() -> [AlfredItem] {
+        // 具体的解密配置
+        let infos = DecryptoInfo.all(isOnlyOneDefault: true)
+        guard !self.isEmpty, !infos.isEmpty else { return [] }
+        // 优先使用配置的解密方法
+        return infos.compactMap({
+            guard let result = $0.flatEncrypt(value: self) else { return nil }
             var item = AlfredItem()
-            item.uid = "1"
-            item.subtitle = "Flat数据解密"
-            item.arg = result.jsonFormat
-            item.title = "默认 • 解密成功"
+            item.uid = $0.name
+            item.subtitle = "Flat数据加密"
+            item.arg = result
             item.subtitle = result
+            item.title = "\($0.name) • 加密"
             return item
-        } catch {
-            return nil
-        }
+        })
     }
 }
 
 enum FlatDecrypto {
-
-    static func decrypt(value:String, isPrint:Bool) {
+    static func decrypt(value: String, isPrint: Bool) {
         let dataString = value.curlRequestData.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\\/", with: "/")
         var item = AlfredItem()
         if let deItem = dataString.flatDecryptList() {
@@ -171,6 +206,21 @@ enum FlatDecrypto {
             print(item.arg)
         } else {
             Alfred.flush(item: item)
+        }
+    }
+
+    /// 加密内容
+    /// - Parameters:
+    ///   - value: 需要加密的内容
+    ///   - name: 指定加密参数的名字，只能是配置文件中有的
+    static func encrypt(value: String) {
+        let items = value.flatEncryptList()
+        if !items.isEmpty {
+            Alfred.flush(items: items)
+        } else if value.isEmpty {
+            Alfred.flush(item: .item(title: "输入准备加密的内容"))
+        } else {
+            Alfred.flush(item: .item(title: "加密失败"))
         }
     }
 }

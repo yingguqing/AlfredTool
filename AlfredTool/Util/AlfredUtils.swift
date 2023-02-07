@@ -58,12 +58,16 @@ func jsonObj(contentsOf filepath: URL) -> [String: Any]? {
 /// 获取用户配置
 /// - Parameter key: 配置项
 /// - Returns: 内容
-func userConfig<T>(_ key: String, fileName: String = "user_config.json") -> T? {
+func userConfig<T>(_ key: String = "", fileName: String = "user_config.json") -> T? {
     let path = Alfred.localDir / fileName
     guard let config = jsonObj(contentsOf: path) else {
         return nil
     }
-    return config[key] as? T
+    if key.isEmpty {
+        return config as? T
+    } else {
+        return config[key] as? T
+    }
 }
 
 /// 保存用户配置
