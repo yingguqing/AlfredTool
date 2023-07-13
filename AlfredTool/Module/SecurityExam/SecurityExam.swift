@@ -63,7 +63,7 @@ extension SecurityExam {
         do {
             let data = try Data(contentsOf: SecurityExamPath)
             let allQuestions = try JSONSerialization.jsonObject(with: data) as? [String: [String]] ?? [:]
-            return allQuestions.map ({ SecurityExam(topic: $0.0, answers: $0.1) }).sorted(by: { $0.topic < $1.topic })
+            return allQuestions.map({ SecurityExam(topic: $0.0, answers: $0.1) }).sorted(by: { $0.topic < $1.topic })
         } catch {
             print("考题文本读取失败：\(error.localizedDescription)")
             exit(1)
@@ -113,21 +113,19 @@ extension SecurityExam {
                 }
             }
             // 只取出正确答案的内容
-            let answers = dic.filter { awswerKeys.contains($0.0) }.map { $0.1 }
-            if let item = allQuestions.filter({ $0.topic == title }).first { // 旧题
+            let answers = dic.filter({ awswerKeys.contains($0.0) }).map({ $0.1 })
+            if let item = allQuestions.filter({ $0.topic.removeSymbol == title.removeSymbol }).first { // 旧题
                 same += 1
                 // 把当前的答案和旧答案合并去重
                 item.answers = Array(Set(answers + item.answers))
             } else { // 新题
                 let item = SecurityExam(topic: title, answers: answers)
-                // 把新增考题的题目打印出来
-                print(title)
                 allQuestions.append(item)
             }
             count += 1
         }
         do {
-            let dic = Dictionary(uniqueKeysWithValues: allQuestions.map { ($0.topic, $0.answers) })
+            let dic = Dictionary(uniqueKeysWithValues: allQuestions.map({ ($0.topic, $0.answers) }))
             let data = try JSONSerialization.data(withJSONObject: dic, options: [.sortedKeys, .prettyPrinted])
             try data.write(to: SecurityExamPath)
             print("解析题目数：\(count)。\n其中相同题目数：\(same)。\n生成题库数：\(allQuestions.count)\n新增：\(allQuestions.count - allTopic.count)")
@@ -144,7 +142,7 @@ extension SecurityExam {
             var items = allTopic.map({ $0.simple })
             var item = AlfredItem()
             item.title = "总共收录 \(allTopic.count) 道考题"
-            let radioCount = allTopic.filter({ $0.answers.count == 1}).count
+            let radioCount = allTopic.filter({ $0.answers.count == 1 }).count
             item.subtitle = "单选：\(radioCount)。多选：\(allTopic.count - radioCount)"
             items.insert(item, at: 0)
             Alfred.flush(items: items)
@@ -183,5 +181,16 @@ extension SecurityExam {
         } catch {
             print("导出保存题目失败:\(error.localizedDescription)")
         }
+    }
+}
+
+extension String {
+    var removeSymbol: String {
+        let symbol = ["，", "？", "、", "。", ",", ".", "?"]
+        var new = self
+        symbol.forEach({
+            new = new.replacingOccurrences(of: $0, with: "|")
+        })
+        return new
     }
 }
