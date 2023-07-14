@@ -967,7 +967,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"B6E7BFF6-F7BA-4402-9344-29D0A8550509\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"B6E7BFF6-F7BA-4402-9344-29D0A8550509\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
 		};
 		4DF25CAC28C1F26700D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -985,7 +985,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"81DF1D9A-E54F-4671-B4E0-24AFEE0FF9E2\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"81DF1D9A-E54F-4671-B4E0-24AFEE0FF9E2\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
 		};
 		4DF25CAD28C1F32200D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1003,7 +1003,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"8ABEC8D2-DFF2-495A-901E-FA5C2AC94887\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"8ABEC8D2-DFF2-495A-901E-FA5C2AC94887\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
 		};
 		4DF25CAE28C1F35D00D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1021,7 +1021,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"2F7B02CE-0C5D-41CB-8961-04FCD3A4CEBA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"2F7B02CE-0C5D-41CB-8961-04FCD3A4CEBA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
 		};
 		4DF25CAF28C1F3A100D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1039,7 +1039,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"6E4FA43D-24A8-4B1B-91F6-3B9CF487C601\"\nBuildPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$BuildPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"6E4FA43D-24A8-4B1B-91F6-3B9CF487C601\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
 		};
 		4DF25CB028C1F3F600D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1057,7 +1057,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"11FC8A05-7749-4927-BD4F-284B7F5C9455\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"11FC8A05-7749-4927-BD4F-284B7F5C9455\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n\n";
 		};
 		4DF25CB228C1F45400D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1075,7 +1075,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"89D7B10B-3411-4415-850D-5919344A52BA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"89D7B10B-3411-4415-850D-5919344A52BA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
 		};
 		4DF25CB328C1F48C00D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1093,7 +1093,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"9437B0E4-26B3-428F-B14F-B47B478B5425\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"9437B0E4-26B3-428F-B14F-B47B478B5425\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\nfi\n";
 		};
 		4DF25CB428C1F4CB00D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1111,7 +1111,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"BD260455-7A66-42CA-BB8B-B5772AC8EABA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\n# codesign -f -s - --deep \"$DisPath\"\nxattr -r -d com.apple.quarantine \"$DisPath\"\nfi\n\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"BD260455-7A66-42CA-BB8B-B5772AC8EABA\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\n# codesign -f -s - --deep \"$DisPath\"\nxattr -r -d com.apple.quarantine \"$DisPath\"\nfi\n\n";
 		};
 		4DF25CB528C1F4FA00D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1129,7 +1129,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"CE2DA1E8-A104-42DC-8D9B-A005031AA467\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"/Users/zhouziyuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"CE2DA1E8-A104-42DC-8D9B-A005031AA467\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
