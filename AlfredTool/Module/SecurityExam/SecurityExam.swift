@@ -18,6 +18,16 @@ class SecurityExam {
         self.answers = answers
     }
     
+    convenience init?(value:String?) {
+        guard let value, !value.isEmpty else { return nil }
+        let topicRegex = Regex(#"^(.*?)\s+A\s+"#)
+        let answerRegex = Regex(#"^[A-Z]+\s+(.*?)\s+正确答案"#, options: .anchorsMatchLines)
+        guard let topic = topicRegex.firstMatch(in: value)?.firstCapture, !topic.isEmpty else { return nil }
+        let answers = answerRegex.matches(in: value).compactMap(\.firstCapture)
+        guard !answers.isEmpty else { return nil }
+        self.init(topic: topic, answers: answers)
+    }
+    
     var simple: AlfredItem {
         var item = AlfredItem()
         let subtitle: String
@@ -77,58 +87,26 @@ extension SecurityExam {
             return nil
         }
         var allQuestions = allTopic
-        let regex = try! Regex("\\d{1,2}\\n+[单|多]选题\\n+\\s*\\n分值:\\s*\\d\\n+得分：\\d分")
-        let target = "==========="
-        // 这两个值如果是一行内容，需要直接过滤掉，因为这两个值是对当前答案的判定，不是属于答案内容
-        let filters = ["正确答案", "错误答案"]
-        let questionLines = regex.replacingMatches(in: importString, with: target).components(separatedBy: target).map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty && $0.contains("正确答案：") }
-        // 答案标识
-        let keys = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"]
-        // 当前解析题目总数
-        var count = 0
+        let regex = Regex(#"\d+\s+[单|多]选题\s+分值[:|：]\s*\d+\s+得分[:|：]\d+分\s+(.*?)\s+正确答案[:|：]"#, options: .dotMatchesLineSeparators)
+        let matchs = regex.matches(in: importString)
+        // 解析当前文件中所有题目
+        let fileTopics = matchs.compactMap({ SecurityExam(value: $0.firstCapture) })
         // 相同题目数
         var same = 0
-        for str in questionLines {
-            // 以这个分割，前面是题目，后面是答案标识
-            let array = str.components(separatedBy: "正确答案：")
-            guard array.count == 2 else { continue }
-            // 取出正确答案的标识
-            let awswerKeys = array[1].components(separatedBy: "\n")
-            // 把题目内容按行分割
-            let lines = array[0].components(separatedBy: "\n")
-            guard lines.count > 4 else { continue }
-            // 第一行是题目
-            let title = lines[0]
-            var dic = [String: String]()
-            var key = ""
-            for line in lines {
-                // 过滤掉题目和对当前答案的判定结果
-                guard title != line, !filters.contains(line), !line.isEmpty else { continue }
-                // 如果当前行是ABCDEF这种答案标识
-                if keys.contains(line) {
-                    key = line
-                } else {
-                    // 把答案内容放到答案标识对应的字典中
-                    dic[key] = (dic[key] ?? "") + line
-                }
-            }
-            // 只取出正确答案的内容
-            let answers = dic.filter({ awswerKeys.contains($0.0) }).map({ $0.1 })
-            if let item = allQuestions.filter({ $0.topic.removeSymbol == title.removeSymbol }).first { // 旧题
+        fileTopics.forEach({ item in
+            if let old = allQuestions.first(where: { $0.topic.removeSymbol == item.topic.removeSymbol }) { // 旧题
                 same += 1
                 // 把当前的答案和旧答案合并去重
-                item.answers = Array(Set(answers + item.answers))
-            } else { // 新题
-                let item = SecurityExam(topic: title, answers: answers)
+                old.answers = Array(Set(old.answers + item.answers))
+            } else {// 新题
                 allQuestions.append(item)
             }
-            count += 1
-        }
+        })
         do {
-            let dic = Dictionary(uniqueKeysWithValues: allQuestions.map({ ($0.topic, $0.answers) }))
+            let dic = Dictionary(uniqueKeysWithValues: allQuestions.map({ ($0.topic, $0.answers.sorted(by: <)) }))
             let data = try JSONSerialization.data(withJSONObject: dic, options: [.sortedKeys, .prettyPrinted])
             try data.write(to: SecurityExamPath)
-            print("解析题目数：\(count)。\n其中相同题目数：\(same)。\n生成题库数：\(allQuestions.count)\n新增：\(allQuestions.count - allTopic.count)")
+            print("解析题目数：\(fileTopics.count)。\n其中相同题目数：\(same)。\n生成题库数：\(allQuestions.count)\n新增：\(allQuestions.count - allTopic.count)")
             return SecurityExamPath
         } catch {
             print("保存题目失败:\(error.localizedDescription)")

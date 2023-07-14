@@ -110,7 +110,7 @@ class DistinctProvisionProfile {
     private func allCodeSigningCert() -> [String] {
         let result = Process.execute("/usr/bin/security", arguments: ["find-identity", "-v", "-p", "codesigning"])
         guard !result.output.isEmpty else { return [] }
-        let regex = try! Regex(#"\(([A-Z0-9]{5,})\)""#)
+        let regex = Regex(#"\(([A-Z0-9]{5,})\)""#)
         let ids = regex.matches(in: result.output).filter({ !$0.captures.isEmpty }).flatMap({ $0.captures }).compactMap({ $0 })
         return Array(Set(ids))
     }
@@ -159,7 +159,7 @@ extension DistinctProvisionProfile.DeveloperCertificate {
         guard let invalidityDateDictionaryRef = valuesDict[kSecOIDInvalidityDate] as? [CFString: AnyObject] else { return nil }
         guard let invalidityRef = invalidityDateDictionaryRef[kSecPropertyKeyValue] else { return nil }
         self.name = summary
-        let regex = try! Regex(#"\(([A-Z0-9]{5,})\)"#)
+        let regex = Regex(#"\(([A-Z0-9]{5,})\)"#)
         let teamID = regex.matches(in: summary).filter({ !$0.captures.isEmpty }).flatMap({ $0.captures }).compactMap({ $0 }).first ?? ""
         self.teamID = teamID
         if let invalidity = invalidityRef as? Date {

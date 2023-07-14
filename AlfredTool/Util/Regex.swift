@@ -14,11 +14,15 @@ public struct Regex {
     private let regularExpression: NSRegularExpression
     
     //使用正则表达式进行初始化
-    public init(_ pattern: String, options: Options = []) throws {
-        regularExpression = try NSRegularExpression(
-            pattern: pattern,
-            options: options.toNSRegularExpressionOptions
-        )
+    public init(_ pattern: String, options: Options = []) {
+        do {
+            regularExpression = try NSRegularExpression(
+                pattern: pattern,
+                options: options.toNSRegularExpressionOptions
+            )
+        } catch {
+            fatalError("正则错误：\(error)")
+        }
     }
     
     //正则匹配验证（true表示匹配成功）
@@ -142,6 +146,10 @@ extension Regex {
                 
                 return nil
             }
+        }()
+        
+        public lazy var firstCapture:String? = {
+            return captures.first ?? nil
         }()
         
         private let result: NSTextCheckingResult
