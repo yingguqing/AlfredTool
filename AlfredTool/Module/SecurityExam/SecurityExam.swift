@@ -142,29 +142,11 @@ extension SecurityExam {
                 Alfred.flush(items: items)
         }
     }
-    
-    /// 导出所有题目保存成文件
-    class func export(path: String) {
-        guard !path.isEmpty else {
-            print("导出保存路径不能为空")
-            return
-        }
-        do {
-            let dic = Dictionary(uniqueKeysWithValues: allTopic.map { ($0.topic, $0.answers) })
-            let data = try JSONSerialization.data(withJSONObject: dic, options: [.sortedKeys, .prettyPrinted])
-            path.deletingLastPathComponent.createFilePath()
-            path.pathRemove()
-            try data.write(to: URL(fileURLWithPath: path))
-            print("导出保存题目成功")
-        } catch {
-            print("导出保存题目失败:\(error.localizedDescription)")
-        }
-    }
 }
 
 extension String {
     var removeSymbol: String {
-        let symbol = ["，", "？", "、", "。", ",", ".", "?"]
+        let symbol = ["，", "？", "、", "。", ",", ".", "?", "/"]
         var new = self
         symbol.forEach({
             new = new.replacingOccurrences(of: $0, with: "|")

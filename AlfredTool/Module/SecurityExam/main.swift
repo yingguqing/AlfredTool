@@ -10,7 +10,6 @@ import Foundation
 import ArgumentParser
 
 /*
- --export-path <export-path> 导出所有考试题目路径
  --topic <topic>         考试题目内容
  --import-path <import-path> 收录考试题目答案
  --access-key-id <access-key-id> OSS的上传文件参数Key Id
@@ -18,9 +17,6 @@ import ArgumentParser
  --security-token <security-token> OSS的上传文件参数securityToken
  */
 struct Repeat: ParsableCommand {
-    
-    @Option(help: "导出所有考试题目路径")
-    var exportPath:String?
     
     @Option(help: "考试题目内容")
     var topic: String?
@@ -49,8 +45,6 @@ struct Repeat: ParsableCommand {
             while upload?.isFinish == false {
                 sleep(1)
             }
-        } else if let exportPath = exportPath {
-            SecurityExam.export(path: exportPath)
         }
     }
 }
