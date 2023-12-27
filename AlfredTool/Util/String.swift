@@ -14,6 +14,10 @@ extension String {
         return (parent as NSString).appendingPathComponent(child)
     }
     
+    var fileURL: URL {
+        URL(fileURLWithPath: self)
+    }
+    
     /// 获得文件的扩展类型（不带'.'）
     var pathExtension: String {
         return (self as NSString).pathExtension
@@ -161,5 +165,11 @@ extension String {
         guard !self.isEmpty else { return false }
         NSPasteboard.general.setString(self, forType: .string)
         return NSPasteboard.general.string(forType: .string) == self
+    }
+}
+
+extension String: CustomNSError {
+    public var errorUserInfo: [String: Any] {
+        [NSLocalizedDescriptionKey: self]
     }
 }
