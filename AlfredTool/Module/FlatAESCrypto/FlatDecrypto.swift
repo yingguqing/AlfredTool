@@ -74,11 +74,11 @@ struct DecryptoInfo {
         }
         let padding: Padding
         switch paddingString {
-            case "0":
+            case "0", "zero", "zeroPadding":
                 padding = .zeroPadding
-            case "5":
+            case "5", "pkcs5":
                 padding = .pkcs5
-            case "7":
+            case "7", "pkcs7":
                 padding = .pkcs7
             default:
                 padding = .noPadding

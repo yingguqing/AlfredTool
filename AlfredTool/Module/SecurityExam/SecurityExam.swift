@@ -69,14 +69,16 @@ class SecurityExam {
         let subtitle: String
         var args = [String]()
         if answers.count == 1 {
-            subtitle = "单选题"
+            subtitle = "答案：\(answers.joined())"
             args += ["单选题：\(topic)", "", "答案："]
             args += answers
         } else {
-            subtitle = "多选题，\(answers.count) 个答案"
+            let maxLength = 10
+            let subAnswers = answers.enumerated().map({ "\($0.offset + 1).\(String($0.element.prefix(min(maxLength, $0.element.count))))" }).joined(separator: " ")
+            subtitle = "答案：\(subAnswers)"
             args += ["多选题：\(topic)", "", "答案："]
             // 多选题时，答案前面显示序号
-            args += answers.enumerated().map({ "\($0.offset + 1):\($0.element)" })
+            args += answers.enumerated().map({ "答案\($0.offset + 1):\($0.element)" })
         }
         item.subtitle = subtitle
         item.arg = args.joined(separator: "\n")
@@ -88,7 +90,7 @@ class SecurityExam {
     func answerItems(isNeedTopic: Bool = true) -> [AlfredItem] {
         let args = ["题目：\(topic)"] + answers.enumerated().map({ "\($0.offset + 1):\($0.element)" })
         let arg = args.joined(separator: "\n")
-        var items = answers.map({ AlfredItem.item(arg: arg, title: $0) })
+        var items = answers.enumerated().map({ AlfredItem.item(arg: arg, title: "答案\($0.offset + 1):\($0.element)") })
         if isNeedTopic {
             let item = AlfredItem.item(arg: arg, title: "题目：\(topic)")
             items.insert(item, at: 0)
@@ -157,7 +159,7 @@ extension SecurityExam {
             var item = AlfredItem()
             item.title = "总共收录 \(allTopic.count) 道考题"
             let radioCount = allTopic.filter({ $0.answers.count == 1 }).count
-            item.subtitle = "单选：\(radioCount)。多选：\(allTopic.count - radioCount)"
+            item.subtitle = "单选：\(radioCount)，多选：\(allTopic.count - radioCount)。"
             items.insert(item, at: 0)
             Alfred.flush(items: items)
             return

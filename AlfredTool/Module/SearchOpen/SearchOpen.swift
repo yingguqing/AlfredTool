@@ -54,7 +54,12 @@ class SearchOpen {
         /// 有查询内容时，判断当前文件是否符合
         func isValid(_ input: String) -> Bool {
             guard !input.isEmpty else { return true }
-            return ![name, search, path.fileNameWithoutExtension].filter { $0.lowercased().contains(input.lowercased()) }.isEmpty
+            if ![name, search, path.fileNameWithoutExtension].filter({ $0.lowercased().contains(input.lowercased()) }).isEmpty {
+                return true
+            }
+            guard let value = try? String(contentsOfFile: path) else { return false }
+            // 从文件内容中查找。后续如果有大文件，这里要加上文件大小判断。太大的文件不处理
+            return value.contains(input)
         }
         
         /// alfred的item项
