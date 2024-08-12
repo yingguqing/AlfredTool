@@ -73,7 +73,6 @@
 		4D98AA2528B474E100CF256E /* OFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98A9FC28B474E100CF256E /* OFB.swift */; };
 		4D98AA2628B474E100CF256E /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98A9FD28B474E100CF256E /* Array+Extension.swift */; };
 		4D98AA2928B4771200CF256E /* Alfred+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA2728B476F400CF256E /* Alfred+Script.swift */; };
-		4D98AA4728B7556D00CF256E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4628B7556D00CF256E /* main.swift */; };
 		4D98AA4D28B7559600CF256E /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4B28B7559600CF256E /* Regex.swift */; };
 		4D98AA4E28B7559600CF256E /* NSTask-execute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4C28B7559600CF256E /* NSTask-execute.swift */; };
 		4D98AA4F28B755A100CF256E /* Alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFFEBB227F84C4E000B2C9C /* Alfred.swift */; };
@@ -296,7 +295,6 @@
 		4D98A9FD28B474E100CF256E /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		4D98AA2728B476F400CF256E /* Alfred+Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alfred+Script.swift"; sourceTree = "<group>"; };
 		4D98AA4428B7556D00CF256E /* DistinctProvisionProfile */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DistinctProvisionProfile; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D98AA4628B7556D00CF256E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4D98AA4B28B7559600CF256E /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		4D98AA4C28B7559600CF256E /* NSTask-execute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTask-execute.swift"; sourceTree = "<group>"; };
 		4D98AA5328B7560600CF256E /* DistinctProvisionProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistinctProvisionProfile.swift; sourceTree = "<group>"; };
@@ -584,7 +582,6 @@
 		4D98AA4528B7556D00CF256E /* DistinctProvisionProfile */ = {
 			isa = PBXGroup;
 			children = (
-				4D98AA4628B7556D00CF256E /* main.swift */,
 				4D98AA5328B7560600CF256E /* DistinctProvisionProfile.swift */,
 			);
 			path = DistinctProvisionProfile;
@@ -874,7 +871,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					4D7044E42890E1D5004C4BFB = {
@@ -1153,7 +1150,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D98AA4728B7556D00CF256E /* main.swift in Sources */,
 				4D98AA5028B755A300CF256E /* AlfredItem.swift in Sources */,
 				4D98AA4F28B755A100CF256E /* Alfred.swift in Sources */,
 				4D98AA5128B755A700CF256E /* AlfredUtils.swift in Sources */,
@@ -1783,7 +1779,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			repositoryURL = "https://git.yingguqing.top/yingguqing/swift-argument-parser.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;

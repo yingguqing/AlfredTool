@@ -5,11 +5,11 @@
 //  Created by zhouziyuan on 2022/8/25.
 //
 
+import ArgumentParser
 import Cocoa
 
-class DistinctProvisionProfile {
-    let ProvisioningProfilesPath = (Alfred.home / "Library/MobileDevice/Provisioning Profiles").path
-    
+@main
+class DistinctProvisionProfile: ParsableCommand {
     /// 描述文件中的证书信息
     struct DeveloperCertificate {
         let name: String // 证书名称：iPhone Developer: Created via API (G7X5J84AUC)
@@ -17,7 +17,7 @@ class DistinctProvisionProfile {
         let expires: Date? // 证书过期时间
         
         /// 证书是否过期
-        var isExpire:Bool {
+        var isExpire: Bool {
             guard let date = expires else { return false }
             return Date() > date
         }
@@ -37,13 +37,13 @@ class DistinctProvisionProfile {
         let certificates: [DeveloperCertificate]
         
         /// 描述文件里的证书，本地是否存在
-        func isContain(teamIds:[String]) -> Bool {
+        func isContain(teamIds: [String]) -> Bool {
             let cers = certificates.filter({ teamIds.contains($0.teamID) })
             return !cers.isEmpty
         }
         
         /// 证书是否过期
-        func isExpire(teamIds:[String]) -> Bool {
+        func isExpire(teamIds: [String]) -> Bool {
             let date = Date()
             // 描述文件自身过期
             guard date < expires else { return true }
@@ -53,10 +53,17 @@ class DistinctProvisionProfile {
         }
     }
     
+    static func main() throws {
+        DistinctProvisionProfile().run()
+    }
+    
+    required init() {}
+    
     func run() {
+        let ProvisioningProfilesPath = (Alfred.home / "Library/MobileDevice/Provisioning Profiles").path
         let allTeamId = allCodeSigningCert()
         // 获取本地所有的描述文件
-        let files = findFiles(path: ProvisioningProfilesPath, filterTypes: ["mobileprovision"]).compactMap { ProvisioningProfile(path: $0) }
+        let files = findFiles(path: ProvisioningProfilesPath, filterTypes: ["mobileprovision", "provisionprofile"]).compactMap { ProvisioningProfile(path: $0) }
         var profileDic = [String: [ProvisioningProfile]]()
         var noTemeIdCount = 0
         var expireCount = 0
@@ -69,13 +76,13 @@ class DistinctProvisionProfile {
                 var list = profileDic[id] ?? []
                 list.append($0)
                 profileDic.updateValue(list, forKey: id)
-            } else if ($0.isExpire(teamIds: allTeamId)) {
+            } else if $0.isExpire(teamIds: allTeamId) {
                 // 描述文件过期、或里面的本地证书全部过期
                 try? FileManager.default.removeItem(atPath: $0.path)
                 expireCount += 1
             } else {
                 // 描述文件没有证书时，直接删除
-                 try? FileManager.default.removeItem(atPath: $0.path)
+                try? FileManager.default.removeItem(atPath: $0.path)
                 noTemeIdCount += 1
             }
         }
@@ -86,7 +93,7 @@ class DistinctProvisionProfile {
             let list = $0.sorted(by: { $0.created > $1.created })
             // 只保留最新创建的，其他的全部删除
             list.dropFirst().forEach {
-                 try? FileManager.default.removeItem(atPath: $0.path)
+                try? FileManager.default.removeItem(atPath: $0.path)
                 sameCount += 1
             }
         }
@@ -135,8 +142,8 @@ extension DistinctProvisionProfile.ProvisioningProfile {
         self.certificates = certificateDatas.compactMap({ DistinctProvisionProfile.DeveloperCertificate(data: $0) })
         let entitlements = result["Entitlements"] as? [String: Any]
         let teamId = entitlements?["com.apple.developer.team-identifier"] as? String
-        let applicationIdentifier = entitlements?["application-identifier"] as? String
-        guard let expirationDate = expirationDate, let creationDate = creationDate, let name = name, let platforms = platforms, let applicationIdentifier = applicationIdentifier, let teamId = teamId, let periodIndex = applicationIdentifier.firstIndex(of: ".") else { return nil }
+        let applicationIdentifier = entitlements?["application-identifier"] as? String ?? entitlements?["com.apple.application-identifier"] as? String
+        guard let expirationDate, let creationDate, let name, let platforms, let applicationIdentifier, let teamId, let periodIndex = applicationIdentifier.firstIndex(of: ".") else { return nil }
         self.devices = result["ProvisionedDevices"] as? [String] ?? []
         self.path = path
         self.expires = expirationDate
@@ -150,7 +157,6 @@ extension DistinctProvisionProfile.ProvisioningProfile {
 }
 
 extension DistinctProvisionProfile.DeveloperCertificate {
-    
     init?(data: Data) {
         guard let cfData = CFDataCreate(kCFAllocatorDefault, (data as NSData).bytes, data.count), let certificateRef = SecCertificateCreateWithData(nil, cfData) else { return nil }
         guard let summary = SecCertificateCopySubjectSummary(certificateRef) as? String else { return nil }
