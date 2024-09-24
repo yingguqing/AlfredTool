@@ -16,7 +16,7 @@ struct Repeat: ParsableCommand {
     @Flag(help: "打开颜色选择器")
     var openColorPanel = false
 
-    func run() {
+    func run() throws {
         if let color = color { // 颜色工具
             let colorTool = ColorTool()
             if check {
@@ -36,7 +36,7 @@ struct Repeat: ParsableCommand {
                 if colorTool.input(color) {
                     colorTool.fallbackToColorPanelResult("No Results")
                 }
-                colorTool.feedback()
+                try colorTool.feedback()
             }
         }
     }

@@ -5,10 +5,10 @@
 //  Created by zhouziyuan on 2022/9/2.
 //
 
-import Foundation
 import ArgumentParser
+import Foundation
 
-/*
+/**
  --topic <topic>         考试题目内容
  --import-path <import-path> 收录考试题目答案
  --access-key-id <access-key-id> OSS的上传文件参数Key Id
@@ -25,10 +25,9 @@ struct Repeat: AsyncParsableCommand {
 
     @Option(help: "OSS的上传文件参数Key Id")
     var accessKeyId: String?
-    
+
     @Option(help: "OSS的上传文件参数accessKeySecret")
     var accessKeySecret: String?
-    
 
     mutating func run() async throws {
         if let topic = topic {
@@ -37,24 +36,24 @@ struct Repeat: AsyncParsableCommand {
             let url = SecurityExam.importSecurityExam(filePath: importPath)
             guard let url = url else { return }
             guard let accessKeyId, let accessKeySecret else { return }
-            let tool = AliYunOSS(accessKeyId: accessKeyId, accessSecret: accessKeySecret, bucketName: "yingguqing-public")
-            try tool.upload(url: url, toPath: "文档/\(url.lastPathComponent)")
+            let tool = try AliYunOSS(accessKeyId: accessKeyId, accessSecret: accessKeySecret, bucketName: "yingguqing-public")
+            try await tool.upload(url: url, toPath: "文档/\(url.lastPathComponent)")
         }
     }
 }
 
-class SecurityExam {
+class SecurityExam: @unchecked Sendable {
     /// 题目
     let topic: String
     /// 答案
     var answers: [String]
-    
+
     init(topic: String, answers: [String]) {
         self.topic = topic
         self.answers = answers
     }
-    
-    convenience init?(value:String?) {
+
+    convenience init?(value: String?) {
         guard let value, !value.isEmpty else { return nil }
         let topicRegex = Regex(#"^(.*?)\s+A\s+"#)
         let answerRegex = Regex(#"^[A-Z]+\s+(.*?)\s+正确答案"#, options: .anchorsMatchLines)
@@ -63,7 +62,7 @@ class SecurityExam {
         guard !answers.isEmpty else { return nil }
         self.init(topic: topic, answers: answers)
     }
-    
+
     var simple: AlfredItem {
         var item = AlfredItem()
         let subtitle: String
@@ -85,7 +84,7 @@ class SecurityExam {
         item.title = topic
         return item
     }
-    
+
     /// 当前题目的所有答案，是否在第一行显示题目
     func answerItems(isNeedTopic: Bool = true) -> [AlfredItem] {
         let args = ["题目：\(topic)"] + answers.enumerated().map({ "\($0.offset + 1):\($0.element)" })
@@ -105,7 +104,7 @@ extension SecurityExam {
     #else
         static let SecurityExamPath = Alfred.localDir / "信息安全&平台政策考试.json"
     #endif
-    
+
     /// 所有的考题
     static let allTopic: [SecurityExam] = {
         do {
@@ -117,7 +116,7 @@ extension SecurityExam {
             exit(1)
         }
     }()
-    
+
     /// 导入新的考试题库(来源：从钉钉云课堂考试后，全部复制下来保存成文本文件)。
     class func importSecurityExam(filePath: String) -> URL? {
         guard filePath.fileExists, let importString = try? String(contentsOfFile: filePath) else {
@@ -136,7 +135,7 @@ extension SecurityExam {
                 same += 1
                 // 把当前的答案和旧答案合并去重
                 old.answers = Array(Set(old.answers + item.answers))
-            } else {// 新题
+            } else { // 新题
                 allQuestions.append(item)
             }
         })
@@ -151,7 +150,7 @@ extension SecurityExam {
             return nil
         }
     }
-    
+
     /// 通过题目内容查询考题，为空时，显示所有考题
     class func query(topic: String) {
         guard !topic.isEmpty else {

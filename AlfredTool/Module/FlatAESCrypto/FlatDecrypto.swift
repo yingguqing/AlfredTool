@@ -7,6 +7,7 @@
 
 import CommonCrypto
 import Foundation
+import CryptoSwift
 
 struct FlatAESCrypto {
     let aes: AES

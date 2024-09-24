@@ -19,6 +19,8 @@ class SearchOpen {
         let search: String
         /// 使用app打开
         let app: String
+        /// 指定图标路径
+        let iconPath:String?
         
         var arg: String {
             let out = "'" + path + "'"
@@ -49,6 +51,7 @@ class SearchOpen {
             }
             self.search = json["search"] ?? ""
             self.app = json["app"] ?? defaultApp ?? ""
+            self.iconPath = json["iconPath"]
         }
         
         /// 有查询内容时，判断当前文件是否符合
@@ -72,7 +75,11 @@ class SearchOpen {
                 item.subtitle = path
                 item.arg = arg
                 item.quicklookurl = URL(fileURLWithPath: path)
-                item.icon = .ofFile(at: URL(fileURLWithPath: path))
+                if let iconPath, !iconPath.isEmpty {
+                    item.icon = .ofFile(at: URL(fileURLWithPath: iconPath))
+                } else {
+                    item.icon = .ofFile(at: URL(fileURLWithPath: path))
+                }
             } else {
                 item.subtitle = "文件不存在 * " + path
             }

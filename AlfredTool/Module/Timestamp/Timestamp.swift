@@ -7,9 +7,8 @@
 
 import Foundation
 
-class Timestamp {
-    
-    static func run(_ inputStr: String, formats:[String]) {
+enum Timestamp {
+    static func run(_ inputStr: String, formats: [String]) {
         if formats.isEmpty {
             let item = AlfredItem.item(arg: "没有日期格式化", title: "没有日期格式化", subtitle: "请先在Alfred参数里配置日志格式化")
             Alfred.flush(item: item)
@@ -66,7 +65,7 @@ class Timestamp {
     /// 输出日期的所有格式化样式结果
     /// - Parameter date: 日期
     /// - Returns: 结果
-    static func format(date: Date, formats:[String]) -> [AlfredItem] {
+    static func format(date: Date, formats: [String]) -> [AlfredItem] {
         let flushItems = formats.map({
             // 格式化当前时间，显示所有格式化样式
             AlfredItem.item(arg: date.format($0), title: date.format($0), subtitle: "北京时间 • \($0)")
@@ -74,4 +73,3 @@ class Timestamp {
         return flushItems
     }
 }
-

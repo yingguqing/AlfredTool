@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    func toDate(_ format:String="YYYYMMdd") -> Date? {
+    func toDate(_ format: String = "YYYYMMdd") -> Date? {
         let mat = DateFormatter(format)
         return mat.date(from: self)
     }
@@ -39,8 +39,7 @@ extension Date {
 }
 
 extension Date {
-
-    // 该时间所在周的第一天日期(2017年12月17日 00:00:00)
+    /// 该时间所在周的第一天日期(2017年12月17日 00:00:00)
     var startOfWeek: Date {
         let calendar = NSCalendar.current
 
@@ -50,7 +49,7 @@ extension Date {
         return calendar.date(from: components)!
     }
 
-    // 该时间所在周的最后一天日期(2017年12月23日 00:00:00)
+    /// 该时间所在周的最后一天日期(2017年12月23日 00:00:00)
     var endOfWeek: Date {
         let calendar = NSCalendar.current
 
@@ -60,9 +59,9 @@ extension Date {
 
         return calendar.date(byAdding: components, to: self.startOfWeek)!
     }
-    
-    // 一周范围时期
-    var weekRange:String {
+
+    /// 一周范围时期
+    var weekRange: String {
         let start = self.startOfWeek.format("YYYY-MM-dd")
         let end = self.endOfWeek.format("YYYY-MM-dd")
         return start + "~" + end

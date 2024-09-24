@@ -8,13 +8,12 @@
 import Cocoa
 import Foundation
 
-class QRCode {
-    static func run(_ inputStr: String) {
+enum QRCode {
+    static func run(_ inputStr: String) throws {
         guard !inputStr.isEmpty, let image = generateQRCode(from: inputStr) else {
-            log("Error generating QR code")
-            return
+            throw "Error generating QR code"
         }
-        _ = image.pngWrite(to: Alfred.localDir/"qrcode.png")
+        _ = try image.pngWrite(to: Alfred.localDir / "qrcode.png")
     }
 
     static func generateQRCode(from content: String) -> NSImage? {
@@ -33,7 +32,7 @@ class QRCode {
         }
         return nil
     }
-    
+
     /// 解析二唯图片里的内容
     static func decode(_ inputStr: String) {
         guard inputStr.fileExists else { return }

@@ -5,10 +5,10 @@
 //  Created by zhouziyuan on 2022/6/1.
 //
 
-import Foundation
 import ArgumentParser
+import Foundation
 
-/*
+/**
  --qr-code <qr-code>     二维码
  --ipa-server-qr-code <ipa-server-qr-code>
                          ipa安装地址
@@ -17,21 +17,20 @@ import ArgumentParser
  -h, --help              Show help information.
  */
 struct Repeat: ParsableCommand {
-    
     @Option(help: "二维码")
     var qrCode: String?
-    
+
     @Option(help: "ipa安装地址")
-    var ipaServerQrCode:String?
-    
+    var ipaServerQrCode: String?
+
     @Option(help: "二维码图片地址")
     var qrCodeFilePath: String?
-    
-    func run() {
+
+    func run() throws {
         if let qrCode = qrCode { // 生成二维码
-            QRCode.run(qrCode)
+            try QRCode.run(qrCode)
         } else if let qrCode = ipaServerQrCode {
-            QRCode.run("itms-services://?action=download-manifest&url="+qrCode)
+            try QRCode.run("itms-services://?action=download-manifest&url=" + qrCode)
         } else if let qrCodeFilePath = qrCodeFilePath {
             QRCode.decode(qrCodeFilePath)
         }
@@ -39,7 +38,3 @@ struct Repeat: ParsableCommand {
 }
 
 Repeat.main()
-
-
-
-

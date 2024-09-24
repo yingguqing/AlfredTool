@@ -4,7 +4,7 @@ enum Alfred {
     // 用户主目录
     static let home: URL = FileManager.default.homeDirectoryForCurrentUser
     // Alfred 的Application Support目录
-    static let appSupportDir: URL = home / "Library" / "Application Support" / "Alfred"
+    static let appSupportDir: URL = home / "Library/Application Support/Alfred"
     // workflow所在的目录
     static let localDir: URL = Bundle.main.bundleURL
 }

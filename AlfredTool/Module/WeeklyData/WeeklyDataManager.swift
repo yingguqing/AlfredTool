@@ -13,7 +13,7 @@ class WeeklyDataManager {
     static let path = Alfred.localDir / "WeeklyData.json"
 
     struct WeeklyData {
-        // 周报所归属的周
+        /// 周报所归属的周
         let week: String
         /// 时间戳
         let timestamp: TimeInterval
@@ -163,18 +163,18 @@ class WeeklyDataManager {
     }
 
     /// 插入周报
-    class func insert(report: String, date:String?) {
+    class func insert(report: String, date: String?) {
         guard !report.isEmpty else { return }
         var timestamp: TimeInterval = Date().timeIntervalSince1970
         if let insertDate = date {
-            let date:String
+            let date: String
             switch insertDate.count {
                 case 2:
                     date = thisYear + thisMonth + insertDate
                 case 4:
                     date = thisYear + insertDate
                 case 6:
-                    date = thisYear[0..<2] + insertDate
+                    date = thisYear[0 ..< 2] + insertDate
                 case 8:
                     date = insertDate
                 default:
@@ -186,7 +186,7 @@ class WeeklyDataManager {
         var list = readAllWeeklyData()
         list.append(data)
         // 按时间倒序排列
-        list.sort(by: { $0.timestamp > $1.timestamp})
+        list.sort(by: { $0.timestamp > $1.timestamp })
         let flag = save(weeklyDatas: list) ? "成功" : "失败"
         print("周报新增 \(data.date) " + flag)
     }

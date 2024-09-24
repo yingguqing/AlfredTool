@@ -5,22 +5,22 @@
 //  Created by zhouziyuan on 2022/3/27.
 //
 
-import Foundation
 import AppKit
+import Foundation
 
 class ColorTool {
-    var color:NSColor?
+    var color: NSColor?
     
     /// 调起颜色选择器
     /// - Parameter title: 标题
-    func fallbackToColorPanelResult(_ title:String="OS X Color Panel") {
+    func fallbackToColorPanelResult(_ title: String = "OS X Color Panel") {
         let item = AlfredItem.item(title: title,
                                    subtitle: "Action this item to open the OS X color panel",
                                    icon: .fromImage(at: URL(fileURLWithPath: "pick-color.png")))
         Alfred.flush(item: item)
     }
     
-    func input(_ value:String) -> Bool {
+    func input(_ value: String) -> Bool {
         var query = value
         if query.hasPrefix("#") || query.hasPrefix("0x") {
             if query.hasPrefix("0x") {
@@ -28,7 +28,7 @@ class ColorTool {
             }
             query = query.stringByPreservingCharacters("0123456789abcdefABCDEF")
             guard !query.isEmpty || query.count > 8 else { return true }
-            var color:NSColor?
+            var color: NSColor?
             while query.count <= 8, color == nil {
                 color = NSColor(query)
                 if query.count > 6 {
@@ -40,7 +40,7 @@ class ColorTool {
             guard let color = color else { return true }
             self.color = color
         } else if query.hasPrefix("rgb") {
-            let divisor:CGFloat = query.contains("%") ? 100 : 255
+            let divisor: CGFloat = query.contains("%") ? 100 : 255
             query = query.stringByPreservingCharacters("0123456789., ")
             guard !query.isEmpty || query.count > 8 else { return true }
             let queryArray = query.componentsSeparateByCharacters(", ").map({ CGFloat(Double($0) ?? 0) / divisor })
@@ -49,21 +49,21 @@ class ColorTool {
             let b = queryArray.value(index: 2) ?? 0
             let a = queryArray.value(index: 3) ?? 1
             self.color = NSColor(calibratedRed: r, green: g, blue: b, alpha: a)
-        } else { 
+        } else {
             return true
         }
         
         return false
     }
     
-    func feedback() {
+    func feedback() throws {
         guard let color = color else {
             Alfred.flush(items: [])
             return
         }
         let image = color.toImage()
-        let path = Alfred.cacheDir/(color.hexadecimal + ".png")
-        _ = image.pngWrite(to: path)
+        let path = Alfred.cacheDir / (color.hexadecimal + ".png")
+        _ = try image.pngWrite(to: path)
         let icon = AlfredItem.Icon.fromImage(at: path)
         var items = [AlfredItem]()
         
@@ -75,14 +75,12 @@ class ColorTool {
                                        autocomplete: arg,
                                        icon: icon)
             
-            
-
             arg = color.hexadecimal
             let hexa = AlfredItem.item(arg: arg,
-                        title: arg,
-                        subtitle: "Hexadecimal",
-                        autocomplete: arg,
-                        icon: icon)
+                                       title: arg,
+                                       subtitle: "Hexadecimal",
+                                       autocomplete: arg,
+                                       icon: icon)
             
             items.append(rgba)
             items.append(hexa)
@@ -109,7 +107,7 @@ class ColorTool {
     }
     
     func openColorPanel() {
-        let input:String
+        let input: String
         if let color = color {
             input = String(format: "%f %f %f %f", color.redComponent, color.greenComponent, color.blueComponent, color.alphaComponent)
         } else {
@@ -136,5 +134,3 @@ class ColorTool {
         Alfred.sendToAlfred(value)
     }
 }
-
-
