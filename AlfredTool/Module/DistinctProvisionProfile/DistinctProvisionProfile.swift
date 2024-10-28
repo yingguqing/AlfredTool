@@ -60,10 +60,10 @@ class DistinctProvisionProfile: ParsableCommand {
     required init() {}
     
     func run() {
-        let ProvisioningProfilesPath = (Alfred.home / "Library/MobileDevice/Provisioning Profiles").path
+        let ProvisioningProfilesPaths = [Alfred.home / "Library/MobileDevice/Provisioning Profiles", Alfred.home / "Library/Developer/Xcode/UserData/Provisioning Profiles"]
         let allTeamId = allCodeSigningCert()
         // 获取本地所有的描述文件
-        let files = findFiles(path: ProvisioningProfilesPath, filterTypes: ["mobileprovision", "provisionprofile"]).compactMap { ProvisioningProfile(path: $0) }
+        let files = ProvisioningProfilesPaths.flatMap({ findFiles(path: $0.path, filterTypes: ["mobileprovision", "provisionprofile"]).compactMap { ProvisioningProfile(path: $0) } }) 
         var profileDic = [String: [ProvisioningProfile]]()
         var noTemeIdCount = 0
         var expireCount = 0
