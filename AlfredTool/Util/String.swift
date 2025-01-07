@@ -121,8 +121,14 @@ extension String {
     
     /// 如果是json字符串，就格式化一下，如果不是，就返回原字符串
     var jsonFormat:String {
-        guard let json = try? JSONSerialization.jsonObject(with: Data(self.utf8), options: .allowFragments) else { return self }
-        guard let data = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys]) else { return self }
+        var json:Any? = nil
+        var value = self
+        repeat {
+            json = try? JSONSerialization.jsonObject(with: Data(value.utf8), options: .allowFragments)
+            guard let str = json as? String else { break }
+            value = str
+        } while json != nil
+        guard  let json, let data = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys]) else { return self }
         return String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\\/", with: "/") ?? self
     }
     
