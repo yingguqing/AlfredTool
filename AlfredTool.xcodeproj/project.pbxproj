@@ -849,7 +849,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n    UUID=\"81DF1D9A-E54F-4671-B4E0-24AFEE0FF9E2\"\n    ProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\n    ProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\n    DisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n    cp -f \"$ProductPath\" \"$DisPath\"\n    if [ $? -ne 0 ]; then\n        echo \"复制失败\"\n        exit 1  # 非0退出码表示错误\n    fi\n    # 重新签名，不然不能使用\n    codesign -f -s - --deep \"$DisPath\"\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n    UUID=\"81DF1D9A-E54F-4671-B4E0-24AFEE0FF9E2\"\n    ProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\n    ProductPath=\"${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}\"\n    DisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n    # 使用绝对路径复制并检查结果\n    if ! /bin/cp -f \"$ProductPath\" \"$DisPath\"; then\n        echo \"错误: 文件复制失败 - $ProductPath 到 $DisPath\" >&2\n        echo \"可能原因: 权限不足或目标文件被锁定\" >&2\n        exit 1\n    fi\n    \n    # 重新签名，不然不能使用\n    if ! codesign -f -s - --deep \"$DisPath\"; then\n        echo \"警告: 重新签名失败，但文件已复制\" >&2\n    fi\nfi\n";
 		};
 		4DF25CAD28C1F32200D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
