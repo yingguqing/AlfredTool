@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D088EF72ADE5A9500B17160 /* AliYunOSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D088EF52ADE5A9500B17160 /* AliYunOSS.swift */; };
 		4D088EF82ADE5A9500B17160 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D088EF62ADE5A9500B17160 /* Crypto.swift */; };
 		4D266C982946C5F9004B9F2C /* FlatDecrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D266C972946C5F9004B9F2C /* FlatDecrypto.swift */; };
-		4D6CA6E22CA29F00004DAA6E /* AliOSS in Frameworks */ = {isa = PBXBuildFile; productRef = 4D6CA6E12CA29F00004DAA6E /* AliOSS */; };
 		4D6CA6E52CA2A5D1004DAA6E /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4D6CA6E42CA2A5D1004DAA6E /* CryptoSwift */; };
 		4D7044E82890E1D5004C4BFB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7044E72890E1D5004C4BFB /* main.swift */; };
 		4D7044ED2890E1E5004C4BFB /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 4D7044EC2890E1E5004C4BFB /* ArgumentParser */; };
@@ -32,6 +30,30 @@
 		4D7BA6F7296EBA4D00D1FB44 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7BA6F6296EBA4D00D1FB44 /* libresolv.tbd */; };
 		4D7BA6F9296EBA5500D1FB44 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7BA6F8296EBA5500D1FB44 /* SystemConfiguration.framework */; };
 		4D7BA6FB296EBA5E00D1FB44 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7BA6FA296EBA5E00D1FB44 /* CoreTelephony.framework */; };
+		4D7E80052E0921A200F7A21C /* CRC64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80042E0921A200F7A21C /* CRC64.swift */; };
+		4D7E80082E0922AE00F7A21C /* HTTPRequest in Frameworks */ = {isa = PBXBuildFile; productRef = 4D7E80072E0922AE00F7A21C /* HTTPRequest */; };
+		4D7E800A2E0922C100F7A21C /* VaporServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80092E0922C100F7A21C /* VaporServer.swift */; };
+		4D7E800C2E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E800D2E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E800E2E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E800F2E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E80102E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E80112E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E80122E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E80132E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E80142E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E80152E09237400F7A21C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E800B2E09237000F7A21C /* Util.swift */; };
+		4D7E80172E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E80182E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E80192E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E801A2E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E801B2E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E801C2E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E801D2E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E801E2E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E801F2E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E80202E0923C000F7A21C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80162E0923BA00F7A21C /* Data.swift */; };
+		4D7E80222E09365300F7A21C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7E80212E09364F00F7A21C /* Parser.swift */; };
 		4D98AA2928B4771200CF256E /* Alfred+Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA2728B476F400CF256E /* Alfred+Script.swift */; };
 		4D98AA4D28B7559600CF256E /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4B28B7559600CF256E /* Regex.swift */; };
 		4D98AA4E28B7559600CF256E /* NSTask-execute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D98AA4C28B7559600CF256E /* NSTask-execute.swift */; };
@@ -189,7 +211,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4D088EF52ADE5A9500B17160 /* AliYunOSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AliYunOSS.swift; sourceTree = "<group>"; };
 		4D088EF62ADE5A9500B17160 /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		4D266C972946C5F9004B9F2C /* FlatDecrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatDecrypto.swift; sourceTree = "<group>"; };
 		4D43A0A527F054AA0004F08F /* ColorTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTool.swift; sourceTree = "<group>"; };
@@ -209,6 +230,11 @@
 		4D7BA6F6296EBA4D00D1FB44 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		4D7BA6F8296EBA5500D1FB44 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4D7BA6FA296EBA5E00D1FB44 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4D7E80042E0921A200F7A21C /* CRC64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRC64.swift; sourceTree = "<group>"; };
+		4D7E80092E0922C100F7A21C /* VaporServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaporServer.swift; sourceTree = "<group>"; };
+		4D7E800B2E09237000F7A21C /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		4D7E80162E0923BA00F7A21C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		4D7E80212E09364F00F7A21C /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		4D8107E9280E9C9600F66817 /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
 		4D8107F1280FD4DE00F66817 /* CurlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurlParser.swift; sourceTree = "<group>"; };
 		4D98AA2728B476F400CF256E /* Alfred+Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alfred+Script.swift"; sourceTree = "<group>"; };
@@ -315,7 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7BA6FB296EBA5E00D1FB44 /* CoreTelephony.framework in Frameworks */,
-				4D6CA6E22CA29F00004DAA6E /* AliOSS in Frameworks */,
+				4D7E80082E0922AE00F7A21C /* HTTPRequest in Frameworks */,
 				4D7BA6F9296EBA5500D1FB44 /* SystemConfiguration.framework in Frameworks */,
 				4D7BA6F7296EBA4D00D1FB44 /* libresolv.tbd in Frameworks */,
 				4DF25C9E28C1A0E000D47C8C /* ArgumentParser in Frameworks */,
@@ -386,15 +412,18 @@
 				4DFFEBB227F84C4E000B2C9C /* Alfred.swift */,
 				4DFFEBA827F71998000B2C9C /* AlfredItem.swift */,
 				4DFFEBA927F71998000B2C9C /* AlfredUtils.swift */,
-				4D088EF52ADE5A9500B17160 /* AliYunOSS.swift */,
 				4D088EF62ADE5A9500B17160 /* Crypto.swift */,
 				4D43A0AF27F097B70004F08F /* String.swift */,
 				4D98AA4C28B7559600CF256E /* NSTask-execute.swift */,
 				4D98AA4B28B7559600CF256E /* Regex.swift */,
 				4D43A0A827F057E90004F08F /* Image.swift */,
+				4D7E80162E0923BA00F7A21C /* Data.swift */,
 				4D98AA2728B476F400CF256E /* Alfred+Script.swift */,
 				4DFFEBA727F71998000B2C9C /* Plist.swift */,
+				4D7E800B2E09237000F7A21C /* Util.swift */,
 				4D43A13227F4273F0004F08F /* Date.swift */,
+				4D7E80042E0921A200F7A21C /* CRC64.swift */,
+				4D7E80092E0922C100F7A21C /* VaporServer.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -492,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				4DF25CA428C1A23E00D47C8C /* SecurityExam.swift */,
+				4D7E80212E09364F00F7A21C /* Parser.swift */,
 			);
 			path = SecurityExam;
 			sourceTree = "<group>";
@@ -705,7 +735,7 @@
 			name = SecurityExam;
 			packageProductDependencies = (
 				4DF25C9D28C1A0E000D47C8C /* ArgumentParser */,
-				4D6CA6E12CA29F00004DAA6E /* AliOSS */,
+				4D7E80072E0922AE00F7A21C /* HTTPRequest */,
 			);
 			productName = SecurityExam;
 			productReference = 4DF25C9628C1A09E00D47C8C /* SecurityExam */;
@@ -764,8 +794,8 @@
 			mainGroup = 4D43A05227F04D5B0004F08F;
 			packageReferences = (
 				4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
-				4D6CA6E02CA29F00004DAA6E /* XCRemoteSwiftPackageReference "AliOSS" */,
 				4D6CA6E32CA2A5D0004DAA6E /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				4D7E80062E0922AE00F7A21C /* XCRemoteSwiftPackageReference "HTTPRequest" */,
 			);
 			productRefGroup = 4D43A05C27F04D5B0004F08F /* Products */;
 			projectDirPath = "";
@@ -976,8 +1006,10 @@
 				4D7044F02890E252004C4BFB /* Alfred.swift in Sources */,
 				4D7044E82890E1D5004C4BFB /* main.swift in Sources */,
 				4D7044F42890E252004C4BFB /* String.swift in Sources */,
+				4D7E800F2E09237400F7A21C /* Util.swift in Sources */,
 				4D7044EF2890E23A004C4BFB /* SearchOpen.swift in Sources */,
 				4D7044F32890E252004C4BFB /* AlfredUtils.swift in Sources */,
+				4D7E801B2E0923C000F7A21C /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -988,9 +1020,11 @@
 				4D7060DA288802B60029A04B /* Alfred.swift in Sources */,
 				4D7060CF2887FA790029A04B /* main.swift in Sources */,
 				4D7060D52887FEDF0029A04B /* Date.swift in Sources */,
+				4D7E80132E09237400F7A21C /* Util.swift in Sources */,
 				4D7060DC288802FA0029A04B /* AlfredUtils.swift in Sources */,
 				4D7060D8288801A30029A04B /* String.swift in Sources */,
 				4D7060DB288802B90029A04B /* AlfredItem.swift in Sources */,
+				4D7E801E2E0923C000F7A21C /* Data.swift in Sources */,
 				4D7060D72888008F0029A04B /* WeeklyDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,9 +1036,11 @@
 				4D98AA5028B755A300CF256E /* AlfredItem.swift in Sources */,
 				4D98AA4F28B755A100CF256E /* Alfred.swift in Sources */,
 				4D98AA5128B755A700CF256E /* AlfredUtils.swift in Sources */,
+				4D7E80142E09237400F7A21C /* Util.swift in Sources */,
 				4D98AA5228B755B000CF256E /* String.swift in Sources */,
 				4D98AA5428B7560600CF256E /* DistinctProvisionProfile.swift in Sources */,
 				4D98AA4D28B7559600CF256E /* Regex.swift in Sources */,
+				4D7E80202E0923C000F7A21C /* Data.swift in Sources */,
 				4D98AA4E28B7559600CF256E /* NSTask-execute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1016,9 +1052,11 @@
 				4DAC73ED284714B000F17A3C /* String.swift in Sources */,
 				4DAC73EE284714BE00F17A3C /* CurlParser.swift in Sources */,
 				4DAC73EC284714A100F17A3C /* Alfred.swift in Sources */,
+				4D7E800C2E09237400F7A21C /* Util.swift in Sources */,
 				4DAC73EB284714A100F17A3C /* AlfredItem.swift in Sources */,
 				4DAC73E3284713DA00F17A3C /* main.swift in Sources */,
 				4D266C982946C5F9004B9F2C /* FlatDecrypto.swift in Sources */,
+				4D7E801A2E0923C000F7A21C /* Data.swift in Sources */,
 				4DAC73EA2847149300F17A3C /* AlfredUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1031,8 +1069,10 @@
 				4DAC73FC2847197700F17A3C /* Alfred.swift in Sources */,
 				4DAC74002847199D00F17A3C /* String.swift in Sources */,
 				4DAC73F72847195400F17A3C /* main.swift in Sources */,
+				4D7E80102E09237400F7A21C /* Util.swift in Sources */,
 				4DAC73FB2847196600F17A3C /* DecodeEncodeTool.swift in Sources */,
 				4DAC7401284719B800F17A3C /* AlfredUtils.swift in Sources */,
+				4D7E80172E0923C000F7A21C /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,12 +1080,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7E80152E09237400F7A21C /* Util.swift in Sources */,
 				4DF25CB128C1F42D00D47C8C /* Plist.swift in Sources */,
 				4DAC741128471AD300F17A3C /* Alfred.swift in Sources */,
 				4DAC741928471B7600F17A3C /* Image.swift in Sources */,
 				4D98AA2928B4771200CF256E /* Alfred+Script.swift in Sources */,
 				4DAC741328471AD300F17A3C /* AlfredItem.swift in Sources */,
 				4DAC740C28471AC400F17A3C /* main.swift in Sources */,
+				4D7E80182E0923C000F7A21C /* Data.swift in Sources */,
 				4DAC741728471B4100F17A3C /* String.swift in Sources */,
 				4DAC741828471B6700F17A3C /* Color.swift in Sources */,
 				4DAC741028471ACA00F17A3C /* ColorTool.swift in Sources */,
@@ -1060,9 +1102,11 @@
 				4DAC742C28471F7900F17A3C /* String.swift in Sources */,
 				4DAC742B28471F6F00F17A3C /* Alfred.swift in Sources */,
 				4DAC742828471EEE00F17A3C /* Timestamp.swift in Sources */,
+				4D7E800D2E09237400F7A21C /* Util.swift in Sources */,
 				4DAC742E2847205600F17A3C /* Date.swift in Sources */,
 				4DAC742D28471F8900F17A3C /* AlfredUtils.swift in Sources */,
 				4DAC742928471F6F00F17A3C /* AlfredItem.swift in Sources */,
+				4D7E80192E0923C000F7A21C /* Data.swift in Sources */,
 				4DAC742428471EE800F17A3C /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1072,6 +1116,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DAC7443284734F400F17A3C /* QRCode.swift in Sources */,
+				4D7E801D2E0923C000F7A21C /* Data.swift in Sources */,
+				4D7E80122E09237400F7A21C /* Util.swift in Sources */,
 				4DAC7441284734EF00F17A3C /* Alfred.swift in Sources */,
 				4D7473F628AE0E47002CD4DD /* Plist.swift in Sources */,
 				4DAC743F284734EF00F17A3C /* Image.swift in Sources */,
@@ -1086,7 +1132,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7E801C2E0923C000F7A21C /* Data.swift in Sources */,
 				4DC2670E28E464B300007CDE /* AlfredItem.swift in Sources */,
+				4D7E80112E09237400F7A21C /* Util.swift in Sources */,
 				4DC2670D28E464B000007CDE /* String.swift in Sources */,
 				4DC2670F28E464C700007CDE /* AlfredUtils.swift in Sources */,
 				4DC2670628E463D300007CDE /* main.swift in Sources */,
@@ -1098,13 +1146,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7E800E2E09237400F7A21C /* Util.swift in Sources */,
 				4DF25CA328C1A10700D47C8C /* String.swift in Sources */,
 				4DF25C9F28C1A10000D47C8C /* AlfredItem.swift in Sources */,
 				4D088EF82ADE5A9500B17160 /* Crypto.swift in Sources */,
 				4DF25CA128C1A10000D47C8C /* Alfred.swift in Sources */,
 				4DF25CA228C1A10400D47C8C /* AlfredUtils.swift in Sources */,
+				4D7E800A2E0922C100F7A21C /* VaporServer.swift in Sources */,
+				4D7E801F2E0923C000F7A21C /* Data.swift in Sources */,
+				4D7E80222E09365300F7A21C /* Parser.swift in Sources */,
 				4DF25CA528C1A23E00D47C8C /* SecurityExam.swift in Sources */,
-				4D088EF72ADE5A9500B17160 /* AliYunOSS.swift in Sources */,
+				4D7E80052E0921A200F7A21C /* CRC64.swift in Sources */,
 				4DF25CA028C1A10000D47C8C /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1459,6 +1511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited) ";
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 6.0;
@@ -1472,6 +1525,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited) ";
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 6.0;
@@ -1591,30 +1645,25 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		4D6CA6E02CA29F00004DAA6E /* XCRemoteSwiftPackageReference "AliOSS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://git.yingguqing.top/yingguqing/AliOSS.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		4D6CA6E32CA2A5D0004DAA6E /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift";
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.8.3;
 			};
 		};
+		4D7E80062E0922AE00F7A21C /* XCRemoteSwiftPackageReference "HTTPRequest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://git.yingguqing.top/yingguqing/HTTPRequest.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4D6CA6E12CA29F00004DAA6E /* AliOSS */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4D6CA6E02CA29F00004DAA6E /* XCRemoteSwiftPackageReference "AliOSS" */;
-			productName = AliOSS;
-		};
 		4D6CA6E42CA2A5D1004DAA6E /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4D6CA6E32CA2A5D0004DAA6E /* XCRemoteSwiftPackageReference "CryptoSwift" */;
@@ -1629,6 +1678,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4D43A11E27F423F70004F08F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;
+		};
+		4D7E80072E0922AE00F7A21C /* HTTPRequest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D7E80062E0922AE00F7A21C /* XCRemoteSwiftPackageReference "HTTPRequest" */;
+			productName = HTTPRequest;
 		};
 		4D98AA5528B756AB00CF256E /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;

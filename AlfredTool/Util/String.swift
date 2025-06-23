@@ -125,7 +125,7 @@ extension String {
         var value = self
         repeat {
             json = try? JSONSerialization.jsonObject(with: Data(value.utf8), options: .allowFragments)
-            guard let str = json as? String else { break }
+            guard let str = json as? String, value != str else { break }
             value = str
         } while json != nil
         guard  let json, let data = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted, .sortedKeys]) else { return self }
@@ -171,6 +171,11 @@ extension String {
         guard !self.isEmpty else { return false }
         NSPasteboard.general.setString(self, forType: .string)
         return NSPasteboard.general.string(forType: .string) == self
+    }
+    
+    /// 字符串data
+    var data: Data {
+        Data(self.utf8)
     }
 }
 

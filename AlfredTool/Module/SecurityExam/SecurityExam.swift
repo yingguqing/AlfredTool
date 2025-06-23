@@ -10,9 +10,8 @@ import Foundation
 
 /**
  --topic <topic>         考试题目内容
+ --is-update    更新本地题库
  --import-path <import-path> 收录考试题目答案
- --access-key-id <access-key-id> OSS的上传文件参数Key Id
- --access-key-secret <access-key-secret> OSS的上传文件参数accessKeySecret
  */
 /// 安全考试
 @main
@@ -23,45 +22,40 @@ struct Repeat: AsyncParsableCommand {
     @Option(help: "收录考试题目答案")
     var importPath: String?
 
-    @Option(help: "OSS的上传文件参数Key Id")
-    var accessKeyId: String?
-
-    @Option(help: "OSS的上传文件参数accessKeySecret")
-    var accessKeySecret: String?
-
+    @Flag(help: "更新题库")
+    var isUpdate:Bool = false
+    
     mutating func run() async throws {
-        if let topic = topic {
+        if isUpdate {
+            let crc64 = SecurityExam.SecurityExamPath.crc64()
+            print(crc64)
+            let result:[String:String] = try await VaporData(api: "download", params: [SecurityExam.FileName: crc64]).send()
+            guard let value = result[SecurityExam.FileName], let url = URL(string: value) else {
+                print("不需要更新。")
+                return
+            }
+            let (data, _) = try await URLSession.shared.data(from: url)
+            try data.write(to: SecurityExam.SecurityExamPath)
+            print("更新题库成功。")
+        } else if let topic = topic {
             SecurityExam.query(topic: topic)
         } else if let importPath = importPath {
-            let url = SecurityExam.importSecurityExam(filePath: importPath)
-            guard let url = url else { return }
-            guard let accessKeyId, let accessKeySecret else { return }
-            let tool = try AliYunOSS(accessKeyId: accessKeyId, accessSecret: accessKeySecret, bucketName: "yingguqing-public")
-            try await tool.upload(url: url, toPath: "文档/\(url.lastPathComponent)")
+            let url = try SecurityExam.importSecurityExam(filePath: importPath)
+            let uploadURL:String = try await VaporData(api: "upload", params: SecurityExam.FileName).send()
+            let data = try Data(contentsOf: url)
+            let result = try await Upload(url: uploadURL, data: data).send()
+            let crc64 = SecurityExam.SecurityExamPath.crc64()
+            guard crc64 == result else { throw "上传题库失败" }
+            print("上传题库成功。")
         }
     }
 }
 
-class SecurityExam: @unchecked Sendable {
+struct SecurityExam {
     /// 题目
     let topic: String
     /// 答案
-    var answers: [String]
-
-    init(topic: String, answers: [String]) {
-        self.topic = topic
-        self.answers = answers
-    }
-
-    convenience init?(value: String?) {
-        guard let value, !value.isEmpty else { return nil }
-        let topicRegex = Regex(#"^(.*?)\s+A\s+"#)
-        let answerRegex = Regex(#"^[A-Z]+\s+(.*?)\s+正确答案"#, options: .anchorsMatchLines)
-        guard let topic = topicRegex.firstMatch(in: value)?.firstCapture, !topic.isEmpty else { return nil }
-        let answers = answerRegex.matches(in: value).compactMap(\.firstCapture)
-        guard !answers.isEmpty else { return nil }
-        self.init(topic: topic, answers: answers)
-    }
+    let answers: [String]
 
     var simple: AlfredItem {
         var item = AlfredItem()
@@ -99,6 +93,7 @@ class SecurityExam: @unchecked Sendable {
 }
 
 extension SecurityExam {
+    static let FileName = "文档/信息安全&平台政策考试.json"
     #if DEBUG
         static let SecurityExamPath = Alfred.home / "Desktop/记录/信息安全&平台政策考试.json"
     #else
@@ -118,41 +113,33 @@ extension SecurityExam {
     }()
 
     /// 导入新的考试题库(来源：从钉钉云课堂考试后，全部复制下来保存成文本文件)。
-    class func importSecurityExam(filePath: String) -> URL? {
-        guard filePath.fileExists, let importString = try? String(contentsOfFile: filePath) else {
-            print("考题文本文件不存在")
-            return nil
-        }
+    static func importSecurityExam(filePath: String) throws -> URL {
+        guard filePath.fileExists else { throw "考题文本文件不存在" }
         var allQuestions = allTopic
-        let regex = Regex(#"\d+\s+[单|多]选题\s+分值[:|：]\s*\d+\s+得分[:|：]\d+分\s+(.*?)\s+正确答案[:|：]"#, options: .dotMatchesLineSeparators)
-        let matchs = regex.matches(in: importString)
-        // 解析当前文件中所有题目
-        let fileTopics = matchs.compactMap({ SecurityExam(value: $0.firstCapture) })
+        let newQuestions = try QAInfo.parser(with: filePath.fileURL)
         // 相同题目数
         var same = 0
-        fileTopics.forEach({ item in
-            if let old = allQuestions.first(where: { $0.topic.removeSymbol == item.topic.removeSymbol }) { // 旧题
+        newQuestions.forEach({ item in
+            if let index = allQuestions.firstIndex(where: { $0.topic.removeSymbol == item.topic.removeSymbol }) {
                 same += 1
-                // 把当前的答案和旧答案合并去重
-                old.answers = Array(Set(old.answers + item.answers))
+                let answers = Set(allQuestions[index].answers).union(item.answers)
+                guard answers.count != item.answers.count else { return }
+                let new = SecurityExam(topic: item.topic, answers: Array(answers))
+                allQuestions.remove(at: index)
+                allQuestions.append(new)
             } else { // 新题
                 allQuestions.append(item)
             }
         })
-        do {
-            let dic = Dictionary(uniqueKeysWithValues: allQuestions.map({ ($0.topic, $0.answers.sorted(by: <)) }))
-            let data = try JSONSerialization.data(withJSONObject: dic, options: [.sortedKeys, .prettyPrinted])
-            try data.write(to: SecurityExamPath)
-            print("解析题目数：\(fileTopics.count)。\n其中相同题目数：\(same)。\n生成题库数：\(allQuestions.count)\n新增：\(allQuestions.count - allTopic.count)")
-            return SecurityExamPath
-        } catch {
-            print("保存题目失败:\(error.localizedDescription)")
-            return nil
-        }
+        let dic = Dictionary(uniqueKeysWithValues: allQuestions.map({ ($0.topic, $0.answers.sorted(by: <)) }))
+        let data = try JSONSerialization.data(withJSONObject: dic, options: [.sortedKeys, .prettyPrinted])
+        try data.write(to: SecurityExamPath)
+        print("解析题目数：\(newQuestions.count)。\n其中相同题目数：\(same)。\n新增：\(allQuestions.count - allTopic.count)。\n生成题库数：\(allQuestions.count)。")
+        return SecurityExamPath
     }
 
     /// 通过题目内容查询考题，为空时，显示所有考题
-    class func query(topic: String) {
+    static func query(topic: String) {
         guard !topic.isEmpty else {
             var items = allTopic.map({ $0.simple })
             var item = AlfredItem()

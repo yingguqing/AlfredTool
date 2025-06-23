@@ -1,0 +1,33 @@
+{
+  "originHash" : "03a5a56c34955361c9f270d1d4a9fdabe84d48535b2b35b79e0c981d122819f2",
+  "pins" : [
+    {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift",
+      "state" : {
+        "revision" : "729e01bc9b9dab466ac85f21fb9ee2bc1c61b258",
+        "version" : "1.8.4"
+      }
+    },
+    {
+      "identity" : "httprequest",
+      "kind" : "remoteSourceControl",
+      "location" : "https://git.yingguqing.top/yingguqing/HTTPRequest.git",
+      "state" : {
+        "revision" : "fb8ffe92a0cafdbb0798aacefeeec303cb170436",
+        "version" : "1.3.12"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://git.yingguqing.top/yingguqing/swift-argument-parser.git",
+      "state" : {
+        "revision" : "0fbc8848e389af3bb55c182bc19ca9d5dc2f255b",
+        "version" : "1.4.0"
+      }
+    }
+  ],
+  "version" : 3
+}

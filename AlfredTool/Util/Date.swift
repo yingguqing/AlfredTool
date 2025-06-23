@@ -34,6 +34,7 @@ extension Date {
 
     func format(_ format: String = "YYYY-MM-dd HH:mm:ss") -> String {
         let dformatter = DateFormatter(format)
+        dformatter.timeZone = TimeZone(identifier: "Asia/Shanghai")
         return dformatter.string(from: self)
     }
 }
