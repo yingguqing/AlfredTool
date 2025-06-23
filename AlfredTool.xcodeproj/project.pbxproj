@@ -849,7 +849,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == Release ]; then\n\nUUID=\"81DF1D9A-E54F-4671-B4E0-24AFEE0FF9E2\"\nProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\nProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\nDisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n\ncp -f \"$ProductPath\" \"$DisPath\"\n\n# 重新签名，不然不能使用\ncodesign -f -s - --deep \"$DisPath\"\n\nfi\n";
+			shellScript = "if [ $CONFIGURATION == Release ]; then\n    UUID=\"81DF1D9A-E54F-4671-B4E0-24AFEE0FF9E2\"\n    ProductPath=$(dirname $CONFIGURATION_BUILD_DIR)\n    ProductPath=\"$ProductPath/$CONFIGURATION/${PRODUCT_NAME}\"\n    DisPath=\"$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.${UUID}/${PRODUCT_NAME}\"\n    cp -f \"$ProductPath\" \"$DisPath\"\n    if [ $? -ne 0 ]; then\n        echo \"复制失败\"\n        exit 1  # 非0退出码表示错误\n    fi\n    # 重新签名，不然不能使用\n    codesign -f -s - --deep \"$DisPath\"\nfi\n";
 		};
 		4DF25CAD28C1F32200D47C8C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1510,6 +1510,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited) ";
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				OTHER_LDFLAGS = "-ObjC";
@@ -1524,6 +1525,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited) ";
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				OTHER_LDFLAGS = "-ObjC";

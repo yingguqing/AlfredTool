@@ -28,11 +28,16 @@ struct Repeat: AsyncParsableCommand {
     mutating func run() async throws {
         if isUpdate {
             let crc64 = SecurityExam.SecurityExamPath.crc64()
-            print(crc64)
             let result:[String:String] = try await VaporData(api: "download", params: [SecurityExam.FileName: crc64]).send()
-            guard let value = result[SecurityExam.FileName], let url = URL(string: value) else {
+            guard let value = result[SecurityExam.FileName] else {
+                throw "获取题库更新链接失败。"
+            }
+            guard !value.isEmpty else {
                 print("不需要更新。")
                 return
+            }
+            guard value.hasPrefix("http"), let url = URL(string: value) else {
+                throw value
             }
             let (data, _) = try await URLSession.shared.data(from: url)
             try data.write(to: SecurityExam.SecurityExamPath)
