@@ -6,7 +6,8 @@ enum Alfred {
     // Alfred 的Application Support目录
     static let appSupportDir: URL = home / "Library/Application Support/Alfred"
     // workflow所在的目录
-    static let localDir: URL = Bundle.main.bundleURL
+    //static let localDir: URL = Bundle.main.bundleURL
+    static let localDir: URL = URL(fileURLWithPath: "/Users/yuan/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows/user.workflow.BED49B45-6F48-4E1D-B712-F7FED16D84BB")
 }
 
 extension Alfred {

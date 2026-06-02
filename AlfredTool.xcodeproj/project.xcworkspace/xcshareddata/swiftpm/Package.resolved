@@ -1,5 +1,5 @@
 {
-  "originHash" : "03a5a56c34955361c9f270d1d4a9fdabe84d48535b2b35b79e0c981d122819f2",
+  "originHash" : "eb380d54b0594eab0fe783e829a41f6f775e0791ff79f91a738a1dde34ab6ac2",
   "pins" : [
     {
       "identity" : "cryptoswift",
@@ -22,7 +22,7 @@
     {
       "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
-      "location" : "https://git.yingguqing.top/yingguqing/swift-argument-parser.git",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
       "state" : {
         "revision" : "0fbc8848e389af3bb55c182bc19ca9d5dc2f255b",
         "version" : "1.4.0"

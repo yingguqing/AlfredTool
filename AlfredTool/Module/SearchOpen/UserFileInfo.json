@@ -1,0 +1,30 @@
+{
+  "App" : {
+    "Fold" : "/System/Library/CoreServices/Finder.app",
+    "XcodeProj" : "/Applications/Xcode.app",
+    "md":"/Applications/Typora.app"
+  },
+  "PathExtension":{
+    "md":"md"
+  },
+  "Fold" : [
+
+  ],
+  "XcodeProj" : [
+    {
+      "name" : "VaporServer",
+      "path" : "/Users/yuan/Documents/Project/My/VaporServer/Package.swift",
+      "search" : ""
+    },
+    {
+      "name" : "",
+      "path" : "/Users/yuan/Documents/Project/My/ProjectConfusion/ProjectConfusion.xcodeproj",
+      "search" : ""
+    }
+  ],
+  "md": [
+    {
+      "child":"/Users/yuan/Documents/Project/My/DocsScripts/文档"
+    }
+  ]
+}
